@@ -8,4 +8,4 @@ const Services = () => {
     );
 };
 
-export default About;
+export default Services;

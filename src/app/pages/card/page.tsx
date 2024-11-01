@@ -8,4 +8,4 @@ const Card = () => {
     );
 };
 
-export default About;
+export default Card;

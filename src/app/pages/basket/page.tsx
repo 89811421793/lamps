@@ -8,4 +8,4 @@ const Basket = () => {
     );
 };
 
-export default About;
+export default Basket;

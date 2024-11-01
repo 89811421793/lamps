@@ -8,4 +8,4 @@ const Delivery = () => {
     );
 };
 
-export default About;
+export default Delivery;
