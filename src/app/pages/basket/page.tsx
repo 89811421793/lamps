@@ -1,6 +1,6 @@
 import React from 'react';
 
-const About = () => {
+const Basket = () => {
     return (
         <div>
             Шестая страница (Корзина)

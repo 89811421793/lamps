@@ -1,6 +1,6 @@
 import React from 'react';
 
-const About = () => {
+const Delivery = () => {
     return (
         <div>
           Последняя седьмая страница доставки

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const About = () => {
+const Services = () => {
     return (
         <div>
             Третья страница (Услуги)

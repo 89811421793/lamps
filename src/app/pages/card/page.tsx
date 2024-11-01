@@ -1,6 +1,6 @@
 import React from 'react';
 
-const About = () => {
+const Card = () => {
     return (
         <div>
             Пятая страница (Карточка товара)
