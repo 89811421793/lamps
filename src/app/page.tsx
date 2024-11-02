@@ -1,9 +1,10 @@
+import Hero from "./components/sections/mainpage/Hero";
 
 
 export default function Home() {
   return (
-    <div>
-     Главная первая страница
-    </div>
+    <main>
+     <Hero/>
+    </main>
   );
 }
