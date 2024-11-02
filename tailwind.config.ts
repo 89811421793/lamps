@@ -9,8 +9,28 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primaryBg: "var(--primaryBg)",
+        headerColor: "var(--headerColor)",
+        accent: "var(--accent)",
+        secondary: "var(--secondary)",
+        whiteFont: "var(--whiteFont)",
+        darkgrey: "var(--darkgrey)",
+        shortDesc: "var(--shortDesc)",
+        longDesc: "var(--longDesc)",
+        shortHeading:"var(--shortHeading)",
+      },
+      fontFamily: {
+        montserrat: [
+          'var(--font-montserrat-regular)',
+          'var(--font-montserrat-medium)',
+          'var(--font-montserrat-semibold)',
+          'var(--font-montserrat-bold)',
+          'var(--font-montserrat-extrabold)',
+          'var(--font-montserrat-light)',
+          'Arial',
+          'Helvetica',
+          'sans-serif',
+        ],
       },
     },
   },

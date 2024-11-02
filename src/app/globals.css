@@ -3,21 +3,28 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primaryBg: #FCFCFC; 
+  --headerColor: #0C0537;  
+  --accent: #3D4F64; 
+  --secondary: #FFC94F; 
+  --whiteFont: #FFF; 
+  --darkgrey: #535353;
+  --shortDesc: #8C8C8C;
+  --longDesc: #A6A6A6;
+  --shortHeading: #505050;
+
+  --font-montserrat-regular: 'Montserrat', sans-serif;
+  --font-montserrat-medium: 'Montserrat Medium', sans-serif;
+  --font-montserrat-semibold: 'Montserrat Semibold', sans-serif;
+  --font-montserrat-bold: 'Montserrat Bold', sans-serif;
+  --font-montserrat-extrabold: 'Montserrat Extrabold', sans-serif;
+  --font-montserrat-light: 'Montserrat Light', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --primaryBg: #FCFCFC;
-    --headerColor: #0C0537;
-    --accent: #3D4F64;
-    --secondary: #FFC94F;
-  }
-}
+
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--darkgrey);
+  background: var(--primaryBg);
+  font-family: var(--font-montserrat-regular);
 }
