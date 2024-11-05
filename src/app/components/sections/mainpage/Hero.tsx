@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const Hero = () => {
   return (
-    <div className="flex justify-between items-center p-8 mt-0 pt-0 pr-0"> 
+    <div className="flex justify-between items-center p-8 mt-0 pt-0 pr-0 mb-[100px]"> 
       <div className="flex flex-col space-y-6 max-w-xl mt-8 mr-4">
         <h1 className="text-4xl font-montserrat-bold">
           <span className="text-secondary">I-LIGHTS</span> - <span className="text-darkgrey">Эффективные решения</span>
