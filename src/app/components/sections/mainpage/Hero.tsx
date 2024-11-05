@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Button from '../../Button';
 
 const Hero = () => {
   return (
@@ -10,9 +11,7 @@ const Hero = () => {
         <p className="text-shortDesc">
           Компания I-lights это современная производственно-проектная организация с многолетним опытом работы в сфере разработки.
         </p>
-        <button className="bg-secondary text-darkgrey py-3 px-14 w-fit">
-          Подробнее
-        </button>
+        <Button text="Подробнее" paddingX="px-[55px]" />
       </div>
 
       <div className="flex-shrink-0 w-[55%] mr-0"> 
