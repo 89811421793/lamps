@@ -1,4 +1,4 @@
-"use client"; // Убедитесь, что этот импорт присутствует
+"use client"; 
 
 import React, { useState } from "react";
 import SectionTitle from "../../SectionTitle";
@@ -9,18 +9,11 @@ interface CatalogItem {
   description: string;
 }
 
-const items: CatalogItem[] = [
-  {
-    title: "Трековые светильники",
-    description: "Органично вписываются в интерьеры в стиле хай-тек, лофт",
-  },
-  { title: "Встраиваемые светильники", description: "" },
-  { title: "Фигурные светильники", description: "" },
-  { title: "Светильники Армстронг", description: "" },
-  { title: "Светильники Армстронг с равномерной засветкой", description: "" },
-];
+interface CatalogSectionProps {
+  items: CatalogItem[]; // Принимаем items как пропс
+}
 
-const CatalogSection: React.FC = () => {
+const CatalogSection: React.FC<CatalogSectionProps> = ({ items }) => {
   const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
 
   const handleItemClick = (index: number) => {
