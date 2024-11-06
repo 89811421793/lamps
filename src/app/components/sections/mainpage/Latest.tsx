@@ -1,6 +1,7 @@
 import React from "react";
 import SectionTitle from "../../SectionTitle";
 import Card from "../../Card";
+import Button from "../../Button";
 
 type CardProps = {
   url: string;
@@ -67,7 +68,7 @@ const Latest = async () => {
   return (
     <section className="mb-[20px]">
       <SectionTitle title="Новинки" />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-[80px]">
         {cards.map((card) => (
           <Card
             key={card.id}
@@ -78,6 +79,14 @@ const Latest = async () => {
             features={card.features}
           />
         ))}
+      </div>
+      <div className="flex justify-center mb-[40px]"> {/* Центрируем кнопку с помощью flex */}
+        <Button
+          text="Перейти в каталог"
+          href="/catalog"
+          isLink={true}
+          paddingX="px-[36px]"
+        />
       </div>
     </section>
   );
