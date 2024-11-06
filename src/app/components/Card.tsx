@@ -11,7 +11,7 @@ type CardProps = {
 const Card: React.FC<CardProps> = ({ url, title, price, id, features = [] }) => {
     return (
         <div className="border rounded-lg flex flex-col h-full space-y-8 mx-0"> 
-            <div className="flex justify-center items-center h-24 mb-4 pt-[20px]">
+            <div className="flex justify-center items-center h-24 mb-4 pt-[50px]">
                 {url.includes('prod1') ? (
                     <img src={url} alt={title} className="w-[256px] h-full object-contain rounded-t-lg" />
                 ) : (
