@@ -28,3 +28,19 @@ body {
   background: var(--primaryBg);
   font-family: var(--font-montserrat-regular);
 }
+
+.custom-list li::marker {
+  color: var(--secondary);
+}
+
+.card::before {
+  content: "Вт";
+  position: absolute;
+  top: 0; 
+  left: 0;
+  background-color: var(--secondary);
+  color: var(--accent);
+  text-align: center;
+  font-weight: bold;
+  padding: 8px 20px;
+}
