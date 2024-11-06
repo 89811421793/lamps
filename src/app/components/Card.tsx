@@ -10,7 +10,7 @@ type CardProps = {
 
 const Card: React.FC<CardProps> = ({ url, title, price, id, features = [] }) => {
     return (
-        <div className="border rounded-lg flex flex-col h-full space-y-8 mx-0"> 
+        <div className="border rounded-lg flex flex-col h-full mx-0"> {/* Убрано space-y-8 */}
             <div className="flex justify-center items-center h-24 mb-4 pt-[180px]">
                 {url.includes('prod1') ? (
                     <img src={url} alt={title} className="w-[256px] h-[96px] object-contain rounded-t-lg mb-[100px]" />
@@ -18,8 +18,8 @@ const Card: React.FC<CardProps> = ({ url, title, price, id, features = [] }) => 
                     <img src={url} alt={title} className="w-[128px] h-[181px] object-contain rounded-t-lg mb-[100px]" />
                 )}
             </div>
-            <h1 className="text-darkgrey font-bold text-lg leading-5 mb-4 p-4">{title}</h1> 
-            <ul className="list-disc pl-5 space-y-2 mb-4 p-4">
+            <h1 className="text-darkgrey font-bold text-lg leading-5 mb-[8px] p-0 mt-[80px] ml-[10px] mr-[10px]">{title}</h1> {/* Уменьшен паддинг */}
+            <ul className="list-disc pl-5 space-y-2 mb-4 p-0 mt-[8px] ml-[10px] mr-[10px]"> {/* Уменьшен паддинг */}
                 {features.map((feature) => (
                     <li key={feature.id} className="text-shortDesc font-light text-sm leading-5">
                         {feature.text}
