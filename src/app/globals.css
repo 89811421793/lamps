@@ -44,3 +44,40 @@ body {
   font-weight: bold;
   padding: 8px 20px;
 }
+
+
+
+
+.scrollable-container {
+  overflow-y: scroll; /* Включаем вертикальную прокрутку */
+  height: 300px; /* Убедитесь, что контейнер имеет фиксированную высоту */
+}
+
+/* Для WebKit-браузеров (Chrome, Safari) */
+.scrollable-container::-webkit-scrollbar {
+  width: 8px; /* Ширина скролл-бара */
+}
+
+.scrollable-container::-webkit-scrollbar-button {
+  display: none; /* Скрываем кнопки прокрутки */
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+  background-color: #FFC94F; /* Цвет ползунка */
+  border-radius: 10px; /* Скругленные края ползунка */
+}
+
+.scrollable-container::-webkit-scrollbar-track {
+  background-color: #E5E5E5; /* Цвет трека */
+}
+
+/* Для Firefox */
+.scrollable-container {
+  scrollbar-width: thin; /* Устанавливаем тонкий скролл-бар */
+  scrollbar-color: #FFC94F transparent; /* Цвет ползунка и трека */
+}
+
+.opacity-50 {
+  opacity: 0.5; /* Полупрозрачность */
+  transition: opacity 0.2s ease; /* Плавный переход */
+}

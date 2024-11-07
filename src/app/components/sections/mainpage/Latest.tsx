@@ -2,6 +2,8 @@ import React from "react";
 import SectionTitle from "../../SectionTitle";
 import Card from "../../Card";
 import Button from "../../Button";
+import ScrollableList from "../../ScrollableList";
+
 
 type CardProps = {
   url: string;
@@ -66,7 +68,7 @@ const Latest = async () => {
   const cards = await getCards(); // Получаем карточки асинхронно
 
   return (
-    <section className="mb-[20px]">
+    <section className="mb-[50px]">
       <SectionTitle title="Новинки" />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-[80px]">
         {cards.map((card) => (
@@ -88,6 +90,7 @@ const Latest = async () => {
           paddingX="px-[36px]"
         />
       </div>
+      <ScrollableList/>
     </section>
   );
 };
