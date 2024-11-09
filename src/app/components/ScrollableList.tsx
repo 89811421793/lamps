@@ -1,4 +1,4 @@
-'use client'
+'use client'; // Обязательно оставляем use client для клиентского компонента
 import React, { useState, useRef, useCallback } from 'react';
 const ScrollableList = () => {
   const [scrollY, setScrollY] = useState(0);

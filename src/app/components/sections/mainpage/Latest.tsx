@@ -3,8 +3,6 @@ import SectionTitle from "../../SectionTitle";
 import Card from "../../Card";
 import Button from "../../Button";
 import ScrollableList from "../../ScrollableList";
-
-
 type CardProps = {
   url: string;
   title: string;
@@ -12,9 +10,8 @@ type CardProps = {
   id: string;
   features?: { id: string; text: string }[];
 };
-
 const getCards = async (): Promise<CardProps[]> => {
-  // получаем здесь данные с сервера
+  // Получаем данные с сервера
   return [
     {
       url: "/prod1.png",
@@ -27,7 +24,6 @@ const getCards = async (): Promise<CardProps[]> => {
         { id: "3", text: "Мощность рассчитывается индивидуально." },
       ],
     },
-
     {
       url: "/prod2.png",
       title: "Дизайнерский светильник изготавливаемый по проекту",
@@ -40,7 +36,7 @@ const getCards = async (): Promise<CardProps[]> => {
       ],
     },
     {
-      url: "/prod1.png",
+      url: "/prod3.png",
       title: "Дизайнерский светильник изготавливаемый по проекту",
       price: 21800,
       id: "3",
@@ -51,7 +47,7 @@ const getCards = async (): Promise<CardProps[]> => {
       ],
     },
     {
-      url: "/prod1.png",
+      url: "/prod4.png",
       title: "Дизайнерский светильник изготавливаемый по проекту",
       price: 37900,
       id: "4",
@@ -63,10 +59,8 @@ const getCards = async (): Promise<CardProps[]> => {
     },
   ];
 };
-
 const Latest = async () => {
   const cards = await getCards(); // Получаем карточки асинхронно
-
   return (
     <section className="mb-[50px]">
       <SectionTitle title="Новинки" />
@@ -82,7 +76,7 @@ const Latest = async () => {
           />
         ))}
       </div>
-      <div className="flex justify-center mb-[40px]"> {/* Центрируем кнопку с помощью flex */}
+      <div className="flex justify-center mb-[40px]">
         <Button
           text="Перейти в каталог"
           href="/catalog"
@@ -90,9 +84,8 @@ const Latest = async () => {
           paddingX="px-[36px]"
         />
       </div>
-      <ScrollableList/>
+      <ScrollableList /> 
     </section>
   );
 };
-
 export default Latest;
