@@ -48,14 +48,9 @@ body {
 
 
 
-.scrollable-container {
-  overflow-y: scroll; /* Включаем вертикальную прокрутку */
-  height: 300px; /* Убедитесь, что контейнер имеет фиксированную высоту */
-}
-
 /* Для WebKit-браузеров (Chrome, Safari) */
 .scrollable-container::-webkit-scrollbar {
-  width: 8px; /* Ширина скролл-бара */
+  width: 1px; /* Ширина скролл-бара */
 }
 
 .scrollable-container::-webkit-scrollbar-button {
@@ -68,16 +63,12 @@ body {
 }
 
 .scrollable-container::-webkit-scrollbar-track {
-  background-color: #E5E5E5; /* Цвет трека */
+  background-color: #E5E5E5; /* Цвет трека (дорожки) */
 }
 
 /* Для Firefox */
 .scrollable-container {
   scrollbar-width: thin; /* Устанавливаем тонкий скролл-бар */
-  scrollbar-color: #FFC94F transparent; /* Цвет ползунка и трека */
+  scrollbar-color: #FFC94F #E5E5E5; /* Цвет ползунка и трека (дорожки) */
 }
 
-.opacity-50 {
-  opacity: 0.5; /* Полупрозрачность */
-  transition: opacity 0.2s ease; /* Плавный переход */
-}
