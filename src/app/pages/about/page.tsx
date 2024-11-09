@@ -11,7 +11,7 @@ const About = () => {
                     Главная
                 </Link>
                 <span className="mx-2">-</span>
-                <Link href="/about" className="hover:text-gray-800">
+                <Link href="#" className="hover:text-gray-800">
                     О компании
                 </Link>
             </nav>

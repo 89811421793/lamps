@@ -3,12 +3,13 @@ import Menu from './Menu';
 import Container from './Container';
 
 const items = [
-  "О компании",
-  "Услуги",
-  "Проекты",
-  "Доставка и оплата",
-  "Контакты",
+  { name: "О компании", href: "pages/about" },
+  { name: "Услуги", href: "/services" },
+  { name: "Проекты", href: "/projects" },
+  { name: "Доставка и оплата", href: "/delivery" },
+  { name: "Контакты", href: "/contacts" },
 ];
+
 
 const Header: React.FC = () => {
   return (
