@@ -3,7 +3,7 @@ import Menu from './Menu';
 import Container from './Container';
 
 const items = [
-  { name: "О компании", href: "pages/about" },
+  { name: "О компании", href: "/about" },
   { name: "Услуги", href: "/services" },
   { name: "Проекты", href: "/projects" },
   { name: "Доставка и оплата", href: "/delivery" },
