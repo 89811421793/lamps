@@ -36,7 +36,7 @@ const getCards = async (): Promise<CardProps[]> => {
       ],
     },
     {
-      url: "/prod3.png",
+      url: "/prod1.png",
       title: "Дизайнерский светильник изготавливаемый по проекту",
       price: 21800,
       id: "3",
@@ -47,7 +47,7 @@ const getCards = async (): Promise<CardProps[]> => {
       ],
     },
     {
-      url: "/prod4.png",
+      url: "/prod1.png",
       title: "Дизайнерский светильник изготавливаемый по проекту",
       price: 37900,
       id: "4",
@@ -84,7 +84,47 @@ const Latest = async () => {
           paddingX="px-[36px]"
         />
       </div>
-      <ScrollableList /> 
+      <ScrollableList />
+      <div className="flex justify-center items-start mt-10 w-full space-x-40 ">
+        {/* Левый блок */}
+        <div className="relative flex flex-col items-start max-w-[100%]">
+          <img
+            src="/qustionmark.svg"
+            alt=""
+            className="absolute -top-8 -left-24 z-10"
+          />
+          <h2 className="text-darkgrey font-montserrat text-2xl font-extrabold max-w-[100%] mt-[33px] mr-[38px]">
+            Остались вопросы и нужна{" "}
+            <span className="block">консультация?</span>
+          </h2>
+        </div>
+        {/* Правый блок с формой */}
+        <form className="flex flex-col max-w-[357px] w-full">
+          <input
+            type="text"
+            name="name"
+            placeholder="Ваше имя*"
+            className="border-b border-[#EFEFEF] mb-4 py-2 focus:outline-none"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Ваш e-mail*"
+            className="border-b border-[#EFEFEF] mb-4 py-2 focus:outline-none"
+            required
+          />
+          <textarea
+            name="message"
+            placeholder="Сообщение"
+            className="border-b border-[#EFEFEF] mb-10 py-2 focus:outline-none"
+            rows={1}
+          />
+          <div className="flex justify-end">
+            <Button text="Отправить" paddingX="px-[66px]" />
+          </div>
+        </form>
+      </div>
     </section>
   );
 };
