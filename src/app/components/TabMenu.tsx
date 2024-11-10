@@ -32,7 +32,7 @@ interface TabMenuProps {
 
 const TabMenu: React.FC<TabMenuProps> = ({ tabItems, activeIndex, onTabClick }) => {
     return (
-        <div className="inline-flex">
+        <div className="inline-flex mb-10"> 
             {tabItems.map((title, index) => (
                 <TabItem
                     key={index}
