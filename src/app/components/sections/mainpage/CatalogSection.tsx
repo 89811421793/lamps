@@ -30,7 +30,7 @@ const CatalogSection: React.FC<CatalogSectionProps> = ({ items }) => {
 
   return (
     <section className="mb-[61px]">
-      <SectionTitle title="Каталог" />
+      <SectionTitle title="Каталог"/>
       <div className="flex flex-col md:flex-row">
         <div className="flex flex-col justify-start items-start pr-4 w-full md:w-1/4 mt-6">
           <ul className="space-y-12">
