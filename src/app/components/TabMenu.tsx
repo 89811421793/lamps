@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React from 'react';
 
 interface TabItemProps {
@@ -16,8 +16,8 @@ const TabItem: React.FC<TabItemProps> = ({ title, index, isActive, onClick }) =>
     return (
         <div
             onClick={handleClick}
-            className={`cursor-pointer transition-transform duration-500 ease-in-out ${isActive ? 'bg-accent text-whiteFont' : 'text-darkgrey'} font-montserrat font-medium text-[16px] leading-[40px] text-left underline-offset-4 decoration-transparent`}
-            style={{ marginRight: index === 3 ? '0' : '42px', padding: '10px 35px', transform: isActive ? 'scale(1.05)' : 'scale(1)' }}
+            className={`flex items-center justify-center cursor-pointer transition-transform duration-500 ease-in-out ${isActive ? 'bg-accent text-whiteFont' : 'text-darkgrey'} font-montserrat font-medium text-[16px] leading-[40px] underline-offset-4 decoration-transparent px-2 py-1 mr-2 text-center`}
+            style={{ transform: isActive ? 'scale(1.05)' : 'scale(1)' }}
         >
             {title}
         </div>
@@ -25,15 +25,14 @@ const TabItem: React.FC<TabItemProps> = ({ title, index, isActive, onClick }) =>
 };
 
 interface TabMenuProps {
-    tabItems: string[];
-    descriptions: string[];
+    tabItems: string[]; // Добавляем пропс tabItems
     activeIndex: number | null;
     onTabClick: (index: number) => void;
 }
 
-const TabMenu: React.FC<TabMenuProps> = ({ tabItems, descriptions, activeIndex, onTabClick }) => {
+const TabMenu: React.FC<TabMenuProps> = ({ tabItems, activeIndex, onTabClick }) => {
     return (
-        <div className="flex">
+        <div className="inline-flex">
             {tabItems.map((title, index) => (
                 <TabItem
                     key={index}

@@ -14,7 +14,7 @@ const SectionTitle: FC<SectionTitleProps> = ({ title, subtitle, className, showI
       {showIndicator && (
         <div className="absolute left-0 w-[5px] h-[25px] bg-secondary translate-y-2" />
       )}
-      <div className={`ml-[${showIndicator ? '13px' : '0px'}]`}>
+      <div className={`${showIndicator ? 'ml-[15px]' : 'ml-0'}`}>
         <h2 className="text-[30px] font-extrabold leading-[40px] text-darkgrey font-montserrat">
           {title}
         </h2>
