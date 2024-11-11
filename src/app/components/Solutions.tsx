@@ -1,4 +1,4 @@
-// components/Solutions.tsx
+'use client'; // Директива для клиентского компонента
 import React, { useState } from 'react';
 
 interface SolutionsProps {
@@ -15,7 +15,6 @@ const Solutions: React.FC<SolutionsProps> = ({ serviceTabs, serviceImages }) => 
 
   return (
     <div className="flex mb-[100px]">
-      {/* Левый блок */}
       <div className="flex-1">
         <h2 className="font-montserrat text-24 font-bold text-[var(--darkgrey)] mb-[25px]">
           Наши решения
@@ -30,11 +29,10 @@ const Solutions: React.FC<SolutionsProps> = ({ serviceTabs, serviceImages }) => 
                     ? "bg-[var(--accent)] text-[var(--whiteFont)]"
                     : "text-black"
                 } inline-flex`}
-                style={{ width: "fit-content" }} 
+                style={{ width: "fit-content" }}
               >
                 {tab}
               </div>
-              {/* Условный рендеринг разделителя */}
               {index < serviceTabs.length - 1 && (
                 <div className="border-t border-[#EFEFEF] max-w-[90%] mt-2" style={{ height: '1px' }} />
               )}
@@ -43,7 +41,6 @@ const Solutions: React.FC<SolutionsProps> = ({ serviceTabs, serviceImages }) => 
         </ul>
       </div>
 
-      {/* Правый блок */}
       <div className="flex-2 flex justify-center items-center">
         {activeServiceIndex !== -1 && (
           <img
