@@ -3,6 +3,8 @@ import SectionTitle from "../../SectionTitle";
 import Card from "../../Card";
 import Button from "../../Button";
 import ScrollableList from "../../ScrollableList";
+import Link from "next/link";
+
 type CardProps = {
   url: string;
   title: string;
@@ -76,14 +78,18 @@ const Latest = async () => {
           />
         ))}
       </div>
+      
       <div className="flex justify-center mb-[40px]">
+      <Link href='/catalog'>
         <Button
           text="Перейти в каталог"
           href="/catalog"
-          isLink={true}
+          isLink={false}
           paddingX="px-[36px]"
         />
+        </Link>
       </div>
+      
       <ScrollableList />
       <div className="flex justify-center items-start mt-10 w-full space-x-40 ">
         {/* Левый блок */}
