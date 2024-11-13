@@ -1,13 +1,13 @@
-import Link from 'next/link';
-import React from 'react';
-import Container from '../components/Container';
-import SectionTitle from '../components/SectionTitle';
+import Link from "next/link";
+import React from "react";
+import Container from "../components/Container";
+import SectionTitle from "../components/SectionTitle";
 
 const Catalog = () => {
-    return (
-        <div>
-            <Container>
-             <nav className="text-[#7C7C7C] mt-[17px] mb-[38px]">
+  return (
+    <div>
+      <Container>
+        <nav className="text-[#7C7C7C] mt-[17px] mb-[38px]">
           <Link href="/" className="hover:text-gray-800">
             Главная
           </Link>
@@ -21,9 +21,9 @@ const Catalog = () => {
           showIndicator={false}
           className="mb-[40px]"
         />
-        </Container>
-        </div>
-    );
+      </Container>
+    </div>
+  );
 };
 
 export default Catalog;
