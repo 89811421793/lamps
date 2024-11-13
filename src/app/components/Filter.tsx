@@ -1,4 +1,3 @@
-// Filter.tsx
 import React, { useState } from 'react';
 import Picker from './Picker'; 
 
@@ -16,7 +15,7 @@ const Filter: React.FC = () => {
   };
 
   return (
-    <div className="border border-[#EAEAEA] p-[24px_26px_25px_22px]">
+    <div className="border border-[#EAEAEA] p-[24px_26px_25px_22px] max-w-[302px] w-full">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-[var(--darkgrey)] font-Montserrat text-[16px] font-bold leading-[40px]">
           Фильтр

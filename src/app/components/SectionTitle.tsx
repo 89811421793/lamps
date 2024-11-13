@@ -2,7 +2,7 @@ import React from 'react';
 import { FC } from 'react';
 
 type SectionTitleProps = {
-  title: string;
+  title?: string;
   subtitle?: string; 
   className?: string; 
   showIndicator?: boolean; // Новый пропс для управления отображением псевдоэлемента

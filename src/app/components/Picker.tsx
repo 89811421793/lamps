@@ -1,4 +1,3 @@
-// Picker.tsx
 import React, { useState, useEffect } from 'react';
 
 type PickerProps = {
@@ -74,8 +73,8 @@ const Picker: React.FC<PickerProps> = ({ title, min, max, current, onChange }) =
       className="relative"
       style={{ cursor: isDragging ? 'grabbing' : 'pointer' }}
     >
-      <h3 className="text-left mb-[30px]">{title}</h3>
-      <div className="relative mb-[50px]" onMouseDown={handleMouseDown} onTouchStart={handleTouchStart} onClick={handleClick}>
+      <h3 className="text-left mb-[10px]">{title}</h3>
+      <div className="relative mb-[35px]" onMouseDown={handleMouseDown} onTouchStart={handleTouchStart} onClick={handleClick}>
         <div className="flex items-center justify-between">
           <span className="transform -translate-y-3 text-sm">{value}</span>
           <span className="transform -translate-y-3 text-sm">{max}</span>
