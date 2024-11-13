@@ -52,7 +52,6 @@ const Catalog = () => {
                   : "text-[var(--darkgrey)] font-medium" 
               }`}
               style={{
-                fontFamily: 'Montserrat',
                 fontSize: '14px',
                 marginRight: index < 5 ? '10px' : '0', 
                 marginBottom: '10px', 
