@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import Container from "../components/Container";
 import SectionTitle from "../components/SectionTitle";
+import Filter from "../components/Filter";
 
 const tabs = [
   "Трековые светильники",
@@ -63,6 +64,7 @@ const Catalog = () => {
           ))}
         </ul>
       </Container>
+      <Filter/>
     </div>
   );
 };
