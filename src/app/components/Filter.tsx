@@ -13,10 +13,10 @@ const Filter: React.FC = () => {
       </div>
 
       {/* Пикеры */}
-      <Picker title="Мощность" min={44} max={432} current={44} />
-      <Picker title="Световой поток LED" min={6110} max={53820} current={6110} />
-      <Picker title="Угол рассеивания" min={15} max={160} current={15} />
-      <Picker title="Минимальная цена" min={2500} max={10575} current={2500} />
+      <Picker title="Мощность" min={0} max={432} current={44} />
+      <Picker title="Световой поток LED" min={0} max={53820} current={6110} />
+      <Picker title="Угол рассеивания" min={0} max={160} current={15} />
+      <Picker title="Минимальная цена" min={0} max={10575} current={2500} />
 
       {/* Кнопки */}
       <div className="flex justify-between mt-4">
