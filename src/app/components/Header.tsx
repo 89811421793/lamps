@@ -1,6 +1,7 @@
 import React from 'react';
 import Menu from './Menu';
 import Container from './Container';
+import Link from 'next/link';
 
 const items = [
   { name: "О компании", href: "/about" },
@@ -24,10 +25,12 @@ const Header: React.FC = () => {
               <Menu menuItems={items} />
             </div>
             <div className="flex items-center ml-4">
+              <Link href="/basket">
               <button className="flex items-center space-x-2 text-white">
                 <span>Подборка</span>
                 <img src="/fav.svg" alt="Избранное" className="h-10" />
               </button>
+              </Link>
             </div>
           </div>
           <div className="flex items-center space-x-[40px]">
