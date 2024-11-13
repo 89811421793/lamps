@@ -15,7 +15,7 @@ const Filter: React.FC = () => {
   };
 
   return (
-    <div className="border border-[#EAEAEA] p-[24px_26px_25px_22px] max-w-[302px] w-full">
+    <div className="border border-[#EAEAEA] p-[24px_26px_25px_22px]">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-[var(--darkgrey)] font-Montserrat text-[16px] font-bold leading-[40px]">
           Фильтр
@@ -29,7 +29,7 @@ const Filter: React.FC = () => {
       <Picker title="Угол рассеивания" min={0} max={160} current={beamAngle} onChange={setBeamAngle} />
       <Picker title="Минимальная цена" min={0} max={10575} current={minPrice} onChange={setMinPrice} />
 
-      <div className="flex justify-between mt-4">
+      <div className="flex justify-between mt-4 gap-5">
         <button className="border border-[#E5E5E5] bg-white px-4 py-2" onClick={handleReset}>
           Сбросить
         </button>

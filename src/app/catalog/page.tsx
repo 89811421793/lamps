@@ -84,44 +84,50 @@ const Catalog = () => {
         {/* Левый блок с фильтром и правый блок с новинками и каталогом */}
         <div className="flex mb-8">
           {/* Левый блок с фильтром */}
-          <div className="flex-1 mr-5">
+          <div className="flex-1 mr-[35px]">
             <Filter />
           </div>
 
           {/* Правый блок с новинками и каталогом */}
-          <div className="flex-2">
-            <SectionTitle
-              subtitle="Новинки"
-              showIndicator={false}
-              className="mb-4 font-montserrat text-[18px] font-bold leading-[40px]"
-            />
-            <div className="flex space-x-4">
-              {newProducts.map((product) => (
-                <Card
-                  key={product.id}
-                  url={product.url}
-                  title={product.title}
-                  price={product.price}
-                  id={product.id}
-                />
-              ))}
+          <div className="flex-2 ml-auto"> {/* Добавлен класс ml-auto */}
+            {/* Новинки */}
+            <div className="mb-4">
+              <SectionTitle
+                subtitle="Новинки"
+                showIndicator={false}
+                className="font-montserrat text-[18px] font-bold leading-[40px]"
+              />
+              <div className="flex space-x-4">
+                {newProducts.map((product) => (
+                  <Card
+                    key={product.id}
+                    url={product.url}
+                    title={product.title}
+                    price={product.price}
+                    id={product.id}
+                  />
+                ))}
+              </div>
             </div>
 
-            <SectionTitle
-              subtitle="Весь каталог"
-              showIndicator={false}
-              className="mb-4 mt-8 font-montserrat text-[18px] font-bold leading-[40px]"
-            />
-            <div className="flex flex-wrap">
-              {allProducts.map((product) => (
-                <Card
-                  key={product.id}
-                  url={product.url}
-                  title={product.title}
-                  price={product.price}
-                  id={product.id}
-                />
-              ))}
+            {/* Весь каталог */}
+            <div className="mt-8">
+              <SectionTitle
+                subtitle="Весь каталог"
+                showIndicator={false}
+                className="font-montserrat text-[18px] font-bold leading-[40px]"
+              />
+              <div className="flex flex-wrap gap-4">
+                {allProducts.map((product) => (
+                  <Card
+                    key={product.id}
+                    url={product.url}
+                    title={product.title}
+                    price={product.price}
+                    id={product.id}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
