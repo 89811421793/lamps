@@ -1,25 +1,32 @@
-import React, { useState } from 'react';
+// Picker.tsx
+import React, { useState, useEffect } from 'react';
 
 type PickerProps = {
   title: string;
   min: number;
   max: number;
   current: number; // Текущая позиция ползунка
+  onChange: (value: number) => void; // Функция для обновления значения
 };
 
-const Picker: React.FC<PickerProps> = ({ title, min, max, current }) => {
+const Picker: React.FC<PickerProps> = ({ title, min, max, current, onChange }) => {
   const [value, setValue] = useState(current);
   const [isDragging, setIsDragging] = useState(false);
+
+  useEffect(() => {
+    setValue(current);
+  }, [current]);
 
   const updateValueFromPosition = (clientX: number, pickerRect: DOMRect) => {
     const offsetX = clientX - pickerRect.left;
     const newPercentage = Math.max(0, Math.min(1, offsetX / pickerRect.width));
-    const newValue = Math.floor(min + newPercentage * (max - min)); // Используем Math.floor
+    const newValue = Math.floor(min + newPercentage * (max - min));
     setValue(newValue);
+    onChange(newValue); // Вызываем onChange для обновления значения
   };
 
   const handleMouseDown = (event: React.MouseEvent<HTMLDivElement>) => {
-    event.preventDefault(); // Предотвращаем стандартное поведение
+    event.preventDefault();
     setIsDragging(true);
   };
 
@@ -35,7 +42,7 @@ const Picker: React.FC<PickerProps> = ({ title, min, max, current }) => {
   };
 
   const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
-    event.preventDefault(); // Предотвращаем стандартное поведение
+    event.preventDefault();
     setIsDragging(true);
   };
 
@@ -55,7 +62,7 @@ const Picker: React.FC<PickerProps> = ({ title, min, max, current }) => {
     requestAnimationFrame(() => updateValueFromPosition(event.clientX, pickerRect));
   };
 
-  const percentage = ((value - min) / (max - min)) * 100; // Вычисляем процент для окрашенной части
+  const percentage = ((value - min) / (max - min)) * 100;
 
   return (
     <div
@@ -65,13 +72,13 @@ const Picker: React.FC<PickerProps> = ({ title, min, max, current }) => {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
       className="relative"
-      style={{ cursor: isDragging ? 'grabbing' : 'pointer' }} // Устанавливаем стиль курсора
+      style={{ cursor: isDragging ? 'grabbing' : 'pointer' }}
     >
       <h3 className="text-left mb-[30px]">{title}</h3>
       <div className="relative mb-[50px]" onMouseDown={handleMouseDown} onTouchStart={handleTouchStart} onClick={handleClick}>
         <div className="flex items-center justify-between">
           <span className="transform -translate-y-3 text-sm">{value}</span>
-          <span className="transform -translate-y-3 text-sm">{max}</span> {/* Значение справа */}
+          <span className="transform -translate-y-3 text-sm">{max}</span>
         </div>
         <div className="h-1 bg-[#EAEAEA] relative">
           <div className="absolute left-0 h-1 bg-[var(--secondary)]" style={{ width: `${percentage}%` }}></div>
