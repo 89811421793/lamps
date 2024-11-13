@@ -50,6 +50,11 @@ const Picker: React.FC<PickerProps> = ({ title, min, max, current }) => {
     }
   };
 
+  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    const pickerRect = event.currentTarget.getBoundingClientRect();
+    requestAnimationFrame(() => updateValueFromPosition(event.clientX, pickerRect));
+  };
+
   const percentage = ((value - min) / (max - min)) * 100; // Вычисляем процент для окрашенной части
 
   return (
@@ -63,7 +68,7 @@ const Picker: React.FC<PickerProps> = ({ title, min, max, current }) => {
       style={{ cursor: isDragging ? 'grabbing' : 'pointer' }} // Устанавливаем стиль курсора
     >
       <h3 className="text-left mb-[30px]">{title}</h3>
-      <div className="relative mb-[50px]" onMouseDown={handleMouseDown} onTouchStart={handleTouchStart}>
+      <div className="relative mb-[50px]" onMouseDown={handleMouseDown} onTouchStart={handleTouchStart} onClick={handleClick}>
         <div className="flex items-center justify-between">
           <span className="transform -translate-y-3 text-sm">{value}</span>
           <span className="transform -translate-y-3 text-sm">{max}</span> {/* Значение справа */}
