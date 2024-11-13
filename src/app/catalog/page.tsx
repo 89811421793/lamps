@@ -17,18 +17,54 @@ const tabs = [
 
 // Данные для новинок и каталога
 const newProducts = [
-  { url: "/prod1.png", title: "Новинка 1", price: 1000, id: "1" },
-  { url: "/prod1.png", title: "Новинка 2", price: 2000, id: "2" },
-  { url: "/prod1.png", title: "Новинка 3", price: 3000, id: "3" },
+  { url: "/prod2.png", title: "Дизайнерский светильник изготавливаемый по проекту", price: 41500, id: "1", features: [
+    { id: "1", text: "Длинна до 3 метров." },
+    { id: "2", text: "Углы поворота между секторами по проекту." },
+    { id: "3", text: "Мощность рассчитывается индивидуально." },
+  ] },
+  { url: "/prod1.png", title: "Дизайнерский светильник изготавливаемый по проекту", price: 21800, id: "2",features: [
+    { id: "1", text: "Длинна до 3 метров." },
+    { id: "2", text: "Углы поворота между секторами по проекту." },
+    { id: "3", text: "Мощность рассчитывается индивидуально." },
+  ] },
+  { url: "/prod1.png", title: "Дизайнерский светильник изготавливаемый по проекту", price: 37900, id: "3",features: [
+    { id: "1", text: "Длинна до 3 метров." },
+    { id: "2", text: "Углы поворота между секторами по проекту." },
+    { id: "3", text: "Мощность рассчитывается индивидуально." },
+  ] },
 ];
 
 const allProducts = [
-  { url: "/prod1.png", title: "Товар 1", price: 1500, id: "4" },
-  { url: "/prod1.png", title: "Товар 2", price: 2500, id: "5" },
-  { url: "/prod1.png", title: "Товар 3", price: 3500, id: "6" },
-  { url: "/prod1.png", title: "Товар 4", price: 4500, id: "7" },
-  { url: "/prod1.png", title: "Товар 5", price: 5500, id: "8" },
-  { url: "/prod1.png", title: "Товар 6", price: 6500, id: "9" },
+  { url: "/prod2.png", title: "Дизайнерский светильник изготавливаемый по проекту", price: 41500, id: "4",features: [
+    { id: "1", text: "Длинна до 3 метров." },
+    { id: "2", text: "Углы поворота между секторами по проекту." },
+    { id: "3", text: "Мощность рассчитывается индивидуально." },
+  ]  },
+  { url: "/prod1.png", title: "Дизайнерский светильник изготавливаемый по проекту", price: 21800, id: "5",features: [
+    { id: "1", text: "Длинна до 3 метров." },
+    { id: "2", text: "Углы поворота между секторами по проекту." },
+    { id: "3", text: "Мощность рассчитывается индивидуально." },
+  ]  },
+  { url: "/prod1.png", title: "Дизайнерский светильник изготавливаемый по проекту", price: 37900, id: "6",features: [
+    { id: "1", text: "Длинна до 3 метров." },
+    { id: "2", text: "Углы поворота между секторами по проекту." },
+    { id: "3", text: "Мощность рассчитывается индивидуально." },
+  ]  },
+  { url: "/prod2.png", title: "Дизайнерский светильник изготавливаемый по проекту", price: 41500, id: "7" ,features: [
+    { id: "1", text: "Длинна до 3 метров." },
+    { id: "2", text: "Углы поворота между секторами по проекту." },
+    { id: "3", text: "Мощность рассчитывается индивидуально." },
+  ] },
+  { url: "/prod1.png", title: "Дизайнерский светильник изготавливаемый по проекту", price: 21800, id: "8",features: [
+    { id: "1", text: "Длинна до 3 метров." },
+    { id: "2", text: "Углы поворота между секторами по проекту." },
+    { id: "3", text: "Мощность рассчитывается индивидуально." },
+  ]  },
+  { url: "/prod1.png", title: "Дизайнерский светильник изготавливаемый по проекту", price: 37900, id: "9" ,features: [
+    { id: "1", text: "Длинна до 3 метров." },
+    { id: "2", text: "Углы поворота между секторами по проекту." },
+    { id: "3", text: "Мощность рассчитывается индивидуально." },
+  ] },
 ];
 
 const Catalog = () => {
@@ -97,7 +133,7 @@ const Catalog = () => {
                 showIndicator={false}
                 className="font-montserrat text-[18px] font-bold leading-[40px]"
               />
-              <div className="flex space-x-4">
+              <div className="flex space-x-4 gap-4">
                 {newProducts.map((product) => (
                   <Card
                     key={product.id}
@@ -105,6 +141,7 @@ const Catalog = () => {
                     title={product.title}
                     price={product.price}
                     id={product.id}
+                    features={product.features}
                   />
                 ))}
               </div>
@@ -117,15 +154,18 @@ const Catalog = () => {
                 showIndicator={false}
                 className="font-montserrat text-[18px] font-bold leading-[40px]"
               />
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-[28px]">
                 {allProducts.map((product) => (
+                   <div className="max-w-[283px]">
                   <Card
                     key={product.id}
                     url={product.url}
                     title={product.title}
                     price={product.price}
                     id={product.id}
+                    features={product.features}
                   />
+                  </div>
                 ))}
               </div>
             </div>
