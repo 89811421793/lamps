@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import SectionTitle from "../../SectionTitle";
 import Image from "next/image";
+import Link from 'next/link'; 
 
 interface CatalogItem {
   title: string;
@@ -49,9 +50,11 @@ const CatalogSection: React.FC<CatalogSectionProps> = ({ items }) => {
                     <p className="text-shortDesc font-montserrat text-14 font-normal leading-22 text-left">
                       {item.description}
                     </p>
-                    <button className="border-none bg-accent text-whiteFont font-montserrat text-14 font-bold leading-17.07 px-16 py-3 mt-4">
-                      Перейти в каталог
-                    </button>
+                    <Link href="/catalog"> 
+                      <button className="border-none bg-accent text-whiteFont font-montserrat text-14 font-bold leading-17.07 px-16 py-3 mt-4">
+                        Перейти в каталог
+                      </button>
+                    </Link>
                   </div>
                 )}
                 <hr className="my-5 border-gray-300" />
