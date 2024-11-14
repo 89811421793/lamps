@@ -22,7 +22,7 @@ const Steps = () => {
   return (
     <div className="flex mt-10">
       {steps.map((step, index) => (
-        <div key={index} className="flex flex-col items-start relative mr-12"> 
+        <div key={index} className="flex flex-col items-start relative mr-6"> 
           <div className="flex items-center">
             <div className="flex items-center justify-center w-[48px] h-[48px] rounded-full border border-[var(--secondary)] shadow-[0px_8px_10px_0px_#FFC94F40]">
               <span className="text-[16px] font-bold">{index + 1}</span>
@@ -33,7 +33,7 @@ const Steps = () => {
           </p>
           {/* Добавление горизонтальной пунктирной линии */}
           {index < steps.length - 1 && (
-            <div className="absolute left-[28%] top-[12%] transform -translate-y-1/2 h-1 w-[192px] border-b-2 border-dashed border-#C4C4C4" />
+            <div className="absolute left-[23%] top-[12%] transform -translate-y-1/2 h-1 w-[192px] border-b-2 border-dashed border-#C4C4C4" />
           )}
         </div>
       ))}
