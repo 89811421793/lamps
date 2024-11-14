@@ -1,10 +1,11 @@
-"use client";
+'use client'
 import Link from "next/link";
 import React, { useState } from "react";
 import Container from "../components/Container";
 import SectionTitle from "../components/SectionTitle";
 import Filter from "../components/Filter";
 import Card from "../components/Card";
+import Paginator from "../components/Paginator";
 
 const tabs = [
   "Трековые светильники",
@@ -22,12 +23,12 @@ const newProducts = [
     { id: "2", text: "Углы поворота между секторами по проекту." },
     { id: "3", text: "Мощность рассчитывается индивидуально." },
   ] },
-  { url: "/prod1.png", title: "Дизайнерский светильник изготавливаемый по проекту", price: 21800, id: "2",features: [
+  { url: "/prod1.png", title: "Дизайнерский светильник изготавливаемый по проекту", price: 21800, id: "2", features: [
     { id: "1", text: "Длинна до 3 метров." },
     { id: "2", text: "Углы поворота между секторами по проекту." },
     { id: "3", text: "Мощность рассчитывается индивидуально." },
   ] },
-  { url: "/prod1.png", title: "Дизайнерский светильник изготавливаемый по проекту", price: 37900, id: "3",features: [
+  { url: "/prod1.png", title: "Дизайнерский светильник изготавливаемый по проекту", price: 37900, id: "3", features: [
     { id: "1", text: "Длинна до 3 метров." },
     { id: "2", text: "Углы поворота между секторами по проекту." },
     { id: "3", text: "Мощность рассчитывается индивидуально." },
@@ -35,32 +36,32 @@ const newProducts = [
 ];
 
 const allProducts = [
-  { url: "/prod2.png", title: "Дизайнерский светильник изготавливаемый по проекту", price: 41500, id: "4",features: [
-    { id: "1", text: "Длинна до 3 метров." },
-    { id: "2", text: "Углы поворота между секторами по проекту." },
-    { id: "3", text: "Мощность рассчитывается индивидуально." },
-  ]  },
-  { url: "/prod1.png", title: "Дизайнерский светильник изготавливаемый по проекту", price: 21800, id: "5",features: [
-    { id: "1", text: "Длинна до 3 метров." },
-    { id: "2", text: "Углы поворота между секторами по проекту." },
-    { id: "3", text: "Мощность рассчитывается индивидуально." },
-  ]  },
-  { url: "/prod1.png", title: "Дизайнерский светильник изготавливаемый по проекту", price: 37900, id: "6",features: [
-    { id: "1", text: "Длинна до 3 метров." },
-    { id: "2", text: "Углы поворота между секторами по проекту." },
-    { id: "3", text: "Мощность рассчитывается индивидуально." },
-  ]  },
-  { url: "/prod2.png", title: "Дизайнерский светильник изготавливаемый по проекту", price: 41500, id: "7" ,features: [
+  { url: "/prod2.png", title: "Дизайнерский светильник изготавливаемый по проекту", price: 41500, id: "4", features: [
     { id: "1", text: "Длинна до 3 метров." },
     { id: "2", text: "Углы поворота между секторами по проекту." },
     { id: "3", text: "Мощность рассчитывается индивидуально." },
   ] },
-  { url: "/prod1.png", title: "Дизайнерский светильник изготавливаемый по проекту", price: 21800, id: "8",features: [
+  { url: "/prod1.png", title: "Дизайнерский светильник изготавливаемый по проекту", price: 21800, id: "5", features: [
     { id: "1", text: "Длинна до 3 метров." },
     { id: "2", text: "Углы поворота между секторами по проекту." },
     { id: "3", text: "Мощность рассчитывается индивидуально." },
-  ]  },
-  { url: "/prod1.png", title: "Дизайнерский светильник изготавливаемый по проекту", price: 37900, id: "9" ,features: [
+  ] },
+  { url: "/prod1.png", title: "Дизайнерский светильник изготавливаемый по проекту", price: 37900, id: "6", features: [
+    { id: "1", text: "Длинна до 3 метров." },
+    { id: "2", text: "Углы поворота между секторами по проекту." },
+    { id: "3", text: "Мощность рассчитывается индивидуально." },
+  ] },
+  { url: "/prod2.png", title: "Дизайнерский светильник изготавливаемый по проекту", price: 41500, id: "7", features: [
+    { id: "1", text: "Длинна до 3 метров." },
+    { id: "2", text: "Углы поворота между секторами по проекту." },
+    { id: "3", text: "Мощность рассчитывается индивидуально." },
+  ] },
+  { url: "/prod1.png", title: "Дизайнерский светильник изготавливаемый по проекту", price: 21800, id: "8", features: [
+    { id: "1", text: "Длинна до 3 метров." },
+    { id: "2", text: "Углы поворота между секторами по проекту." },
+    { id: "3", text: "Мощность рассчитывается индивидуально." },
+  ] },
+  { url: "/prod1.png", title: "Дизайнерский светильник изготавливаемый по проекту", price: 37900, id: "9", features: [
     { id: "1", text: "Длинна до 3 метров." },
     { id: "2", text: "Углы поворота между секторами по проекту." },
     { id: "3", text: "Мощность рассчитывается индивидуально." },
@@ -69,6 +70,7 @@ const allProducts = [
 
 const Catalog = () => {
   const [selectedTab, setSelectedTab] = useState<string>(tabs[0]); // Изначально выбран первый таб
+  const [currentPage, setCurrentPage] = useState<number>(5);
 
   const handleTabClick = (tab: string) => {
     if (selectedTab !== tab) {
@@ -125,7 +127,7 @@ const Catalog = () => {
           </div>
 
           {/* Правый блок с новинками и каталогом */}
-          <div className="flex-2 ml-auto"> {/* Добавлен класс ml-auto */}
+          <div className="flex-2 ml-auto">
             {/* Новинки */}
             <div className="mb-4">
               <SectionTitle
@@ -156,15 +158,14 @@ const Catalog = () => {
               />
               <div className="flex flex-wrap gap-[28px]">
                 {allProducts.map((product) => (
-                   <div className="max-w-[283px]">
-                  <Card
-                    key={product.id}
-                    url={product.url}
-                    title={product.title}
-                    price={product.price}
-                    id={product.id}
-                    features={product.features}
-                  />
+                  <div key={product.id} className="max-w-[283px]">
+                    <Card
+                      url={product.url}
+                      title={product.title}
+                      price={product.price}
+                      id={product.id}
+                      features={product.features}
+                    />
                   </div>
                 ))}
               </div>
@@ -172,20 +173,12 @@ const Catalog = () => {
           </div>
         </div>
 
-        {/* Пагинация */}
-        <div className="flex justify-center mt-8">
-          <nav>
-            <ul className="flex space-x-2">
-              {[...Array(8)].map((_, index) => (
-                <li key={index}>
-                  <button className="border border-gray-300 px-3 py-1 rounded-md hover:bg-gray-200">
-                    {index + 1}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
+        {/* Компонент пагинации или пэйджер */}
+        <Paginator 
+          currentPage={currentPage} 
+          setCurrentPage={setCurrentPage} 
+          totalPages={7} // Передаем общее количество страниц (в данном случае количество продуктов)
+        />
       </Container>
     </div>
   );
