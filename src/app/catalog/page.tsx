@@ -70,7 +70,7 @@ const allProducts = [
 
 const Catalog = () => {
   const [selectedTab, setSelectedTab] = useState<string>(tabs[0]); // Изначально выбран первый таб
-  const [currentPage, setCurrentPage] = useState<number>(5);
+  const [currentPage, setCurrentPage] = useState<number>(1); // В пагинаторе по умолчанию активна (выбрана) будет стр 1
 
   const handleTabClick = (tab: string) => {
     if (selectedTab !== tab) {
@@ -174,11 +174,13 @@ const Catalog = () => {
         </div>
 
         {/* Компонент пагинации или пэйджер */}
+        <div className="flex justify-center mt-8 mb-12 ml-[28%]">
         <Paginator 
           currentPage={currentPage} 
           setCurrentPage={setCurrentPage} 
           totalPages={7} // Передаем общее количество страниц (в данном случае количество продуктов)
         />
+        </div>
       </Container>
     </div>
   );
