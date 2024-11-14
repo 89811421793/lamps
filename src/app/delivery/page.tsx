@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Container from '../components/Container';
 import Link from 'next/link';
 import SectionTitle from '../components/SectionTitle';
+import Steps from '../components/Steps'; 
 
 const tabs = [
   "Физическим лицам",
@@ -61,10 +62,11 @@ const Delivery = () => {
         </ul>
 
         {/* Контент для выбранного таба */}
-        <div className="flex mb-[65px]">
+        <div className="mb-[65px]">
           {selectedTab === "Физическим лицам" && (
             <>
-              <div>
+            <div className='flex'>
+              <div className='max-w-[95%]'>
                 <SectionTitle
                   subtitle="По Москве"
                   showIndicator={false}
@@ -73,8 +75,11 @@ const Delivery = () => {
                 <p className="text-[16px] text-darkgrey max-w-[90%]">
                   Доставка в течении 1 дня после подтверждения заказа. Оплата может производиться как наличными курьеру, так и путем перечисления денежных средств на счет организации с банковского счета физ. лица или через кассу любого банка.
                 </p>
+                
+           
+                
               </div>
-              <div className="max-w-[400px]">
+              <div className="max-w-[445px]">
                 <SectionTitle
                   subtitle="В регионы"
                   showIndicator={false}
@@ -84,6 +89,13 @@ const Delivery = () => {
                   Доставка через транспортные компании Деловые Линии, ПЭК, СДЭК в течении 2-7 дней с момента отправки. Возможна как адресная доставка, так и получение в пункте самовывоза в вашем городе.
                 </p>
               </div>
+            </div> 
+            <div className='flex mt-[5px] pt-[0]'>
+            <Steps />
+            <form>
+              
+            </form>
+            </div>
             </>
           )}
           {selectedTab === "Юридическим лицам" && <p>Контент для юридических лиц.</p>}
