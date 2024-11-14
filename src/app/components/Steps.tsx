@@ -28,7 +28,7 @@ const Steps = () => {
               <span className="text-[16px] font-bold">{index + 1}</span>
             </div>
           </div>
-          <p className="text-left mt-2 text-[14px] text-darkgrey max-w-[230px] text-left">
+          <p className="text-left mt-[20px] text-[14px] text-darkgrey max-w-[230px] text-left">
             {step.description}
           </p>
           {/* Добавление горизонтальной пунктирной линии */}
