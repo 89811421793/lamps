@@ -180,7 +180,7 @@ const Catalog = () => {
           </div>
 
           {/* Правый блок с новинками и каталогом */}
-          <div className="flex-2">
+          <div className="flex-2 w-full">
             <div className="mb-4">
               <SectionTitle
                 subtitle="Новинки"
@@ -188,7 +188,7 @@ const Catalog = () => {
                 className="font-montserrat text-[18px] font-bold leading-[40px]"
               />
               {isUnderConstruction ? (
-                <p className="text-500">{`${selectedTab}. Under Construction`}</p>
+                <p className="text-center text-500">{`${selectedTab}. Under Construction`}</p>
               ) : (
                 <div className="flex space-x-4 gap-4">
                   {newProducts.map((product) => (
