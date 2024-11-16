@@ -16,7 +16,6 @@ const tabs = [
   "Светильники Армстронг с равномерной засветкой",
 ];
 
-// Данные для новинок и каталога
 const newProducts = [
   { url: "/prod2.png", title: "Дизайнерский светильник изготавливаемый по проекту", price: 41500, id: "1", features: [
     { id: "1", text: "Длинна до 3 метров." },
@@ -69,14 +68,16 @@ const allProducts = [
 ];
 
 const Catalog = () => {
-  const [selectedTab, setSelectedTab] = useState<string>(tabs[0]); // Изначально выбран первый таб
-  const [currentPage, setCurrentPage] = useState<number>(1); // В пагинаторе по умолчанию активна (выбрана) будет стр 1
+  const [selectedTab, setSelectedTab] = useState<string>(tabs[0]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
   const handleTabClick = (tab: string) => {
     if (selectedTab !== tab) {
       setSelectedTab(tab);
     }
   };
+
+  const isUnderConstruction = selectedTab !== tabs[0];
 
   return (
     <div>
@@ -96,7 +97,6 @@ const Catalog = () => {
           className="mb-[40px]"
         />
 
-        {/* Контейнер для табов */}
         <ul className="mb-4 mt-6 list-none p-0">
           {tabs.map((tab, index) => (
             <li
@@ -119,67 +119,71 @@ const Catalog = () => {
           ))}
         </ul>
 
-        {/* Левый блок с фильтром и правый блок с новинками и каталогом */}
         <div className="flex mb-8">
           {/* Левый блок с фильтром */}
-          <div className="flex-1 mr-[35px]">
+          <div className="flex-1 mr-[35px] max-w-[300px]"> {/* Ограничиваем максимальную ширину фильтра */}
             <Filter />
           </div>
 
           {/* Правый блок с новинками и каталогом */}
-          <div className="flex-2 ml-auto">
-            {/* Новинки */}
+          <div className="flex-2 max-w-[calc(100%-300px)]"> {/* Ограничиваем ширину правого блока */}
             <div className="mb-4">
               <SectionTitle
                 subtitle="Новинки"
                 showIndicator={false}
                 className="font-montserrat text-[18px] font-bold leading-[40px]"
               />
-              <div className="flex space-x-4 gap-4">
-                {newProducts.map((product) => (
-                  <Card
-                    key={product.id}
-                    url={product.url}
-                    title={product.title}
-                    price={product.price}
-                    id={product.id}
-                    features={product.features}
-                  />
-                ))}
-              </div>
-            </div>
-
-            {/* Весь каталог */}
-            <div className="mt-8">
-              <SectionTitle
-                subtitle="Весь каталог"
-                showIndicator={false}
-                className="font-montserrat text-[18px] font-bold leading-[40px]"
-              />
-              <div className="flex flex-wrap gap-[28px]">
-                {allProducts.map((product) => (
-                  <div key={product.id} className="max-w-[283px]">
+              {isUnderConstruction ? (
+                <div className="text-center text-red-500">Under Construction</div>
+              ) : (
+                <div className="flex space-x-4 gap-4">
+                  {newProducts.map((product) => (
                     <Card
+                      key={product.id}
                       url={product.url}
                       title={product.title}
                       price={product.price}
                       id={product.id}
                       features={product.features}
                     />
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <div className="mt-8">
+              <SectionTitle
+                subtitle="Весь каталог"
+                showIndicator={false}
+                className="font-montserrat text-[18px] font-bold leading-[40px]"
+              />
+              {isUnderConstruction ? (
+                <div className="text-center text-red-500">Under Construction</div>
+              ) : (
+                <div className="flex flex-wrap gap-[28px]">
+                  {allProducts.map((product) => (
+                    <div key={product.id} className="max-w-[283px]">
+                      <Card
+                        url={product.url}
+                        title={product.title}
+                        price={product.price}
+                        id={product.id}
+                        features={product.features}
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>
 
-        {/* Компонент пагинации или пэйджер */}
         <div className="flex justify-center mt-8 mb-12 ml-[28%]">
-        <Paginator 
-          currentPage={currentPage} 
-          setCurrentPage={setCurrentPage} 
-          totalPages={7} // Передаем общее количество страниц (в данном случае количество продуктов)
-        />
+          <Paginator 
+            currentPage={currentPage} 
+            setCurrentPage={setCurrentPage} 
+            totalPages={7} 
+          />
         </div>
       </Container>
     </div>
