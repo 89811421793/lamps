@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface CatalogTabsProps {
   tabs: string[];
@@ -15,13 +15,13 @@ const CatalogTabs: React.FC<CatalogTabsProps> = ({ tabs, selectedTab, onTabClick
           onClick={() => onTabClick(tab)}
           className={`border border-[#E5E5E5] cursor-pointer py-2 px-4 rounded-[3px] inline-block leading-[18px] ${
             selectedTab === tab
-              ? 'text-[var(--whiteFont)] bg-[var(--accent)] font-semibold'
-              : 'text-[var(--darkgrey)] font-medium'
+              ? "text-[var(--whiteFont)] bg-[var(--accent)] font-semibold"
+              : "text-[var(--darkgrey)] font-medium"
           }`}
           style={{
-            fontSize: '14px',
-            marginRight: index < 5 ? '10px' : '0',
-            marginBottom: '10px',
+            fontSize: "14px",
+            marginRight: index < 5 ? "10px" : "0",
+            marginBottom: "10px",
             fontWeight: selectedTab === tab ? 600 : 500,
           }}
         >
