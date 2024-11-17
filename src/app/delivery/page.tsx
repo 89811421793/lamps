@@ -1,5 +1,4 @@
-'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import Container from '../components/Container';
 import Link from 'next/link';
 import SectionTitle from '../components/SectionTitle';
@@ -8,20 +7,40 @@ import Button from '../components/Button';
 import DeliveryTabs from '../components/DeliveryTabs.';
 
 
-const tabs = [
-  "Физическим лицам",
-  "Юридическим лицам",
-  "Бюджетным организациям",
-];
-
-const Delivery = () => {
-  const [selectedTab, setSelectedTab] = useState<string>(tabs[0]);
-
-  const handleTabClick = (tab: string) => {
-    if (selectedTab !== tab) {
-      setSelectedTab(tab);
+const fetchDeliveryContent = async () => {
+  return {
+    personal: {
+      title: "Физическим лицам",
+      regions: {
+        moscow: {
+          subtitle: "По Москве",
+          description: "Доставка в течении 1 дня после подтверждения заказа. Оплата может производиться как наличными курьеру, так и путем перечисления денежных средств на счет организации с банковского счета физ. лица или через кассу любого банка."
+        },
+        regions: {
+          subtitle: "В регионы",
+          description: "Доставка через транспортные компании Деловые Линии, ПЭК, СДЭК в течении 2-7 дней с момента отправки. Возможна как адресная доставка, так и получение в пункте самовывоза в вашем городе."
+        }
+      }
+    },
+    legal: {
+      title: "Юридическим лицам",
+      description: "Контент для юридических лиц."
+    },
+    budget: {
+      title: "Бюджетным организациям",
+      description: "Контент для бюджетных организаций."
     }
   };
+};
+
+const Delivery = async () => {
+  const deliveryContent = await fetchDeliveryContent();
+
+  const tabs = [
+    deliveryContent.personal.title,
+    deliveryContent.legal.title,
+    deliveryContent.budget.title,
+  ];
 
   return (
     <div>
@@ -41,32 +60,32 @@ const Delivery = () => {
           className="mb-[40px]"
         />
 
-       
-        <DeliveryTabs tabs={tabs} selectedTab={selectedTab} onTabClick={handleTabClick} />
+        {/* Передаем данные в клиентский компонент */}
+        <DeliveryTabs tabs={tabs} />
 
-    
         <div className="mb-[65px]">
-          {selectedTab === "Физическим лицам" && (
-            <>
+          {/* Здесь мы можем использовать условный рендеринг для отображения контента в зависимости от выбранной вкладки */}
+          <div id="content">
+            <div id="personal-content" className="tab-content">
               <div className='flex'>
                 <div className='max-w-[95%]'>
                   <SectionTitle
-                    subtitle="По Москве"
+                    subtitle={deliveryContent.personal.regions.moscow.subtitle}
                     showIndicator={false}
                     className="font-montserrat text-[18px] font-bold leading-[40px] mb-[10px]"
                   />
                   <p className="text-[16px] text-darkgrey max-w-[90%]">
-                    Доставка в течении 1 дня после подтверждения заказа. Оплата может производиться как наличными курьеру, так и путем перечисления денежных средств на счет организации с банковского счета физ. лица или через кассу любого банка.
+                    {deliveryContent.personal.regions.moscow.description}
                   </p>
                 </div>
                 <div className="max-w-[445px]">
                   <SectionTitle
-                    subtitle="В регионы"
+                    subtitle={deliveryContent.personal.regions.regions.subtitle}
                     showIndicator={false}
                     className="font-montserrat text-[18px] font-bold leading-[40px] mb-[10px]"
                   />
                   <p className="text-[16px] text-darkgrey">
-                    Доставка через транспортные компании Деловые Линии, ПЭК, СДЭК в течении 2-7 дней с момента отправки. Возможна как адресная доставка, так и получение в пункте самовывоза в вашем городе.
+                    {deliveryContent.personal.regions.regions.description}
                   </p>
                 </div>
               </div> 
@@ -92,10 +111,14 @@ const Delivery = () => {
                   </form>
                 </div>
               </div>
-            </>
-          )}
-          {selectedTab === "Юридическим лицам" && <p>Контент для юридических лиц.</p>}
-          {selectedTab === "Бюджетным организациям" && <p>Контент для бюджетных организаций.</p>}
+            </div>
+            <div id="legal-content" className="tab-content hidden">
+              <p>{deliveryContent.legal.description}</p>
+            </div>
+            <div id="budget-content" className="tab-content hidden">
+              <p>{deliveryContent.budget.description}</p>
+            </div>
+          </div>
         </div>
       </Container>
     </div>
