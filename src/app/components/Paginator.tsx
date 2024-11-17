@@ -22,13 +22,11 @@ const Paginator: React.FC<PaginatorProps> = ({ currentPage, setCurrentPage, tota
     }
   };
 
-  // Определяем диапазон страниц для отображения
   const getVisiblePages = () => {
     const visiblePages = [];
     let startPage = Math.max(1, currentPage - 1);
     let endPage = Math.min(totalPages, currentPage + 1);
 
-    // Убедимся, что показываем только три страницы
     if (endPage - startPage < 2) {
       if (startPage === 1) {
         endPage = Math.min(totalPages, startPage + 2);
@@ -49,7 +47,6 @@ const Paginator: React.FC<PaginatorProps> = ({ currentPage, setCurrentPage, tota
     <div className="flex justify-center mt-8 mb-12">
       <nav>
         <ul className="flex items-center gap-3"> 
-          {/* Левая стрелка */}
           <li>
             <a 
               href="#" 
@@ -61,13 +58,12 @@ const Paginator: React.FC<PaginatorProps> = ({ currentPage, setCurrentPage, tota
             </a>
           </li>
 
-          {/* Номера страниц */}
           {visiblePages.map((page) => (
             <li key={page}>
               <a 
                 href="#" 
                 onClick={(e) => {
-                  e.preventDefault(); // Предотвращаем переход по ссылке
+                  e.preventDefault();
                   setCurrentPage(page);
                 }} 
                 className={`w-6 h-6 border border-[#ECECEC] rounded-sm flex items-center justify-center hover:bg-secondary ${currentPage === page ? 'bg-secondary' : ''}`} 
@@ -78,7 +74,6 @@ const Paginator: React.FC<PaginatorProps> = ({ currentPage, setCurrentPage, tota
             </li>
           ))}
 
-          {/* Правая стрелка */}
           <li>
             <a 
               href="#" 

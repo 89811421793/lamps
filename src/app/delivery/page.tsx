@@ -1,10 +1,12 @@
-'use client'
+'use client';
 import React, { useState } from 'react';
 import Container from '../components/Container';
 import Link from 'next/link';
 import SectionTitle from '../components/SectionTitle';
 import Steps from '../components/Steps'; 
-import Button from '../components/Button'; // Не забудьте импортировать компонент Button
+import Button from '../components/Button'; 
+import DeliveryTabs from '../components/DeliveryTabs.';
+
 
 const tabs = [
   "Физическим лицам",
@@ -13,7 +15,7 @@ const tabs = [
 ];
 
 const Delivery = () => {
-  const [selectedTab, setSelectedTab] = useState<string>(tabs[0]); // Изначально выбран первый таб
+  const [selectedTab, setSelectedTab] = useState<string>(tabs[0]);
 
   const handleTabClick = (tab: string) => {
     if (selectedTab !== tab) {
@@ -39,30 +41,10 @@ const Delivery = () => {
           className="mb-[40px]"
         />
 
-        {/* Контейнер для табов */}
-        <ul className="mb-4 mt-6 list-none p-0 flex">
-          {tabs.map((tab, index) => (
-            <li
-              key={tab}
-              onClick={() => handleTabClick(tab)}
-              className={`cursor-pointer py-2 px-4 rounded-[3px] inline-block leading-[18px] ${
-                selectedTab === tab
-                  ? "text-[var(--whiteFont)] bg-[var(--accent)] font-semibold"
-                  : "text-[var(--darkgrey)] font-medium"
-              }`}
-              style={{
-                fontSize: "14px",
-                marginRight: index < tabs.length - 1 ? "10px" : "0",
-                marginBottom: "10px",
-                fontWeight: selectedTab === tab ? 600 : 500,
-              }}
-            >
-              {tab}
-            </li>
-          ))}
-        </ul>
+       
+        <DeliveryTabs tabs={tabs} selectedTab={selectedTab} onTabClick={handleTabClick} />
 
-        {/* Контент для выбранного таба */}
+    
         <div className="mb-[65px]">
           {selectedTab === "Физическим лицам" && (
             <>
