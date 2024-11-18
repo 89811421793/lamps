@@ -56,7 +56,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                   <span key={index}>{char}</span>
                 ))}
               </div>
-              <div className="border-l border-[#E5E5E5] h-[54px]"></div>
+              <div className="border-l border-[#E5E5E5] h-[54px] mt-[8px]"></div>
               <div className="flex flex-col">
                 {product.characteristics2?.map((char, index) => (
                   <span key={index}>{char}</span>
@@ -147,7 +147,7 @@ const Basket: React.FC<BasketProps> = ({ totalPrice }) => {
           <ProductCard key={product.code} product={product} />
         ))}
         <div className="flex items-center mt-4 justify-between">
-          <Link href="#" className="flex items-center text-[#4A4A4A] font-montserrat text-[14px] font-bold leading-[40px]">
+          <Link href="/catalog" className="flex items-center text-[#4A4A4A] font-montserrat text-[14px] font-bold leading-[40px]">
             <Image src="/arrow_pag.svg" alt="Previous" width={8} height={4} className="transform rotate-180" />
             <span className="ml-2">К покупкам</span>
           </Link>
