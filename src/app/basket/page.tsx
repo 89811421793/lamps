@@ -22,22 +22,22 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
   return (
     <div
-      className={`border border-[#E5E5E5] w-full pt-[30px] pr-[19px] pb-[50px] flex justify-between transition-all duration-300 ${
+      className={`border border-[#E5E5E5] pt-[30px] pb-[50px] flex transition-all duration-300 ${
         isHovered ? "shadow-[0px_0px_30px_0px_#FFC94F4D]" : ""
       } mb-4`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="flex flex-col items-center">
-        <img src={product.image} alt={product.name} className="mb-2" />
+      <img src={product.image} alt={product.name} className="mb-2" />
+      <div className="border border-[#E5E5E5] p-2 flex flex-col items-center">
         <span className="mt-2">{product.name}</span>
-        <div className="flex mt-2">
+        <div className="flex">
           <div className="flex flex-col">
             {product.characteristics1.map((char, index) => (
               <span key={index}>{char}</span>
             ))}
           </div>
-          <div className="border-l border-[#E5E5E5] h-[54px] mx-2"></div>
+          <div className="border-l border-[#E5E5E5] h-[54px] mx-2"></div> {/* Вертикальный разделитель */}
           <div className="flex flex-col">
             {product.characteristics2.map((char, index) => (
               <span key={index}>{char}</span>
@@ -45,7 +45,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-center">
+      <div className="border border-[#E5E5E5] p-2 flex flex-col items-center">
         <div className="flex items-center mt-2">
           <button className="border p-1">-</button>
           <span className="mx-2">1</span>
@@ -53,10 +53,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </div>
         <span className="mt-2">Осталось 2 шт</span>
       </div>
-      <div className="flex flex-col items-center">
+      <div className="border border-[#E5E5E5] p-2 flex flex-col items-center">
         <span>от {product.price}₽</span>
       </div>
-      <div className="flex flex-col items-center">
+      <div className="border border-[#E5E5E5] p-2 flex flex-col items-center">
         <button
           className={`flex items-center mt-2 ${
             isHovered ? "text-[#F3A800]" : ""
@@ -103,15 +103,15 @@ const Basket: React.FC = () => {
           showIndicator={false}
           className="mb-[40px]"
         />
-        <div className="flex justify-between mb-2">
-          <span>Товар</span>
-          <span>Описание</span>
-          <span>Количество</span>
-          <span>Сумма</span>
-          <span>Код: 54637654</span>
+        <div className="border border-[#E5E5E5] flex mb-2 p-2">
+          <span className="border border-[#E5E5E5] p-1 mx-1">Товар</span>
+          <span className="border border-[#E5E5E5] p-1 mx-1">Описание</span>
+          <span className="border border-[#E5E5E5] p-1 mx-1">Количество</span>
+          <span className="border border-[#E5E5E5] p-1 mx-1">Сумма</span>
+          <span className="border border-[#E5E5E5] p-1 mx-1">Код: 54637654</span>
         </div>
-        {products.map((product, index) => (
-          <ProductCard key={index} product={product} />
+        {products.map((product) => (
+          <ProductCard key={product.code} product={product} />
         ))}
       </Container>
     </div>
