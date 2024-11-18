@@ -1,20 +1,29 @@
-"use client";
+'use client'
 import React, { useState } from "react";
 import SectionTitle from "../components/SectionTitle";
 import Container from "../components/Container";
 import Link from "next/link";
+import Image from "next/image";
 
 type Product = {
   image: string;
   name: string;
-  characteristics1: string[];
-  characteristics2: string[];
+  characteristics1?: string[];
+  characteristics2?: string[];
   price: number;
   code: string;
+  description?: string; 
+  stockMessage?: string; 
+  width: number; 
+  height: number; 
 };
 
 type ProductCardProps = {
   product: Product;
+};
+
+type BasketProps = {
+  totalPrice: number; 
 };
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
@@ -28,22 +37,34 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <img src={product.image} alt={product.name} className="mb-2 w-[15%]" />
+      <Image 
+        src={product.image} 
+        alt={product.name} 
+        width={product.width} 
+        height={product.height} 
+        className="mb-2 w-[15%]" 
+      />
       <div className="p-2 flex flex-col items-center w-[25%]">
-        <span className="mt-2">{product.name}</span>
-        <div className="flex gap-[25px]">
-          <div className="flex flex-col">
-            {product.characteristics1.map((char, index) => (
-              <span key={index}>{char}</span>
-            ))}
-          </div>
-          <div className="border-l border-[#E5E5E5] h-[54px]"></div>
-          <div className="flex flex-col">
-            {product.characteristics2.map((char, index) => (
-              <span key={index}>{char}</span>
-            ))}
-          </div>
-        </div>
+        {product.description ? (
+          <span className="mt-2">{product.description}</span>
+        ) : (
+          <>
+            <span className="mt-2">{product.name}</span>
+            <div className="flex gap-[25px]">
+              <div className="flex flex-col">
+                {product.characteristics1?.map((char, index) => (
+                  <span key={index}>{char}</span>
+                ))}
+              </div>
+              <div className="border-l border-[#E5E5E5] h-[54px]"></div>
+              <div className="flex flex-col">
+                {product.characteristics2?.map((char, index) => (
+                  <span key={index}>{char}</span>
+                ))}
+              </div>
+            </div>
+          </>
+        )}
       </div>
       <div className="p-2 flex flex-col items-center w-[35%]">
         <div className="flex items-center mt-2">
@@ -51,7 +72,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <span className="">1</span>
           <button className="border p-1">+</button>
         </div>
-        <span className="mt-2">Осталось 2 шт</span>
+        <span className="mt-2">{product.stockMessage || "Осталось 2 шт"}</span>
       </div>
       <div className="p-2 flex flex-col items-center w-[22%]">
         <span>от {product.price}₽</span>
@@ -74,7 +95,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   );
 };
 
-const Basket: React.FC = () => {
+const Basket: React.FC<BasketProps> = ({ totalPrice }) => {
   const products: Product[] = [
     {
       image: "/svetilnik.png",
@@ -83,6 +104,18 @@ const Basket: React.FC = () => {
       characteristics2: ["85", "3000", "1672 LED"],
       price: 3300,
       code: "54637654",
+      width: 150, 
+      height: 150, 
+    },
+    {
+      image: "/f5bed36a6da638ce4acb04cf430b36cb 1.png",
+      name: "Дизайнерский светильник изготавливаемый по проекту",
+      description: "Длинна до 3 метров. Углы поворота между секторами по проекту. Мощность рассчитывается индивидуально.",
+      price: 41500,
+      code: "54637655",
+      stockMessage: "В наличии",
+      width: 150, 
+      height: 150, 
     },
   ];
 
@@ -93,7 +126,7 @@ const Basket: React.FC = () => {
           <Link href="/" className="hover:text-gray-800">
             Главная
           </Link>
-          <span className="">-</span>
+          <span className="mx-2">-</span>
           <Link href="/basket" className="hover:text-gray-800">
             Подборка
           </Link>
@@ -113,6 +146,15 @@ const Basket: React.FC = () => {
         {products.map((product) => (
           <ProductCard key={product.code} product={product} />
         ))}
+        <div className="flex items-center mt-4 justify-between">
+          <Link href="#" className="flex items-center text-[#4A4A4A] font-montserrat text-[14px] font-bold leading-[40px]">
+            <Image src="/arrow_pag.svg" alt="Previous" width={8} height={4} className="transform rotate-180" />
+            <span className="ml-2">К покупкам</span>
+          </Link>
+          <span className="text-[#4A4A4A] font-montserrat text-[14px] font-bold leading-[40px]">
+            Итого: от {44800} ₽
+          </span>
+        </div>
       </Container>
     </div>
   );
