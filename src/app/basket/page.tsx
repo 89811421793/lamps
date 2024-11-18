@@ -155,6 +155,16 @@ const Basket: React.FC<BasketProps> = ({ totalPrice }) => {
             Итого: от {44800} ₽
           </span>
         </div>
+
+        {/* New Buttons Section */}
+        <div className="mt-[19px] mb-[50px] text-right">
+          <button className="inline-block text-[var(--accent)] font-montserrat text-[14px] font-[500] leading-[40px] border border-[var(--accent)] px-[50px] py-[5px] mb-4 mr-4">
+            Отправить подборку на почту
+          </button>
+          <button className="inline-block text-[var(--accent)] font-montserrat text-[14px] font-[500] leading-[40px] bg-[var(--secondary)] px-[50px] py-[5px]">
+            Отправить заявку на расчет
+          </button>
+        </div>
       </Container>
     </div>
   );
