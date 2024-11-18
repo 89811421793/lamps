@@ -29,9 +29,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <img src={product.image} alt={product.name} className="mb-2 w-[15%]" />
-      <div className="border border-[#E5E5E5] p-2 flex flex-col items-center w-[25%]">
+      <div className="p-2 flex flex-col items-center w-[25%]">
         <span className="mt-2">{product.name}</span>
-        <div className="flex">
+        <div className="flex gap-[25px]">
           <div className="flex flex-col">
             {product.characteristics1.map((char, index) => (
               <span key={index}>{char}</span>
@@ -45,7 +45,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </div>
         </div>
       </div>
-      <div className="border border-[#E5E5E5] p-2 flex flex-col items-center w-[40%]">
+      <div className="p-2 flex flex-col items-center w-[35%]">
         <div className="flex items-center mt-2">
           <button className="border p-1">-</button>
           <span className="">1</span>
@@ -53,10 +53,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </div>
         <span className="mt-2">Осталось 2 шт</span>
       </div>
-      <div className="border border-[#E5E5E5] p-2 flex flex-col items-center w-[25%]">
+      <div className="p-2 flex flex-col items-center w-[22%]">
         <span>от {product.price}₽</span>
       </div>
-      <div className="border border-[#E5E5E5] p-2 flex flex-col items-center w-[15%]">
+      <div className="p-2 flex flex-col items-center w-[16%]">
         <button
           className={`flex items-center mt-2 justify-end ${
             isHovered ? "text-[#F3A800]" : ""
@@ -103,12 +103,12 @@ const Basket: React.FC = () => {
           showIndicator={false}
           className="mb-[40px]"
         />
-        <div className="border border-[#E5E5E5] flex mb-2 p-2">
-          <span className="border border-[#E5E5E5] p-1 w-[15%]">Товар</span>
-          <span className="border border-[#E5E5E5] p-1 w-[25%]">Описание</span>
-          <span className="border border-[#E5E5E5] p-1 w-[40%] text-center">Количество</span>
-          <span className="border border-[#E5E5E5] p-1 w-[25%] text-center">Сумма</span>
-          <span className="border border-[#E5E5E5] p-1 w-[15%] text-right">Код: 54637654</span>
+        <div className="flex mb-2 p-2">
+          <span className="p-1 w-[16%]">Товар</span>
+          <span className="p-1 w-[25%]">Описание</span>
+          <span className="p-1 w-[35%] text-center">Количество</span>
+          <span className="p-1 w-[25%] text-center">Сумма</span>
+          <span className="p-1 w-[15%] text-right">Код: 54637654</span>
         </div>
         {products.map((product) => (
           <ProductCard key={product.code} product={product} />
