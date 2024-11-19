@@ -1,14 +1,13 @@
-'use client'
-import Link from 'next/link';
-import React from 'react';
-import Container from '../components/Container';
-import VerticalSlider from '../components/Slider';
-
+"use client";
+import Link from "next/link";
+import React from "react";
+import Container from "../components/Container";
+import VerticalSlider from "../components/Slider";
 
 const Card = () => {
-    return (
-        <div>
-            <Container>
+  return (
+    <div>
+      <Container>
         <nav className="text-[#7C7C7C] mt-[17px] mb-[38px]">
           <Link href="/" className="hover:text-gray-800">
             Главная
@@ -23,13 +22,15 @@ const Card = () => {
           </Link>
           <span className="mx-2">-</span>
           <Link href="#" className="hover:text-gray-800">
-           EVO L
+            EVO L
           </Link>
         </nav>
-      <VerticalSlider/>
-      </Container>
+        <div className="mb-[50px]">
+          <VerticalSlider />
         </div>
-    );
+      </Container>
+    </div>
+  );
 };
 
 export default Card;
