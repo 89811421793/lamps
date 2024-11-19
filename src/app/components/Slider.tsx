@@ -48,68 +48,83 @@ const VerticalSlider: React.FC = () => {
   const isNextDisabled = selectedIndex === images.length - 1;
 
   return (
-    <div className="flex items-stretch h-[516px]">
-      <div className="relative w-[82px] mr-[25px] flex flex-col">
+    <div style={{ display: 'flex', height: '516px' }}>
+      <div style={{ position: 'relative', width: '82px', marginRight: '25px', display: 'flex', flexDirection: 'column' }}>
+        
+        {/* Previous Button */}
         <button
           onClick={handlePrevClick}
           onMouseEnter={() => setIsPrevHovered(true)}
           onMouseLeave={() => setIsPrevHovered(false)}
-          className={`w-[82px] h-[40px] border border-[#EDEDED] flex justify-center items-center mb-1.5 
-            ${isPrevDisabled ? 'opacity-50 bg-white' : isPrevHovered ? 'bg-var(--accent)' : 'bg-white'}`}
+          style={{
+            width: '82px',
+            height: '40px',
+            border: '1px solid #EDEDED',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: '10px',
+            backgroundColor: isPrevDisabled ? 'white' : (isPrevHovered ? 'var(--accent)' : 'white'),
+            opacity: isPrevDisabled ? 0.5 : 1,
+          }}
           disabled={isPrevDisabled}
         >
-          <Image 
-            src='/arrow_pag.svg' 
-            alt='' 
-            width={11} 
-            height={7} 
-            className={`transform rotate-[-90deg] ${isPrevDisabled ? 'text-var(--whiteFont)' : isPrevHovered ? 'text-var(--whiteFont)' : 'text-var(--whiteFont)'}`} 
-          />
+          <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transform: 'rotate(-90deg)' }}>
+            <path fillRule="evenodd" clipRule="evenodd" d="M7 5.5L1.5 11L0 9.5L4 5.5L0 1.5L1.5 0L7 5.5Z" fill={isPrevDisabled ? '#535353' : (isPrevHovered ? 'white' : '#535353')} />
+          </svg>
         </button>
 
+        {/* Swiper Component */}
         <Swiper
           modules={[Navigation]}
           onSlideChange={(swiper) => handleSlideChange(swiper.activeIndex)}
           direction='vertical'
           slidesPerView={5}
           spaceBetween={10}
-          className="flex-grow"
+          style={{ flexGrow: 1 }}
           ref={swiperRef}
         >
           {images.map((src, index) => (
-            <SwiperSlide key={index} className="flex border border-red-500 justify-center">
+            <SwiperSlide key={index} style={{ display: 'flex', border: '1px solid red', justifyContent: 'center' }}>
               <Image
                 src={src}
                 alt={`Image ${index}`}
                 width={82}
                 height={82}
-                className={`cursor-pointer ${selectedIndex === index ? 'border-2 border-[#F3A800]' : 'border-none'}`}
+                style={{ cursor: 'pointer', border: selectedIndex === index ? '2px solid #F3A800' : 'none' }}
                 onClick={() => setSelectedIndex(index)}
               />
             </SwiperSlide>
           ))}
         </Swiper>
 
+        {/* Next Button */}
         <button
           onClick={handleNextClick}
           onMouseEnter={() => setIsNextHovered(true)}
           onMouseLeave={() => setIsNextHovered(false)}
-          className={`w-[82px] h-[40px] border border-[#EDEDED] flex justify-center items-center mt-1.5 
-            ${isNextDisabled ? 'opacity-50 bg-white' : isNextHovered ? 'bg-var(--accent)' : 'bg-white'}`}
+          style={{
+            width: '82px',
+            height: '40px',
+            border: '1px solid #EDEDED',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginTop: '10px',
+            backgroundColor: isNextDisabled ? 'white' : (isNextHovered ? 'var(--accent)' : 'white'),
+            opacity: isNextDisabled ? 0.5 : 1,
+          }}
           disabled={isNextDisabled}
         >
-          <Image 
-            src='/arrow_pag.svg' 
-            alt='' 
-            width={11} 
-            height={7} 
-            className={`transform rotate-[90deg] ${isNextDisabled ? 'text-var(--whiteFont)' : isNextHovered ? 'text-var(--whiteFont)' : 'text-var(--whiteFont)'}`} 
-          />
+          <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transform: 'rotate(-90deg)' }}>
+            <path fillRule="evenodd" clipRule="evenodd" d="M0 5.5L5.5 0L7 1.5L3 5.5L7 9.5L5.5 11L0 5.5Z" fill={isNextDisabled ? '#535353' : (isNextHovered ? 'white' : '#535353')} />
+          </svg>
         </button>
       </div>
 
-      <div className="w-[525px] h-[516px] border border-dotted border-red-500 flex justify-center items-center">
-        <Image style={{border:"1px solid red"}}src={images[selectedIndex]} alt={`Selected Image`} width={383} height={378} />
+      {/* Right Block with Tailwind Padding */}
+      <div className="p-[70px_71px_68px_71px] w-[525px] h-[516px] flex justify-center items-center" style={{border:"1px dotted red"}}>
+        <Image style={{ border: "1px solid red" }} src={images[selectedIndex]} alt={`Selected Image`} width={383} height={378} />
       </div>
     </div>
   );
