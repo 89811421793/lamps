@@ -50,8 +50,6 @@ const VerticalSlider: React.FC = () => {
   return (
     <div style={{ display: 'flex', height: '516px' }}>
       <div style={{ position: 'relative', width: '82px', marginRight: '25px', display: 'flex', flexDirection: 'column' }}>
-        
-        {/* Previous Button */}
         <button
           onClick={handlePrevClick}
           onMouseEnter={() => setIsPrevHovered(true)}
@@ -85,7 +83,7 @@ const VerticalSlider: React.FC = () => {
           ref={swiperRef}
         >
           {images.map((src, index) => (
-            <SwiperSlide key={index} style={{ display: 'flex', border: '1px solid red', justifyContent: 'center' }}>
+            <SwiperSlide key={index} style={{ display: 'flex', justifyContent: 'center' }}>
               <Image
                 src={src}
                 alt={`Image ${index}`}
@@ -98,7 +96,6 @@ const VerticalSlider: React.FC = () => {
           ))}
         </Swiper>
 
-        {/* Next Button */}
         <button
           onClick={handleNextClick}
           onMouseEnter={() => setIsNextHovered(true)}
@@ -122,9 +119,8 @@ const VerticalSlider: React.FC = () => {
         </button>
       </div>
 
-      {/* Right Block with Tailwind Padding */}
-      <div className="p-[70px_71px_68px_71px] w-[525px] h-[516px] flex justify-center items-center" style={{border:"1px dotted red"}}>
-        <Image style={{ border: "1px solid red" }} src={images[selectedIndex]} alt={`Selected Image`} width={383} height={378} />
+      <div className="p-[70px_71px_68px_71px] max-w-[525px] h-[100%] flex justify-center items-center">
+        <Image src={images[selectedIndex]} alt={`Selected Image`} width={383} height={378} />
       </div>
     </div>
   );
