@@ -1,6 +1,9 @@
+'use client'
 import Link from 'next/link';
 import React from 'react';
 import Container from '../components/Container';
+import VerticalSlider from '../components/Slider';
+
 
 const Card = () => {
     return (
@@ -23,6 +26,7 @@ const Card = () => {
            EVO L
           </Link>
         </nav>
+      <VerticalSlider/>
       </Container>
         </div>
     );
