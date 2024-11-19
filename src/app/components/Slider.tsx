@@ -48,8 +48,10 @@ const VerticalSlider: React.FC = () => {
   const isNextDisabled = selectedIndex === images.length - 1;
 
   return (
-    <div style={{ display: 'flex', height: '516px' }}>
-      <div style={{ position: 'relative', width: '82px', marginRight: '25px', display: 'flex', flexDirection: 'column' }}>
+    <div className="flex h-[516px]">
+      
+      <div className="relative w-[82px] mr-[25px] flex flex-col">
+        
         <button
           onClick={handlePrevClick}
           onMouseEnter={() => setIsPrevHovered(true)}
@@ -79,17 +81,17 @@ const VerticalSlider: React.FC = () => {
           direction='vertical'
           slidesPerView={5}
           spaceBetween={10}
-          style={{ flexGrow: 1 }}
+          className="flex-grow"
           ref={swiperRef}
         >
           {images.map((src, index) => (
-            <SwiperSlide key={index} style={{ display: 'flex', justifyContent: 'center' }}>
+            <SwiperSlide key={index} className="flex justify-center">
               <Image
                 src={src}
                 alt={`Image ${index}`}
                 width={82}
                 height={82}
-                style={{ cursor: 'pointer', border: selectedIndex === index ? '2px solid #F3A800' : 'none' }}
+                className={`cursor-pointer ${selectedIndex === index ? 'border-2 border-[#F3A800]' : 'border-none'}`}
                 onClick={() => setSelectedIndex(index)}
               />
             </SwiperSlide>
@@ -119,7 +121,7 @@ const VerticalSlider: React.FC = () => {
         </button>
       </div>
 
-      <div className="p-[70px_71px_68px_71px] max-w-[525px] h-[100%] flex justify-center items-center">
+      <div className="p-[70px_71px_68px_71px] max-w-[525px] h-full flex justify-center items-center">
         <Image src={images[selectedIndex]} alt={`Selected Image`} width={383} height={378} />
       </div>
     </div>
