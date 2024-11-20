@@ -5,11 +5,23 @@ import React, { useState } from "react";
 import Container from "../components/Container";
 import VerticalSlider from "../components/Slider";
 
+const tabs = [
+  { id: 1, label: "Описание" },
+  { id: 2, label: "Технические характеристики" },
+  { id: 3, label: "Конструктивные характеристики" },
+  { id: 4, label: "Материалы для скачивания" },
+];
+
 const Card: React.FC = () => {
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
+  const [selectedTab, setSelectedTab] = useState<number>(1);
 
   const handleSlideChange = (index: number) => {
     setSelectedIndex(index);
+  };
+
+  const handleTabChange = (tabId: number) => {
+    setSelectedTab(tabId);
   };
 
   const isLampScrSelected = selectedIndex === 2; // Assuming 'lamp_scr.png' is at index 2
@@ -32,6 +44,7 @@ const Card: React.FC = () => {
             <h2 className="text-xl font-bold">Трековый светильник EVO L</h2>
             <div className="border-b border-[#EDEDED] my-[28px]" />
             <div className="mb-[16px]">
+
               {/* Блок характеристик */}
               <div className="flex mb-2">
                 <span className="w-[30%]">Мощность</span>
@@ -85,6 +98,23 @@ const Card: React.FC = () => {
               Посмотреть выбранные модификации
             </Link>
           </div>
+        </div>
+
+         {/* Tabs Section */}
+         <div className="flex mb-[30px]">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => handleTabChange(tab.id)}
+              className={`text-[var(--darkgrey)] font-medium mr-[60px] ${
+                selectedTab === tab.id 
+                  ? 'bg-[var(--accent)] text-[var(--whiteFont)] py-2 px-4' 
+                  : ''
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
         </div>
       </Container>
     </div>
