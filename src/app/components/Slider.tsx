@@ -18,7 +18,11 @@ const images: string[] = [
   '/slide4.png',
 ];
 
-const VerticalSlider: React.FC = () => {
+interface VerticalSliderProps {
+  onSlideChange: (index: number) => void;
+}
+
+const VerticalSlider: React.FC<VerticalSliderProps> = ({ onSlideChange }) => {
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [isPrevHovered, setIsPrevHovered] = useState<boolean>(false);
   const [isNextHovered, setIsNextHovered] = useState<boolean>(false);
@@ -26,13 +30,14 @@ const VerticalSlider: React.FC = () => {
 
   const handleSlideChange = (index: number) => {
     setSelectedIndex(index);
+    onSlideChange(index); 
   };
 
   const handlePrevClick = () => {
     if (selectedIndex > 0) {
       const newIndex = selectedIndex - 1;
       swiperRef.current.swiper.slideTo(newIndex);
-      setSelectedIndex(newIndex);
+      handleSlideChange(newIndex);
     }
   };
 
@@ -40,7 +45,7 @@ const VerticalSlider: React.FC = () => {
     if (selectedIndex < images.length - 1) {
       const newIndex = selectedIndex + 1;
       swiperRef.current.swiper.slideTo(newIndex);
-      setSelectedIndex(newIndex);
+      handleSlideChange(newIndex);
     }
   };
 
@@ -49,9 +54,7 @@ const VerticalSlider: React.FC = () => {
 
   return (
     <div className="flex h-[516px]">
-      
       <div className="relative w-[82px] mr-[25px] flex flex-col">
-        
         <button
           onClick={handlePrevClick}
           onMouseEnter={() => setIsPrevHovered(true)}
@@ -92,7 +95,7 @@ const VerticalSlider: React.FC = () => {
                 width={82}
                 height={82}
                 className={`cursor-pointer ${selectedIndex === index ? 'border-2 border-[#F3A800]' : 'border-none'}`}
-                onClick={() => setSelectedIndex(index)}
+                onClick={() => handleSlideChange(index)}
               />
             </SwiperSlide>
           ))}
