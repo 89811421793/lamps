@@ -121,7 +121,7 @@ const VerticalSlider: React.FC = () => {
         </button>
       </div>
 
-      <div className="p-[70px_71px_68px_71px] max-w-[525px] h-full flex justify-center items-center">
+      <div className="p-[70px_71px_68px_71px] max-w-[500px] h-full flex justify-center items-center mr-[10px]">
         <Image src={images[selectedIndex]} alt={`Selected Image`} width={383} height={378} />
       </div>
     </div>
