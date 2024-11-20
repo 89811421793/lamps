@@ -27,7 +27,7 @@ const Card = () => {
         </nav>
         <div className="flex mb-[50px]">
           <VerticalSlider />
-          <div className="ml-[42px]" style={{ border: "1px solid red" }}>
+          <div className="ml-[42px]">
             <h2 className="text-xl font-bold">Трековый светильник EVO L</h2>
             <div className="border-b border-[#EDEDED] my-[28px]" />
             <div className="mb-[16px]">
@@ -35,48 +35,48 @@ const Card = () => {
               <div className="flex mb-2">
                 <span className="w-[30%]">Мощность</span>
                 <div className="flex gap-[10px] flex-wrap max-w-[45%]">
-                  <span className="border border-[#EDEDED] px-2 mr-2">15</span>
-                  <span className="border border-[#EDEDED] px-2 mr-2">22</span>
-                  <span className="border border-[#EDEDED] px-2 mr-2">28</span>
-                  <span className="border border-[#EDEDED] px-2 mr-2">42</span>
-                  <span className="border border-[#EDEDED] px-2 mr-2">43</span>
-                  <span className="border border-[#EDEDED] px-2 mr-2">65</span>
-                  <span className="border border-[#EDEDED] px-2 mr-2">66</span>
-                  <span className="border border-[#EDEDED] px-2 mr-2">86</span>
-                  <span className="border border-[#EDEDED] px-2 mr-2">84</span>
-                  <span className="border border-[#EDEDED] px-2">130</span>
+                  <span className="border border-[#EDEDED] px-[10px] py-[5px]">15</span>
+                  <span className="border border-[#EDEDED] px-[10px] py-[5px]">22</span>
+                  <span className="border border-[#EDEDED] px-[10px] py-[5px]">28</span>
+                  <span className="border border-[#EDEDED] px-[10px] py-[5px]">42</span>
+                  <span className="border border-[#EDEDED] px-[10px] py-[5px]">43</span>
+                  <span className="border border-[#EDEDED] px-[10px] py-[5px]">65</span>
+                  <span className="border border-[#EDEDED] px-[10px] py-[5px]">66</span>
+                  <span className="border border-[#EDEDED] px-[10px] py-[5px]">86</span>
+                  <span className="border border-[#EDEDED] px-[10px] py-[5px]">84</span>
+                  <span className="border border-[#EDEDED] px-[10px] py-[5px]">130</span>
                 </div>
               </div>
               <div className="flex mb-2">
                 <span className="w-[30%]">Цвет корпуса</span>
-                <div className="flex w-[70%]">
-                  <span className="border border-[#EDEDED] px-2 mr-2">белый</span>
-                  <span className="border border-[#EDEDED] px-2 mr-2">черный</span>
-                  <span className="border border-[#EDEDED] px-2">серый</span>
+                <div className="flex w-[70%] gap-[10px]">
+                  <span className="border border-[#EDEDED] px-[10px] py-[5px]">белый</span>
+                  <span className="border border-[#EDEDED] px-[10px] py-[5px]">черный</span>
+                  <span className="border border-[#EDEDED] px-[10px] py-[5px]">серый</span>
                 </div>
               </div>
               <div className="flex mb-2">
                 <span className="w-[30%]">Угол рассеивания</span>
                 <div className="w-[70%]">
-                  <span className="border border-[#EDEDED] px-2">85</span>
+                  <span className="border border-[#EDEDED] px-[10px] py-[5px]">85</span>
                 </div>
               </div>
               <div className="flex mb-2">
                 <span className="w-[30%]">Цветовая температура</span>
-                <div className="flex w-[70%]">
-                  <span className="border border-[#EDEDED] px-2 mr-2">3000</span>
-                  <span className="border border-[#EDEDED] px-2 mr-2">4000</span>
-                  <span className="border border-[#EDEDED] px-2">5000</span>
+                <div className="flex w-[70%] gap-[10px] items-center">
+                  <span className="border border-[#EDEDED] px-[10px] py-[5px]">3000</span>
+                  <span className="border border-[#EDEDED] px-[10px] py-[5px]">4000</span>
+                  <span className="border border-[#EDEDED] px-[10px] py-[5px]">5000</span>
                 </div>
               </div>
               <div className="flex mb-2">
                 <span className="w-[30%]">CRI/Ra</span>
                 <div className="w-[70%]">
-                  <span className="border border-[#EDEDED] px-2">80+</span>
+                  <span className="border border-[#EDEDED] px-[10px] py-[5px]">80+</span>
                 </div>
               </div>
             </div>
-            <div className="border-b border-[#EDEDED] my-[16px]" />
+            <div className="border-b border-[#EDEDED] my-[20px]" />
             <Link
               href="#"
               className="bg-secondary text-accent font-montserrat font-semibold text-[16px] leading-[40px] pl-[25px] pr-[30px] py-[10px] block text-center max-w-[394px]"
