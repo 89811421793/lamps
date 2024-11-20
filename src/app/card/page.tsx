@@ -49,7 +49,7 @@ const Card: React.FC = () => {
               <div className="flex mb-2">
                 <span className="w-[30%]">Мощность</span>
                 <div className="flex gap-[10px] flex-wrap max-w-[45%]">
-                  <span className={`border ${isLampScrSelected ? 'border-secondary' : 'border-[#EDEDED]'}  text ${isLampScrSelected ? 'text-darkgrey' : 'text-[var(--shortDesc)]'} px-[10px] py-[5px]`}>15</span>
+                  <span className={`border ${isLampScrSelected ? 'border-secondary' : 'border-[#EDEDED]'} text ${isLampScrSelected ? 'text-darkgrey' : 'text-[var(--shortDesc)]'} px-[10px] py-[5px]`}>15</span>
                   <span className="border border-[#EDEDED] text-[var(--shortDesc)] px-[10px] py-[5px]">22</span>
                   <span className="border border-[#EDEDED] text-[var(--shortDesc)] px-[10px] py-[5px]">28</span>
                   <span className="border border-[#EDEDED] text-[var(--shortDesc)] px-[10px] py-[5px]">42</span>
@@ -115,6 +115,30 @@ const Card: React.FC = () => {
               {tab.label}
             </button>
           ))}
+        </div>
+
+        {/* Additional Content Area */}
+        <div className="flex flex-col mb-[50px]">
+          <p className="text-[var(--shortDesc)] mb-[50px]">
+            Потолочный светильник LINE A подвесного или накладного монтажа предназначен для организации основного освещения помещений. Различные длины, мощности, варианты рассеивателей и возможности подключения к различным системам управления освещением делают светильники серии LINE A всесторонне продуманным решением для помещений любой конфигурации и функциональных назначений. Алюминиевый корпус окрашивается высококачественным матовым или глянцевым порошковым покрытием черного, белого, либо любого цвета по шкале RAL.
+          </p>
+          
+          <h3 className="font-bold mb-2">Особенности</h3>
+          <ul className="list-disc ml-5 mb-[50px]">
+            <li className="text-[var(--shortDesc)]">Различные варианты рассеивателей: матовый / микропризматический / прозрачный.</li>
+            <li className="text-[var(--shortDesc)]">Источники питания с гальваниеской развязкой установлены внутри корпуса светильника;</li>
+            <li className="text-[var(--shortDesc)]">Возможность соединения последовательно для получения сплошных линий засветки длиной до 30м.</li>
+            <li className="text-[var(--shortDesc)]">Возможность декорирования под дерево и другие материалы, либо отделка деревом благородных пород.</li>
+          </ul>
+
+          <h3 className="font-bold mb-2">Области применения:</h3>
+          <ul className="list-disc ml-5">
+            <li className="text-[var(--shortDesc)]">Торговое освещение</li>
+            <li className="text-[var(--shortDesc)]">Офисное освещение</li>
+            <li className="text-[var(--shortDesc)]">Объекты бьюти индустрии</li>
+            <li className="text-[var(--shortDesc)]">HoReCa - отели, рестораны, кафе</li>
+            <li className="text-[var(--shortDesc)]">Проходные зоны любых общественных пространств</li>
+          </ul>
         </div>
       </Container>
     </div>
