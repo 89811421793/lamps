@@ -199,7 +199,7 @@ const Card: React.FC = () => {
             <li
               key={tab.id}
               onClick={() => handleTabChange(tab.id)}
-              className={`mr-[60px] cursor-pointer text-[var(--darkgrey)] font-medium ${
+              className={`mr-[60px] py-2 cursor-pointer text-[var(--darkgrey)] font-medium ${
                 selectedTab === tab.id
                   ? "bg-[var(--accent)] text-[var(--whiteFont)] py-2 px-4"
                   : ""
