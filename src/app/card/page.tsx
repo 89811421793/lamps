@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 import React, { useState } from "react";
 import Container from "../components/Container";
@@ -159,103 +158,97 @@ const Card: React.FC = () => {
         </Container>
       </div>
 
-      <div className="max-w-[1285px] mx-auto mt-10">
-        <div className="grid grid-cols-12 bg-[#F9F9F9] text-left font-bold border-b border-[#EDEDED]">
-          <div className="col-span-1 p-4">Наименование</div>
-          <div className="col-span-1 p-4">Мощность</div>
-          <div className="col-span-1 p-4">Цвет корпуса</div>
-          <div className="col-span-1 p-4">Габариты [ВxДxШ]</div>
-          <div className="col-span-1 p-4">Световой поток LED [лкм]</div>
-          <div className="col-span-1 p-4">Угол рассеивания</div>
-          <div className="col-span-1 p-4">Эффективность LW/W</div>
-          <div className="col-span-1 p-4">Цветовая температура</div>
-          <div className="col-span-1 p-4">CRI/Ra</div>
-          <div className="col-span-1 p-4">Управление светом</div>
-          <div className="col-span-1 p-4">Цена</div>
-          <div className="col-span-1 p-4">Добавить в подборку</div>
-        </div>
-
-        <div className="grid grid-cols-12 border-b border-[#EDEDED]">
-          <div className="col-span-1 p-4">LINE A 50-14W -830-WH</div>
-          <div className="col-span-1 p-4">14</div>
-          <div className="col-span-1 p-4">Белый</div>
-          <div className="col-span-1 p-4">20х15х10</div>
-          <div className="col-span-1 p-4">1672</div>
-          <div className="col-span-1 p-4">119.43</div>
-          <div className="col-span-1 p-4">119.43</div>
-          <div className="col-span-1 p-4">3000</div>
-          <div className="col-span-1 p-4">80+</div>
-          <div className="col-span-1 p-4">no</div>
-          <div className="col-span-1 p-4">2700</div>
-          <div className="col-span-1 p-4 flex justify-center">
-          <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-12 border-b border-[#EDEDED]">
-          <div className="col-span-1 p-4">LINE A 50-14W -830-WH</div>
-          <div className="col-span-1 p-4">14</div>
-          <div className="col-span-1 p-4">Черный</div>
-          <div className="col-span-1 p-4">20х15х10</div>
-          <div className="col-span-1 p-4">1760</div>
-          <div className="col-span-1 p-4">125.71</div>
-          <div className="col-span-1 p-4">125.71</div>
-          <div className="col-span-1 p-4">3000</div>
-          <div className="col-span-1 p-4">80+</div>
-          <div className="col-span-1 p-4">no</div>
-          <div className="col-span-1 p-4">2700</div>
-          <div className="col-span-1 p-4 flex justify-center">
-          <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-12 border-b border-[#EDEDED]">
-          <div className="col-span-1 p-4">LINE A 50-14W -830-WH</div>
-          <div className="col-span-1 p-4">22</div>
-          <div className="col-span-1 p-4">Белый</div>
-          <div className="col-span-1 p-4">20х15х10</div>
-          <div className="col-span-1 p-4">1672</div>
-          <div className="col-span-1 p-4">119.43</div>
-          <div className="col-span-1 p-4">119.43</div>
-          <div className="col-span-1 p-4">4000</div>
-          <div className="col-span-1 p-4">80+</div>
-          <div className="col-span-1 p-4">no</div>
-          <div className="col-span-1 p-4">2700</div>
-          <div className="col-span-1 p-4 flex justify-center">
-          <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-12 border-b border-[#EDEDED]">
-          <div className="col-span-1 p-4">LINE A 50-14W -830-WH</div>
-          <div className="col-span-1 p-4">22</div>
-          <div className="col-span-1 p-4">Серый</div>
-          <div className="col-span-1 p-4">20х15х10</div>
-          <div className="col-span-1 p-4">1672</div>
-          <div className="col-span-1 p-4">119.43</div>
-          <div className="col-span-1 p-4">119.43</div>
-          <div className="col-span-1 p-4">3000</div>
-          <div className="col-span-1 p-4">80+</div>
-          <div className="col-span-1 p-4">no</div>
-          <div className="col-span-1 p-4">3500</div>
-          <div className="col-span-1 p-4 flex justify-center">
+      <div className="max-w-[1285px] mx-auto mt-10 mb-[10px]">
+        <div className="grid grid-cols-[repeat(12,1fr)] grid-rows-[repeat(6,auto)] gap-[10px] text-left ">
+          <div className='mb-[10px] bg-[#F9F9F9] grid place-items-center'>Наименование</div>
+          <div className='mb-[10px] bg-[#F9F9F9] grid place-items-center'>Мощность</div>
+          <div className='mb-[10px] bg-[#F9F9F9] grid place-items-center'>Цвет корпуса</div>
+          <div className='mb-[10px] bg-[#F9F9F9] grid place-items-center'>Габариты [ВxДxШ]</div>
+          <div className='mb-[10px] bg-[#F9F9F9] grid place-items-center'>Световой поток LED [лкм]</div>
+          <div className='mb-[10px] bg-[#F9F9F9] grid place-items-center'>Угол рассеивания</div>
+          <div className='mb-[10px] bg-[#F9F9F9] grid place-items-center'>Эффективность LW/W</div>
+          <div className='mb-[10px] bg-[#F9F9F9] grid place-items-center'>Цветовая температура</div>
+          <div className='mb-[10px] bg-[#F9F9F9] grid place-items-center'>CRI/Ra</div>
+          <div className='mb-[10px] bg-[#F9F9F9] grid place-items-center'>Управление светом</div>
+          <div className='mb-[10px] bg-[#F9F9F9] grid place-items-center'>Цена</div>
+          <div className='mb-[10px] bg-[#F9F9F9] grid place-items-center'>Добавить в подборку</div>
+          
+          <div className='border-b border-[#EDEDED] mb-[10px]'>LINE A 50-14W -830-WH</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>14</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>Белый</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>20х15х10</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>1672</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>119.43</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>119.43</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>3000</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>80+</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>no</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>2700</div>
+          <div className="flex justify-center border-b border-[#EDEDED] mb-[10px]">
             <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
           </div>
-        </div>
+      
 
-        <div className="grid grid-cols-12 border-b border-[#EDEDED]">
-          <div className="col-span-1 p-4">LINE A 50-14W -830-WH</div>
-          <div className="col-span-1 p-4">22</div>
-          <div className="col-span-1 p-4">Серый</div>
-          <div className="col-span-1 p-4">20х15х10</div>
-          <div className="col-span-1 p-4">1672</div>
-          <div className="col-span-1 p-4">119.43</div>
-          <div className="col-span-1 p-4">119.43</div>
-          <div className="col-span-1 p-4">3000</div>
-          <div className="col-span-1 p-4">80+</div>
-          <div className="col-span-1 p-4">no</div>
-          <div className="col-span-1 p-4">3500</div>
-          <div className="col-span-1 p-4 flex justify-center">
+          <div className='border-b border-[#EDEDED] mb-[10px]'>LINE A 50-14W -830-WH</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>14</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>Черный</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>20х15х10</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>1760</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>125.71</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>125.71</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>3000</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>80+</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>no</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>2700</div>
+          <div className="flex justify-center border-b border-[#EDEDED] mb-[10px]">
+            <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
+          </div>
+       
+
+          <div className='border-b border-[#EDEDED] mb-[10px]'>LINE A 50-14W -830-WH</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>22</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>Белый</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>20х15х10</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>1672</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>119.43</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>119.43</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>4000</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>80+</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>no</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>2700</div>
+          <div className="flex justify-center border-b border-[#EDEDED] mb-[10px]">
+            <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
+          </div>
+       
+
+          <div className='border-b border-[#EDEDED] mb-[10px]'>LINE A 50-14W -830-WH</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>22</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>Серый</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>20х15х10</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>1672</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>119.43</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>119.43</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>3000</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>80+</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>no</div>
+          <div className='border-b border-[#EDEDED] mb-[10px]'>3500</div>
+          <div className="flex justify-center border-b border-[#EDEDED] mb-[10px]">
+            <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
+          </div>
+       
+
+          <div className='border-b border-[#EDEDED]'>LINE A 50-14W -830-WH</div>
+          <div className='border-b border-[#EDEDED] px-2'>22</div>
+          <div className='border-b border-[#EDEDED]'>Серый</div>
+          <div className='border-b border-[#EDEDED]'>20х15х10</div>
+          <div className='border-b border-[#EDEDED]'>1672</div>
+          <div className='border-b border-[#EDEDED]'>119.43</div>
+          <div className='border-b border-[#EDEDED]'>119.43</div>
+          <div className='border-b border-[#EDEDED]'>3000</div>
+          <div className='border-b border-[#EDEDED]'>80+</div>
+          <div className='border-b border-[#EDEDED]'>no</div>
+          <div className='border-b border-[#EDEDED]'>3500</div>
+          <div className="flex justify-center border-b border-[#EDEDED]">
             <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
           </div>
         </div>
