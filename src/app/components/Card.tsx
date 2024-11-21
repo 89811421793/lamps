@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link"; 
 
 type CardProps = {
   url: string;
@@ -49,12 +50,9 @@ const Card: React.FC<CardProps> = ({
         {price} ₽
       </span>
       <div className="flex w-full space-x-0">
-        <a
-          href={`/product/${id}`}
-          className="flex items-center justify-center bg-accent text-white font-semibold text-sm leading-5 h-10 flex-grow"
-        >
+      <Link href='/card' className="flex items-center justify-center bg-accent text-white font-semibold text-sm leading-5 h-10 flex-grow">
           Подробнее
-        </a>
+        </Link>
         <button className="flex items-center justify-center border border-gray-300 bg-white text-darkgrey font-semibold text-sm leading-5 h-10 w-14">
           <img src="/add_grey.svg" alt="Добавить" className="mr-2" />
         </button>
