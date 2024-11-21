@@ -194,7 +194,7 @@ const Card: React.FC = () => {
         </div>
 
         {/* Tabs Section */}
-        <ul className="flex mb-[30px] list-none p-0">
+        <ul className="flex mb-[1px] list-none p-0">
           {tabs.map((tab) => (
             <li
               key={tab.id}
@@ -209,6 +209,8 @@ const Card: React.FC = () => {
             </li>
           ))}
         </ul>
+
+        <hr className="border-t border-[#EDEDED] mb-[20px]" />
 
         {/* Additional Content Area */}
         <div className="flex flex-col mb-[50px]">
