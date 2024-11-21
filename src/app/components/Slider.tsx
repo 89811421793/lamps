@@ -23,7 +23,7 @@ interface VerticalSliderProps {
 }
 
 const VerticalSlider: React.FC<VerticalSliderProps> = ({ onSlideChange }) => {
-  const [selectedIndex, setSelectedIndex] = useState<number>(0);
+  const [selectedIndex, setSelectedIndex] = useState<number>(2); // Set default index to 'lamp_scr.png'
   const [isPrevHovered, setIsPrevHovered] = useState<boolean>(false);
   const [isNextHovered, setIsNextHovered] = useState<boolean>(false);
   const swiperRef = useRef<any>(null);

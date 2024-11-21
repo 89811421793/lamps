@@ -13,7 +13,7 @@ const tabs = [
 ];
 
 const Card: React.FC = () => {
-  const [selectedIndex, setSelectedIndex] = useState<number>(0);
+  const [selectedIndex, setSelectedIndex] = useState<number>(2); // Set default to 'lamp_scr.png'
   const [selectedTab, setSelectedTab] = useState<number>(1);
 
   const handleSlideChange = (index: number) => {
@@ -24,7 +24,7 @@ const Card: React.FC = () => {
     setSelectedTab(tabId);
   };
 
-  const isLampScrSelected = selectedIndex === 2; // Предполагается, что 'lamp_scr.png' находится на индексе 2
+  const isLampScrSelected = selectedIndex === 2; // 'lamp_scr.png' is at index 2
 
   return (
     <div className="flex">
@@ -44,6 +44,7 @@ const Card: React.FC = () => {
             <h2 className="text-xl font-bold">Трековый светильник EVO L</h2>
             <div className="border-b border-[#EDEDED] my-[28px]" />
             <div className="mb-[16px]">
+              
               {/* Блок характеристик */}
               <div className="flex mb-2">
                 <span className="w-[30%]">Мощность</span>
