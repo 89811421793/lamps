@@ -53,7 +53,13 @@ body {
   padding: 8px 20px;
 }
 
-
+.btn::after {
+  content: url('/plus_white.svg');
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-55%, -53%);
+}
 
 
 /* Для WebKit-браузеров (Chrome, Safari) */
