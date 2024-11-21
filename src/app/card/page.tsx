@@ -168,7 +168,9 @@ const Card: React.FC = () => {
               </ul>
             </>
           ) : (
-            <p className="text-[var(--shortDesc)] mb-[50px]">No details yet.</p>
+            <p className="text-[var(--shortDesc)] mb-[50px]">
+              {tabs.find(tab => tab.id === selectedTab)?.label}: No details yet. Check Later.
+            </p>
           )}
         </div>
       </Container>
