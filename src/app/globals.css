@@ -22,7 +22,6 @@
 }
 
 
-
 body {
   color: var(--darkgrey);
   background: var(--primaryBg);
@@ -31,6 +30,15 @@ body {
 
 .custom-list li::marker {
   color: var(--secondary);
+}
+
+.custom-marker {
+  background-color: var(--secondary); 
+  width: 6px; 
+  height: 6px; 
+  border-radius: 50%; 
+  margin-right: 8px; 
+  align-self: center; 
 }
 
 .card::before {

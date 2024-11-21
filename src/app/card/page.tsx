@@ -225,35 +225,54 @@ const Card: React.FC = () => {
           </p>
 
           <h3 className="font-bold mb-2">Особенности</h3>
-          <ul className="list-disc ml-5 mb-[50px]">
-            <li className="text-[var(--shortDesc)]">
-              Различные варианты рассеивателей: матовый / микропризматический /
-              прозрачный.
+          <ul className="list-none ml-5 mb-[50px]">
+            <li className="flex items-start mb-2">
+              <span className="custom-marker"></span>
+              <span className="text-[var(--shortDesc)]">
+                Различные варианты рассеивателей: матовый / микропризматический / прозрачный.
+              </span>
             </li>
-            <li className="text-[var(--shortDesc)]">
-              Источники питания с гальваниеской развязкой установлены внутри
-              корпуса светильника;
+            <li className="flex items-start mb-2">
+              <span className="custom-marker"></span>
+              <span className="text-[var(--shortDesc)]">
+                Источники питания с гальваниеской развязкой установлены внутри корпуса светильника;
+              </span>
             </li>
-            <li className="text-[var(--shortDesc)]">
-              Возможность соединения последовательно для получения сплошных
-              линий засветки длиной до 30м.
+            <li className="flex items-start mb-2">
+              <span className="custom-marker"></span>
+              <span className="text-[var(--shortDesc)]">
+                Возможность соединения последовательно для получения сплошных линий засветки длиной до 30м.
+              </span>
             </li>
-            <li className="text-[var(--shortDesc)]">
-              Возможность декорирования под дерево и другие материалы, либо
-              отделка деревом благородных пород.
+            <li className="flex items-start mb-2">
+              <span className="custom-marker"></span>
+              <span className="text-[var(--shortDesc)]">
+                Возможность декорирования под дерево и другие материалы, либо отделка деревом благородных пород.
+              </span>
             </li>
           </ul>
 
           <h3 className="font-bold mb-2">Области применения:</h3>
-          <ul className="list-disc ml-5">
-            <li className="text-[var(--shortDesc)]">Торговое освещение</li>
-            <li className="text-[var(--shortDesc)]">Офисное освещение</li>
-            <li className="text-[var(--shortDesc)]">Объекты бьюти индустрии</li>
-            <li className="text-[var(--shortDesc)]">
-              HoReCa - отели, рестораны, кафе
+          <ul className="list-none ml-5">
+            <li className="flex items-start mb-2">
+              <span className="custom-marker"></span>
+              <span className="text-[var(--shortDesc)]">Торговое освещение</span>
             </li>
-            <li className="text-[var(--shortDesc)]">
-              Проходные зоны любых общественных пространств
+            <li className="flex items-start mb-2">
+              <span className="custom-marker"></span>
+              <span className="text-[var(--shortDesc)]">Офисное освещение</span>
+            </li>
+            <li className="flex items-start mb-2">
+              <span className="custom-marker"></span>
+              <span className="text-[var(--shortDesc)]">Объекты бьюти индустрии</span>
+            </li>
+            <li className="flex items-start mb-2">
+              <span className="custom-marker"></span>
+              <span className="text-[var(--shortDesc)]">HoReCa - отели, рестораны, кафе</span>
+            </li>
+            <li className="flex items-start mb-2">
+              <span className="custom-marker"></span>
+              <span className="text-[var(--shortDesc)]">Проходные зоны любых общественных пространств</span>
             </li>
           </ul>
         </div>
