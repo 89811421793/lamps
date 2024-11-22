@@ -61,6 +61,14 @@ body {
   transform: translate(-55%, -53%);
 }
 
+.btn:hover {
+  background-color: var(--secondary); 
+}
+
+.btn:hover::after {
+  content: url('/plus_grey.svg'); 
+}
+
 
 /* Для WebKit-браузеров (Chrome, Safari) */
 .scrollable-container::-webkit-scrollbar {
