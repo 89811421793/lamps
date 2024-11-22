@@ -69,6 +69,12 @@ body {
   content: url('/plus_grey.svg'); 
 }
 
+.mod {
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px; /* Для увеличения толщины подчеркивания */
+  text-underline-offset: 4px; /* Для смещения подчеркивания вниз */
+}
+
 
 /* Для WebKit-браузеров (Chrome, Safari) */
 .scrollable-container::-webkit-scrollbar {

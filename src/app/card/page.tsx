@@ -246,7 +246,9 @@ const Card: React.FC = () => {
       </div>
 
       <div className="flex items-center max-w-[1285px] w-full mb-[10px] ml-[7.4%]">
-        <span className="flex-wrap w-[9%] mr-[2%]">LINE A 50-14W -830-WH</span>
+        <span className="flex-wrap text-[var(--darkgrey)] font-montserrat text-[14px] font-[500] leading-[17.07px] w-[9%] mr-[2%]">
+          LINE A 50-14W -830-WH
+        </span>
         <span className="mr-[6.5%]">14</span>
         <span className="mr-[2.5%]">Белый</span>
         <span className="mr-[2.5%]">20х15х10</span>
@@ -263,7 +265,9 @@ const Card: React.FC = () => {
       <hr className="my-[10px] ml-[7%]" />
 
       <div className="flex items-center max-w-[1285px] w-full mb-[10px] ml-[7.4%]">
-        <span className="flex-wrap w-[9%] mr-[2%]">LINE A 50-14W -830-WH</span>
+        <span className="flex-wrap text-[var(--darkgrey)] font-montserrat text-[14px] font-[500] leading-[17.07px] w-[9%] mr-[2%]">
+          LINE A 50-14W -830-WH
+        </span>
         <span className="mr-[6.5%]">14</span>
         <span className="mr-[1.5%]">Черный</span>
         <span className="mr-[2.5%]">20х15х10</span>
@@ -280,7 +284,9 @@ const Card: React.FC = () => {
       <hr className="my-[10px] ml-[7%]" />
 
       <div className="flex items-center max-w-[1285px] w-full mb-[10px] ml-[7.4%]">
-        <span className="flex-wrap w-[9%] mr-[2%]">LINE A 50-14W -830-WH</span>
+        <span className="flex-wrap text-[var(--darkgrey)] font-montserrat text-[14px] font-[500] leading-[17.07px] w-[9%] mr-[2%]">
+          LINE A 50-14W -830-WH
+        </span>
         <span className="mr-[6.3%]">22</span>
         <span className="mr-[2.3%]">Белый</span>
         <span className="mr-[2.5%]">20х15х10</span>
@@ -297,7 +303,9 @@ const Card: React.FC = () => {
       <hr className="my-[10px] ml-[7%]" />
 
       <div className="flex items-center max-w-[1285px] w-full  mb-[10px] ml-[7.4%]">
-        <span className="flex-wrap w-[9%] mr-[2%]">LINE A 50-14W -830-WH</span>
+        <span className="flex-wrap text-[var(--darkgrey)] font-montserrat text-[14px] font-[500] leading-[17.07px] w-[9%] mr-[2%]">
+          LINE A 50-14W -830-WH
+        </span>
         <span className="mr-[6.3%]">22</span>
         <span className="mr-[2.3%]">Серый</span>
         <span className="mr-[2.5%]">20х15х10</span>
@@ -314,7 +322,9 @@ const Card: React.FC = () => {
       <hr className="my-[10px] ml-[7%]" />
 
       <div className="flex items-center max-w-[1285px] w-full  mb-[10px] ml-[7.4%]">
-        <span className="flex-wrap w-[9%] mr-[2%]">LINE A 50-14W -830-WH</span>
+        <span className="flex-wrap text-[var(--darkgrey)] font-montserrat text-[14px] font-[500] leading-[17.07px] w-[9%] mr-[2%]">
+          LINE A 50-14W -830-WH
+        </span>
         <span className="mr-[6.3%]">22</span>
         <span className="mr-[2.3%]">Серый</span>
         <span className="mr-[2.5%]">20х15х10</span>
@@ -329,6 +339,12 @@ const Card: React.FC = () => {
       </div>
 
       <hr className="my-[10px] ml-[7%]" />
+      <a
+        href="#"
+        className="ml-[7.3%] text-[var(--secondary)] underline mb-[20px] block mod"
+      >
+        Все модификации
+      </a>
     </>
   );
 };
