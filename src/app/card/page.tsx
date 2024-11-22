@@ -32,29 +32,29 @@ const Card: React.FC = () => {
         белого, либо любого цвета по шкале RAL.
       </p>
       <h3 className="font-bold mb-2">Особенности</h3>
-      <ul className="list-none ml-5 mb-[50px]">
-        <li className="flex items-start mb-2">
+      <ul className="list-none mb-[50px] p-0">
+        <li className="flex items-start mb-2" style={{ marginLeft: 0 }}>
           <span className="custom-marker"></span>
           <span className="text-[var(--shortDesc)]">
             Различные варианты рассеивателей: матовый / микропризматический /
             прозрачный.
           </span>
         </li>
-        <li className="flex items-start mb-2">
+        <li className="flex items-start mb-2" style={{ marginLeft: 0 }}>
           <span className="custom-marker"></span>
           <span className="text-[var(--shortDesc)]">
             Источники питания с гальваниеской развязкой установлены внутри
             корпуса светильника;
           </span>
         </li>
-        <li className="flex items-start mb-2">
+        <li className="flex items-start mb-2" style={{ marginLeft: 0 }}>
           <span className="custom-marker"></span>
           <span className="text-[var(--shortDesc)]">
             Возможность соединения последовательно для получения сплошных линий
             засветки длиной до 30м.
           </span>
         </li>
-        <li className="flex items-start mb-2">
+        <li className="flex items-start mb-2" style={{ marginLeft: 0 }}>
           <span className="custom-marker"></span>
           <span className="text-[var(--shortDesc)]">
             Возможность декорирования под дерево и другие материалы, либо
@@ -63,28 +63,28 @@ const Card: React.FC = () => {
         </li>
       </ul>
       <h3 className="font-bold mb-2">Области применения:</h3>
-      <ul className="list-none ml-5">
-        <li className="flex items-start mb-2">
+      <ul className="list-none p-0">
+        <li className="flex items-start mb-2" style={{ marginLeft: 0 }}>
           <span className="custom-marker"></span>
           <span className="text-[var(--shortDesc)]">Торговое освещение</span>
         </li>
-        <li className="flex items-start mb-2">
+        <li className="flex items-start mb-2" style={{ marginLeft: 0 }}>
           <span className="custom-marker"></span>
           <span className="text-[var(--shortDesc)]">Офисное освещение</span>
         </li>
-        <li className="flex items-start mb-2">
+        <li className="flex items-start mb-2" style={{ marginLeft: 0 }}>
           <span className="custom-marker"></span>
           <span className="text-[var(--shortDesc)]">
             Объекты бьюти индустрии
           </span>
         </li>
-        <li className="flex items-start mb-2">
+        <li className="flex items-start mb-2" style={{ marginLeft: 0 }}>
           <span className="custom-marker"></span>
           <span className="text-[var(--shortDesc)]">
             HoReCa - отели, рестораны, кафе
           </span>
         </li>
-        <li className="flex items-start mb-2">
+        <li className="flex items-start mb-2" style={{ marginLeft: 0 }}>
           <span className="custom-marker"></span>
           <span className="text-[var(--shortDesc)]">
             Проходные зоны любых общественных пространств
@@ -221,112 +221,114 @@ const Card: React.FC = () => {
           </div>
 
           <ProdinfoTabs tabs={tabs} content={content} />
+          <span className="inline-block mt-2 font-bold text-darkgrey leading-10 text-base font-montserrat">
+            Выбранные модификации
+          </span>
+          <span className="inline-block mt-2 ml-5 font-normal text-darkgrey leading-4 text-sm font-montserrat">
+            Показано 4 из 15
+          </span>
         </Container>
       </div>
 
-     
-      <div className="flex items-center w-full gap-[15px] mb-[10px] bg-[#F9F9F9]">
-    <span className='ml-[7%]'>Наименование</span>
-    <span>Мощность</span>
-    <span>Цвет корпуса</span>
-    <span>Габариты [ВxДxШ]</span>
-    <span>Световой поток LED [лкм]</span>
-    <span>Угол рассеивания</span>
-    <span>Эффективность LW/W</span>
-    <span>Цветовая температура</span>
-    <span>CRI/Ra</span>
-    <span>Управление светом</span>
-    <span>Цена</span>
-    <span className='mr-[4%]'>Добавить в подборку</span>
-</div>
+      <div className="flex items-center w-full gap-[15px] mt-[20px] mb-[10px] pt-[10px] pb-[10px] bg-[#F9F9F9]">
+        <span className="ml-[7.4%]">Наименование</span>
+        <span>Мощность</span>
+        <span>Цвет корпуса</span>
+        <span>Габариты [ВxДxШ]</span>
+        <span>Световой поток LED [лкм]</span>
+        <span>Угол рассеивания</span>
+        <span>Эффективность LW/W</span>
+        <span>Цветовая температура</span>
+        <span>CRI/Ra</span>
+        <span>Управление светом</span>
+        <span>Цена</span>
+        <span className="mr-[4%]">Добавить в подборку</span>
+      </div>
 
-<div className="flex items-center max-w-[1285px] w-full mb-[10px] ml-[7%]">
-    <span className='flex-wrap w-[11%]'>LINE A 50-14W -830-WH</span>
-    <span className='mr-[6.5%]'>14</span>
-    <span className='mr-[2.5%]'>Белый</span>
-    <span className='mr-[2.5%]'>20х15х10</span>
-    <span className='mr-[8%]'>1672</span>
-    <span className='mr-[6.5%]'>119.43</span>
-    <span className='mr-[8%]'>119.43</span>
-    <span className='mr-[6.5%]'>3000</span>
-    <span className='mr-[3%]'>80+</span>
-    <span className='mr-[7.5%]'>no</span>
-    <span className='mr-[4%]'>2700</span>
-    <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
-  
-</div>
+      <div className="flex items-center max-w-[1285px] w-full mb-[10px] ml-[7.4%]">
+        <span className="flex-wrap w-[9%] mr-[2%]">LINE A 50-14W -830-WH</span>
+        <span className="mr-[6.5%]">14</span>
+        <span className="mr-[2.5%]">Белый</span>
+        <span className="mr-[2.5%]">20х15х10</span>
+        <span className="mr-[8%]">1672</span>
+        <span className="mr-[6.5%]">119.43</span>
+        <span className="mr-[7.5%]">119.43</span>
+        <span className="mr-[6.5%]">3000</span>
+        <span className="mr-[3%]">80+</span>
+        <span className="mr-[7.5%]">no</span>
+        <span className="mr-[4%]">2700</span>
+        <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
+      </div>
 
-<hr className='my-[10px] ml-[7%]'/>
+      <hr className="my-[10px] ml-[7%]" />
 
-<div className="flex items-center max-w-[1285px] w-full mb-[10px] ml-[7%]">
-    <span className='flex-wrap w-[11%]'>LINE A 50-14W -830-WH</span>
-    <span className='mr-[6.5%]'>14</span>
-    <span className='mr-[1.5%]'>Черный</span>
-    <span className='mr-[2.5%]'>20х15х10</span>
-    <span className='mr-[8%]'>1760</span>
-    <span className='mr-[6.5%]'>125.71</span>
-    <span className='mr-[8%]'>125.71</span>
-    <span className='mr-[6.5%]'>3000</span>
-    <span className='mr-[3%]'>80+</span>
-    <span className='mr-[7.5%]'>no</span>
-    <span className='mr-[4%]'>2700</span>
-    <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
-</div>
+      <div className="flex items-center max-w-[1285px] w-full mb-[10px] ml-[7.4%]">
+        <span className="flex-wrap w-[9%] mr-[2%]">LINE A 50-14W -830-WH</span>
+        <span className="mr-[6.5%]">14</span>
+        <span className="mr-[1.5%]">Черный</span>
+        <span className="mr-[2.5%]">20х15х10</span>
+        <span className="mr-[8%]">1760</span>
+        <span className="mr-[6.5%]">125.71</span>
+        <span className="mr-[7.5%]">125.71</span>
+        <span className="mr-[6.5%]">3000</span>
+        <span className="mr-[3%]">80+</span>
+        <span className="mr-[7.5%]">no</span>
+        <span className="mr-[4%]">2700</span>
+        <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
+      </div>
 
-<hr className='my-[10px] ml-[7%]'/>
+      <hr className="my-[10px] ml-[7%]" />
 
-<div className="flex items-center max-w-[1285px] w-full mb-[10px] ml-[7%]">
-    <span className='flex-wrap w-[11%]'>LINE A 50-14W -830-WH</span>
-    <span className='mr-[6.3%]'>22</span>
-    <span className='mr-[2.3%]'>Белый</span>
-    <span className='mr-[2.5%]'>20х15х10</span>
-    <span className='mr-[8%]'>1672</span>
-    <span className='mr-[6.5%]'>119.43</span>
-    <span className='mr-[8%]'>119.43</span>
-    <span className='mr-[6.5%]'>4000</span>
-    <span className='mr-[3%]'>80+</span>
-    <span className='mr-[7.5%]'>no</span>
-    <span className='mr-[4%]'>2700</span>
-    <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
-</div>
+      <div className="flex items-center max-w-[1285px] w-full mb-[10px] ml-[7.4%]">
+        <span className="flex-wrap w-[9%] mr-[2%]">LINE A 50-14W -830-WH</span>
+        <span className="mr-[6.3%]">22</span>
+        <span className="mr-[2.3%]">Белый</span>
+        <span className="mr-[2.5%]">20х15х10</span>
+        <span className="mr-[8%]">1672</span>
+        <span className="mr-[6.5%]">119.43</span>
+        <span className="mr-[7.5%]">119.43</span>
+        <span className="mr-[6.5%]">4000</span>
+        <span className="mr-[3%]">80+</span>
+        <span className="mr-[7.5%]">no</span>
+        <span className="mr-[4%]">2700</span>
+        <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
+      </div>
 
-<hr className='my-[10px] ml-[7%]'/>
+      <hr className="my-[10px] ml-[7%]" />
 
-<div className="flex items-center max-w-[1285px] w-full  mb-[10px] ml-[7%]">
-    <span className='flex-wrap w-[11%]'>LINE A 50-14W -830-WH</span>
-    <span className='mr-[6.3%]'>22</span>
-    <span className='mr-[2.3%]'>Серый</span>
-    <span className='mr-[2.5%]'>20х15х10</span>
-    <span className='mr-[8%]'>1672</span>
-    <span className='mr-[6.5%]'>119.43</span>
-    <span className='mr-[8%]'>119.43</span>
-    <span className='mr-[6.5%]'>3000</span>
-    <span className='mr-[3%]'>80+</span>
-    <span className='mr-[7.5%]'>no</span>
-    <span className='mr-[4%]'>3500</span>
-    <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
-</div>
+      <div className="flex items-center max-w-[1285px] w-full  mb-[10px] ml-[7.4%]">
+        <span className="flex-wrap w-[9%] mr-[2%]">LINE A 50-14W -830-WH</span>
+        <span className="mr-[6.3%]">22</span>
+        <span className="mr-[2.3%]">Серый</span>
+        <span className="mr-[2.5%]">20х15х10</span>
+        <span className="mr-[8%]">1672</span>
+        <span className="mr-[6.5%]">119.43</span>
+        <span className="mr-[7.5%]">119.43</span>
+        <span className="mr-[6.5%]">3000</span>
+        <span className="mr-[3%]">80+</span>
+        <span className="mr-[7.5%]">no</span>
+        <span className="mr-[4%]">3500</span>
+        <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
+      </div>
 
-<hr className='my-[10px] ml-[7%]'/>
+      <hr className="my-[10px] ml-[7%]" />
 
-<div className="flex items-center max-w-[1285px] w-full  mb-[10px] ml-[7%]">
-    <span className='flex-wrap w-[11%]'>LINE A 50-14W -830-WH</span>
-    <span className='mr-[6.3%]'>22</span>
-    <span className='mr-[2.3%]'>Серый</span>
-    <span className='mr-[2.5%]'>20х15х10</span>
-    <span className='mr-[8%]'>1672</span>
-    <span className='mr-[6.5%]'>119.43</span>
-    <span className='mr-[8%]'>119.43</span>
-    <span className='mr-[6.5%]'>3000</span>
-    <span className='mr-[3%]'>80+</span>
-    <span className='mr-[7.5%]'>no</span>
-    <span className='mr-[4%]'>3500</span>
-    <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
-</div>
+      <div className="flex items-center max-w-[1285px] w-full  mb-[10px] ml-[7.4%]">
+        <span className="flex-wrap w-[9%] mr-[2%]">LINE A 50-14W -830-WH</span>
+        <span className="mr-[6.3%]">22</span>
+        <span className="mr-[2.3%]">Серый</span>
+        <span className="mr-[2.5%]">20х15х10</span>
+        <span className="mr-[8%]">1672</span>
+        <span className="mr-[6.5%]">119.43</span>
+        <span className="mr-[7.5%]">119.43</span>
+        <span className="mr-[6.5%]">3000</span>
+        <span className="mr-[3%]">80+</span>
+        <span className="mr-[7.5%]">no</span>
+        <span className="mr-[4%]">3500</span>
+        <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
+      </div>
 
-<hr className='my-[10px] ml-[7%]'/>
-
-      
+      <hr className="my-[10px] ml-[7%]" />
     </>
   );
 };
