@@ -230,118 +230,206 @@ const Card: React.FC = () => {
         </Container>
       </div>
 
-      <div className="flex items-center w-full gap-[15px] mt-[20px] mb-[10px] pt-[10px] pb-[10px] bg-[#F9F9F9]">
-        <span className="ml-[7.4%]">Наименование</span>
-        <span>Мощность</span>
-        <span>Цвет корпуса</span>
-        <span>Габариты [ВxДxШ]</span>
-        <span>Световой поток LED [лкм]</span>
-        <span>Угол рассеивания</span>
-        <span>Эффективность LW/W</span>
-        <span>Цветовая температура</span>
-        <span>CRI/Ra</span>
-        <span>Управление светом</span>
-        <span>Цена</span>
-        <span className="mr-[4%]">Добавить в подборку</span>
-      </div>
+      <div className='flex flex-col ml-[6%] max-w-[1285px] w-full'>
+    <div className='flex w-full mb-2 items-center pb-2 header-container relative'>
+        <div className='flex flex-col w-[12%] min-w-[80px]'>
+            <span className='font-bold text-left'>Наименование</span>
+        </div>
+        <div className='flex flex-col w-[8%] min-w-[80px]'>
+            <span className='font-bold text-left'>Мощность</span>
+        </div>
+        <div className='flex flex-col w-[7%] min-w-[80px]'>
+            <span className='font-bold text-left'>Цвет корпуса</span>
+        </div>
+        <div className='flex flex-col w-[6%] min-w-[100px]'>
+            <span className='font-bold text-left'>Габариты [ВxДxШ]</span>
+        </div>
+        <div className='flex flex-col w-[8%] min-w-[100px]'>
+            <span className='font-bold text-left'>Световой поток LED [лкм]</span>
+        </div>
+        <div className='flex flex-col w-[10%] min-w-[100px]'>
+            <span className='font-bold text-left'>Угол рассеивания</span>
+        </div>
+        <div className='flex flex-col w-[11%] min-w-[100px]'>
+            <span className='font-bold text-left'>Эффективность LW/W</span>
+        </div>
+        <div className='flex flex-col w-[9%] min-w-[100px]'>
+            <span className='font-bold text-left'>Цветовая температура</span>
+        </div>
+        <div className='flex flex-col w-[3%] min-w-[80px]'>
+            <span className='font-bold text-left'>CRI/Ra</span>
+        </div>
+        <div className='flex flex-col w-[9%] min-w-[80px]'>
+            <span className='font-bold text-left'>Управление светом</span>
+        </div>
+        <div className='flex flex-col w-[3%] min-w-[80px]'>
+            <span className='font-bold text-left'>Цена</span>
+        </div>
+        <div className='flex flex-col w-[7%] min-w-[80px]'>
+            <span className='font-bold text-left'>Добавить в подборку</span>
+        </div>
+    </div>
 
-      <div className="flex items-center max-w-[1285px] w-full mb-[10px] ml-[7.4%]">
-        <span className="flex-wrap text-[var(--darkgrey)] font-montserrat text-[14px] font-[500] leading-[17.07px] w-[9%] mr-[2%]">
-          LINE A 50-14W -830-WH
-        </span>
-        <span className="mr-[6.5%]">14</span>
-        <span className="mr-[2.5%]">Белый</span>
-        <span className="mr-[2.5%]">20х15х10</span>
-        <span className="mr-[8%]">1672</span>
-        <span className="mr-[6.5%]">119.43</span>
-        <span className="mr-[7.5%]">119.43</span>
-        <span className="mr-[6.5%]">3000</span>
-        <span className="mr-[3%]">80+</span>
-        <span className="mr-[7.5%]">no</span>
-        <span className="mr-[4%]">2700</span>
-        <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
-      </div>
+    <div className='flex w-full pb-2 mb-2 data-row relative'>
+        <div className='flex flex-col w-[12%] min-w-[80px]'>
+            <span className='text-left'>LINE A 50-14W -830-WH</span>
+        </div>
+        <div className='flex flex-col w-[8%] min-w-[80px]'>
+            <span className='text-left'>14</span>
+        </div>
+        <div className='flex flex-col w-[7%] min-w-[80px]'>
+            <span className='text-left'>Белый</span>
+        </div>
+        <div className='flex flex-col w-[6%] min-w-[100px]'>
+            <span className='text-left'>20х15х10</span>
+        </div>
+        <div className='flex flex-col w-[8%] min-w-[100px]'>
+            <span className='text-left'>1672</span>
+        </div>
+        <div className='flex flex-col w-[10%] min-w-[100px]'>
+            <span className='text-left'>119.43</span>
+        </div>
+        <div className='flex flex-col w-[11%] min-w-[100px]'>
+            <span className='text-left'>119.43</span>
+        </div>
+        <div className='flex flex-col w-[9%] min-w-[100px]'>
+            <span className='text-left'>3000</span>
+        </div>
+        <div className='flex flex-col w-[3%] min-w-[80px]'>
+            <span className='text-left'>80+</span>
+        </div>
+        <div className='flex flex-col w-[9%] min-w-[80px]'>
+            <span className='text-left'>no</span>
+        </div>
+        <div className='flex flex-col w-[3%] min-w-[80px]'>
+            <span className='text-left'>2700</span>
+        </div>
+        <div className='flex flex-col w-[7%] min-w-[80px] items-center'>
+            <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
+        </div>
+    </div>
 
-      <hr className="my-[10px] ml-[7%]" />
+    <div className='flex w-full pb-2 mb-2 data-row relative'>
+        <div className='flex flex-col w-[12%] min-w-[80px]'>
+            <span className='text-left'>LINE A 50-14W -830-WH</span>
+        </div>
+        <div className='flex flex-col w-[8%] min-w-[80px]'>
+            <span className='text-left'>14</span>
+        </div>
+        <div className='flex flex-col w-[7%] min-w-[80px]'>
+            <span className='text-left'>Черный</span>
+        </div>
+        <div className='flex flex-col w-[6%] min-w-[100px]'>
+            <span className='text-left'>20х15х10</span>
+        </div>
+        <div className='flex flex-col w-[8%] min-w-[100px]'>
+            <span className='text-left'>1760</span>
+        </div>
+        <div className='flex flex-col w-[10%] min-w-[100px]'>
+            <span className='text-left'>125.71</span>
+        </div>
+        <div className='flex flex-col w-[11%] min-w-[100px]'>
+            <span className='text-left'>125.71</span>
+        </div>
+        <div className='flex flex-col w-[9%] min-w-[100px]'>
+            <span className='text-left'>3000</span>
+        </div>
+        <div className='flex flex-col w-[3%] min-w-[80px]'>
+            <span className='text-left'>80+</span>
+        </div>
+        <div className='flex flex-col w-[9%] min-w-[80px]'>
+            <span className='text-left'>no</span>
+        </div>
+        <div className='flex flex-col w-[3%] min-w-[80px]'>
+            <span className='text-left'>2700</span>
+        </div>
+        <div className='flex flex-col w-[7%] min-w-[80px] items-center'>
+            <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
+        </div>
+    </div>
 
-      <div className="flex items-center max-w-[1285px] w-full mb-[10px] ml-[7.4%]">
-        <span className="flex-wrap text-[var(--darkgrey)] font-montserrat text-[14px] font-[500] leading-[17.07px] w-[9%] mr-[2%]">
-          LINE A 50-14W -830-WH
-        </span>
-        <span className="mr-[6.5%]">14</span>
-        <span className="mr-[1.5%]">Черный</span>
-        <span className="mr-[2.5%]">20х15х10</span>
-        <span className="mr-[8%]">1760</span>
-        <span className="mr-[6.5%]">125.71</span>
-        <span className="mr-[7.5%]">125.71</span>
-        <span className="mr-[6.5%]">3000</span>
-        <span className="mr-[3%]">80+</span>
-        <span className="mr-[7.5%]">no</span>
-        <span className="mr-[4%]">2700</span>
-        <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
-      </div>
+    <div className='flex w-full pb-2 mb-2 data-row relative'>
+        <div className='flex flex-col w-[12%] min-w-[80px]'>
+            <span className='text-left'>LINE A 50-14W -830-WH</span>
+        </div>
+        <div className='flex flex-col w-[8%] min-w-[80px]'>
+            <span className='text-left'>22</span>
+        </div>
+        <div className='flex flex-col w-[7%] min-w-[80px]'>
+            <span className='text-left'>Белый</span>
+        </div>
+        <div className='flex flex-col w-[6%] min-w-[100px]'>
+            <span className='text-left'>20х15х10</span>
+        </div>
+        <div className='flex flex-col w-[8%] min-w-[100px]'>
+            <span className='text-left'>1672</span>
+        </div>
+        <div className='flex flex-col w-[10%] min-w-[100px]'>
+            <span className='text-left'>119.43</span>
+        </div>
+        <div className='flex flex-col w-[11%] min-w-[100px]'>
+            <span className='text-left'>119.43</span>
+        </div>
+        <div className='flex flex-col w-[9%] min-w-[100px]'>
+            <span className='text-left'>4000</span>
+        </div>
+        <div className='flex flex-col w-[3%] min-w-[80px]'>
+            <span className='text-left'>80+</span>
+        </div>
+        <div className='flex flex-col w-[9%] min-w-[80px]'>
+            <span className='text-left'>no</span>
+        </div>
+        <div className='flex flex-col w-[3%] min-w-[80px]'>
+            <span className='text-left'>2700</span>
+        </div>
+        <div className='flex flex-col w-[7%] min-w-[80px] items-center'>
+            <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
+        </div>
+    </div>
 
-      <hr className="my-[10px] ml-[7%]" />
+    <div className='flex w-full pb-2 mb-2 data-row relative'>
+        <div className='flex flex-col w-[12%] min-w-[80px]'>
+            <span className='text-left'>LINE A 50-14W -830-WH</span>
+        </div>
+        <div className='flex flex-col w-[8%] min-w-[80px]'>
+            <span className='text-left'>22</span>
+        </div>
+        <div className='flex flex-col w-[7%] min-w-[80px]'>
+            <span className='text-left'>Серый</span>
+        </div>
+        <div className='flex flex-col w-[6%] min-w-[100px]'>
+            <span className='text-left'>20х15х10</span>
+        </div>
+        <div className='flex flex-col w-[8%] min-w-[100px]'>
+            <span className='text-left'>1672</span>
+        </div>
+        <div className='flex flex-col w-[10%] min-w-[100px]'>
+            <span className='text-left'>119.43</span>
+        </div>
+        <div className='flex flex-col w-[11%] min-w-[100px]'>
+            <span className='text-left'>119.43</span>
+        </div>
+        <div className='flex flex-col w-[9%] min-w-[100px]'>
+            <span className='text-left'>3000</span>
+        </div>
+        <div className='flex flex-col w-[3%] min-w-[80px]'>
+            <span className='text-left'>80+</span>
+        </div>
+        <div className='flex flex-col w-[9%] min-w-[80px]'>
+            <span className='text-left'>no</span>
+        </div>
+        <div className='flex flex-col w-[3%] min-w-[80px]'>
+            <span className='text-left'>3500</span>
+        </div>
+        <div className='flex flex-col w-[7%] min-w-[80px] items-center'>
+            <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
+        </div>
+    </div>
+</div>
 
-      <div className="flex items-center max-w-[1285px] w-full mb-[10px] ml-[7.4%]">
-        <span className="flex-wrap text-[var(--darkgrey)] font-montserrat text-[14px] font-[500] leading-[17.07px] w-[9%] mr-[2%]">
-          LINE A 50-14W -830-WH
-        </span>
-        <span className="mr-[6.3%]">22</span>
-        <span className="mr-[2.3%]">Белый</span>
-        <span className="mr-[2.5%]">20х15х10</span>
-        <span className="mr-[8%]">1672</span>
-        <span className="mr-[6.5%]">119.43</span>
-        <span className="mr-[7.5%]">119.43</span>
-        <span className="mr-[6.5%]">4000</span>
-        <span className="mr-[3%]">80+</span>
-        <span className="mr-[7.5%]">no</span>
-        <span className="mr-[4%]">2700</span>
-        <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
-      </div>
-
-      <hr className="my-[10px] ml-[7%]" />
-
-      <div className="flex items-center max-w-[1285px] w-full  mb-[10px] ml-[7.4%]">
-        <span className="flex-wrap text-[var(--darkgrey)] font-montserrat text-[14px] font-[500] leading-[17.07px] w-[9%] mr-[2%]">
-          LINE A 50-14W -830-WH
-        </span>
-        <span className="mr-[6.3%]">22</span>
-        <span className="mr-[2.3%]">Серый</span>
-        <span className="mr-[2.5%]">20х15х10</span>
-        <span className="mr-[8%]">1672</span>
-        <span className="mr-[6.5%]">119.43</span>
-        <span className="mr-[7.5%]">119.43</span>
-        <span className="mr-[6.5%]">3000</span>
-        <span className="mr-[3%]">80+</span>
-        <span className="mr-[7.5%]">no</span>
-        <span className="mr-[4%]">3500</span>
-        <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
-      </div>
-
-      <hr className="my-[10px] ml-[7%]" />
-
-      <div className="flex items-center max-w-[1285px] w-full  mb-[10px] ml-[7.4%]">
-        <span className="flex-wrap text-[var(--darkgrey)] font-montserrat text-[14px] font-[500] leading-[17.07px] w-[9%] mr-[2%]">
-          LINE A 50-14W -830-WH
-        </span>
-        <span className="mr-[6.3%]">22</span>
-        <span className="mr-[2.3%]">Серый</span>
-        <span className="mr-[2.5%]">20х15х10</span>
-        <span className="mr-[8%]">1672</span>
-        <span className="mr-[6.5%]">119.43</span>
-        <span className="mr-[7.5%]">119.43</span>
-        <span className="mr-[6.5%]">3000</span>
-        <span className="mr-[3%]">80+</span>
-        <span className="mr-[7.5%]">no</span>
-        <span className="mr-[4%]">3500</span>
-        <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
-      </div>
-
-      <hr className="my-[10px] ml-[7%]" />
       <a
         href="#"
-        className="ml-[7.3%] text-[var(--secondary)] underline mb-[20px] block mod"
+        className="ml-[6%] text-[var(--secondary)] underline mb-[20px] block mod"
       >
         Все модификации
       </a>
