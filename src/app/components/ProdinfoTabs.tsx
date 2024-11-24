@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from "react";
 
 type Tab = {
@@ -34,7 +35,7 @@ const ProdinfoTabs: React.FC<ProdinfoTabsProps> = ({ tabs, content }) => {
       <hr className="border-t border-[#EDEDED] mb-[20px]" />
 
       <div className="flex flex-col mb-[50px]">
-        {content[selectedTab - 1]} {/* Assuming tabs are 1-indexed */}
+        {content[selectedTab - 1]}
       </div>
     </div>
   );

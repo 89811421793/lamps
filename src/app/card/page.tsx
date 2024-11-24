@@ -1,25 +1,12 @@
-"use client";
+// Card.tsx
+import React from "react";
 import Link from "next/link";
-import React, { useState } from "react";
 import Container from "../components/Container";
 import VerticalSlider from "../components/Slider";
 import ProdinfoTabs from "../components/ProdinfoTabs";
 
-const tabs = [
-  { id: 1, label: "Описание" },
-  { id: 2, label: "Технические характеристики" },
-  { id: 3, label: "Конструктивные характеристики" },
-  { id: 4, label: "Материалы для скачивания" },
-];
-
-const Card: React.FC = () => {
-  const [selectedIndex, setSelectedIndex] = useState<number>(2);
-
-  const handleSlideChange = (index: number) => {
-    setSelectedIndex(index);
-  };
-
-  const content = [
+const fetchDescriptions = async () => {
+  return [
     <div key="description">
       <p className="text-[var(--shortDesc)] mb-[50px]">
         Потолочный светильник LINE A подвесного или накладного монтажа
@@ -102,9 +89,23 @@ const Card: React.FC = () => {
       Материалы для скачивания: No details yet. Check Later.
     </p>,
   ];
+};
+
+const fetchProdInfoTabs = async () => {
+  return [
+    { id: 1, label: "Описание" },
+    { id: 2, label: "Технические характеристики" },
+    { id: 3, label: "Конструктивные характеристики" },
+    { id: 4, label: "Материалы для скачивания" },
+  ];
+};
+
+const Card = async () => {
+  const descriptions = await fetchDescriptions();
+  const tabs = await fetchProdInfoTabs();
 
   return (
-    <div className="flex">
+    <div>
       <Container>
         <nav className="text-[#7C7C7C] mt-[17px] mb-[38px]">
           <Link href="/" className="hover:text-gray-800">
@@ -124,7 +125,7 @@ const Card: React.FC = () => {
           </Link>
         </nav>
         <div className="flex mb-[50px]">
-          <VerticalSlider onSlideChange={handleSlideChange} />
+          <VerticalSlider />
           <div className="ml-[42px]">
             <h2 className="text-xl font-bold">Трековый светильник EVO L</h2>
             <div className="border-b border-[#EDEDED] my-[28px]" />
@@ -219,8 +220,8 @@ const Card: React.FC = () => {
           </div>
         </div>
 
-        <ProdinfoTabs tabs={tabs} content={content} />
-        <span className="inline-block mt-2  mb-[10px] font-bold text-darkgrey leading-10 text-base font-montserrat">
+        <ProdinfoTabs tabs={tabs} content={descriptions} />
+        <span className="inline-block mt-2 mb-[10px] font-bold text-darkgrey leading-10 text-base font-montserrat">
           Выбранные модификации
         </span>
         <span className="inline-block mt-2 ml-5 mb-[10px] font-normal text-darkgrey leading-4 text-sm font-montserrat">
@@ -280,9 +281,9 @@ const Card: React.FC = () => {
             <span className="flex flex-col w-[3%] min-w-[80px]">80+</span>
             <span className="flex flex-col w-[9%] min-w-[80px]">no</span>
             <span className="flex flex-col w-[3%] min-w-[80px]">2700</span>
-            <span className="flex flex-col w-[7%] min-w-[80px] items-center">
+            <div className="flex flex-col w-[7%] min-w-[80px] items-center">
               <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
-            </span>
+            </div>
           </div>
 
           <div className="flex w-full pb-2 mb-2 data-row relative">
@@ -299,9 +300,9 @@ const Card: React.FC = () => {
             <span className="flex flex-col w-[3%] min-w-[80px]">80+</span>
             <span className="flex flex-col w-[9%] min-w-[80px]">no</span>
             <span className="flex flex-col w-[3%] min-w-[80px]">2700</span>
-            <span className="flex flex-col w-[7%] min-w-[80px] items-center">
+            <div className="flex flex-col w-[7%] min-w-[80px] items-center">
               <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
-            </span>
+            </div>
           </div>
 
           <div className="flex w-full pb-2 mb-2 data-row relative">
@@ -318,9 +319,9 @@ const Card: React.FC = () => {
             <span className="flex flex-col w-[3%] min-w-[80px]">80+</span>
             <span className="flex flex-col w-[9%] min-w-[80px]">no</span>
             <span className="flex flex-col w-[3%] min-w-[80px]">2700</span>
-            <span className="flex flex-col w-[7%] min-w-[80px] items-center">
+            <div className="flex flex-col w-[7%] min-w-[80px] items-center">
               <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
-            </span>
+            </div>
           </div>
 
           <div className="flex w-full pb-2 mb-2 data-row relative">
@@ -337,18 +338,18 @@ const Card: React.FC = () => {
             <span className="flex flex-col w-[3%] min-w-[80px]">80+</span>
             <span className="flex flex-col w-[9%] min-w-[80px]">no</span>
             <span className="flex flex-col w-[3%] min-w-[80px]">3500</span>
-            <span className="flex flex-col w-[7%] min-w-[80px] items-center">
+            <div className="flex flex-col w-[7%] min-w-[80px] items-center">
               <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
-            </span>
+            </div>
           </div>
-        </div>
 
-        <a
-          href="#"
-          className="text-[var(--secondary)] underline mb-[20px] block mod"
-        >
-          Все модификации
-        </a>
+          <a
+            href="#"
+            className="text-[var(--secondary)] underline mb-[20px] block mod"
+          >
+            Все модификации
+          </a>
+        </div>
       </Container>
     </div>
   );

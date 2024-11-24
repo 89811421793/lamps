@@ -1,3 +1,5 @@
+// VerticalSlider.tsx
+'use client'
 import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -5,7 +7,6 @@ import SwiperCore from 'swiper';
 import { Navigation } from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
 
-// Инициализация модулей
 SwiperCore.use([Navigation]);
 
 const images: string[] = [
@@ -18,19 +19,14 @@ const images: string[] = [
   '/slide4.png',
 ];
 
-interface VerticalSliderProps {
-  onSlideChange: (index: number) => void;
-}
-
-const VerticalSlider: React.FC<VerticalSliderProps> = ({ onSlideChange }) => {
-  const [selectedIndex, setSelectedIndex] = useState<number>(2); // Set default index to 'lamp_scr.png'
+const VerticalSlider: React.FC = () => {
+  const [selectedIndex, setSelectedIndex] = useState<number>(2);
   const [isPrevHovered, setIsPrevHovered] = useState<boolean>(false);
   const [isNextHovered, setIsNextHovered] = useState<boolean>(false);
   const swiperRef = useRef<any>(null);
 
   const handleSlideChange = (index: number) => {
     setSelectedIndex(index);
-    onSlideChange(index); 
   };
 
   const handlePrevClick = () => {
@@ -77,7 +73,6 @@ const VerticalSlider: React.FC<VerticalSliderProps> = ({ onSlideChange }) => {
           </svg>
         </button>
 
-        {/* Swiper Component */}
         <Swiper
           modules={[Navigation]}
           onSlideChange={(swiper) => handleSlideChange(swiper.activeIndex)}
@@ -132,3 +127,4 @@ const VerticalSlider: React.FC<VerticalSliderProps> = ({ onSlideChange }) => {
 };
 
 export default VerticalSlider;
+
