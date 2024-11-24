@@ -1,6 +1,6 @@
 "use client"; 
 
-import React, { useState } from "react";
+import React, { useState, createContext, useContext } from "react";
 import SectionTitle from "../../SectionTitle";
 import Image from "next/image";
 import Link from 'next/link'; 
@@ -11,13 +11,20 @@ interface CatalogItem {
 }
 
 interface CatalogSectionProps {
-  items: CatalogItem[]; // Принимаем items как пропс
+  items: CatalogItem[];
 }
 
-const CatalogSection: React.FC<CatalogSectionProps> = ({ items }) => {
+// Создаем контекст
+const CatalogContext = createContext<{
+  visibleItems: Set<number>;
+  toggleItem: (index: number) => void;
+} | undefined>(undefined);
+
+// Создаем провайдер
+const CatalogProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
 
-  const handleItemClick = (index: number) => {
+  const toggleItem = (index: number) => {
     setVisibleItems((prev) => {
       const newVisibleItems = new Set(prev);
       if (newVisibleItems.has(index)) {
@@ -30,6 +37,22 @@ const CatalogSection: React.FC<CatalogSectionProps> = ({ items }) => {
   };
 
   return (
+    <CatalogContext.Provider value={{ visibleItems, toggleItem }}>
+      {children}
+    </CatalogContext.Provider>
+  );
+};
+
+const CatalogSection: React.FC<CatalogSectionProps> = ({ items }) => {
+  const context = useContext(CatalogContext);
+  
+  if (!context) {
+    throw new Error("CatalogSection must be used within a CatalogProvider");
+  }
+
+  const { visibleItems, toggleItem } = context;
+
+  return (
     <section className="mb-[61px]">
       <SectionTitle title="Каталог"/>
       <div className="flex flex-col md:flex-row">
@@ -38,7 +61,7 @@ const CatalogSection: React.FC<CatalogSectionProps> = ({ items }) => {
             {items.map((item, index) => (
               <li key={index}>
                 <div
-                  onClick={() => handleItemClick(index)}
+                  onClick={() => toggleItem(index)}
                   className={`text-darkgrey font-montserrat text-14 font-bold leading-22 break-words cursor-pointer ${
                     visibleItems.has(index) ? "text-secondary font-bold text-18" : ""
                   }`}
@@ -77,4 +100,5 @@ const CatalogSection: React.FC<CatalogSectionProps> = ({ items }) => {
   );
 };
 
-export default CatalogSection;
+// Экспортируем провайдер для использования в других компонентах
+export { CatalogProvider, CatalogSection };

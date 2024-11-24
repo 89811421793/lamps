@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 
+
 // Подключаем шрифты Montserrat
 const montserratRegular = localFont({
   src: "./fonts/Montserrat-Regular.woff",
@@ -52,6 +53,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    
     <html lang="ru">
       <body className={`${montserratRegular.variable} ${montserratMedium.variable} ${montserratSemibold.variable} ${montserratBold.variable} ${montserratExtraBold.variable} ${montserratLight.variable} antialiased`}>
         <Header/>
@@ -59,5 +61,6 @@ export default function RootLayout({
       <Footer/>
       </body>
     </html>
+  
   );
 }
