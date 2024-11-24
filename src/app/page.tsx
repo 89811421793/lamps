@@ -1,8 +1,9 @@
 import Container from "./components/Container";
 import { CatalogSection, CatalogProvider } from "./components/sections/mainpage/CatalogSection";
+import { ServicesSection, ServicesProvider } from "./components/sections/mainpage/ServicesSection";
 import Hero from "./components/sections/mainpage/Hero";
 import Latest from "./components/sections/mainpage/Latest";
-import ServicesSection from "./components/sections/mainpage/ServicesSection";
+
 
 type CatalogItem = {
   title: string;
@@ -72,7 +73,9 @@ export default async function Home() {
         <CatalogProvider>
           <CatalogSection items={items} />
         </CatalogProvider>
+        <ServicesProvider>
         <ServicesSection items={serviceItems} />
+        </ServicesProvider>
         <Latest/>
       </Container>
     </main>

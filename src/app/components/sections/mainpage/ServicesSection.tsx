@@ -1,6 +1,6 @@
 "use client"; 
 
-import React, { useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 import SectionTitle from "../../SectionTitle";
 import Image from "next/image"; 
 
@@ -10,28 +10,50 @@ interface ServiceItem {
   icon: string; 
 }
 
-const ServicesSection = ({ items }: { items: ServiceItem[] }) => {
-  const [visibleItems, setVisibleItems] = useState<number[]>([]); // Используем массив для хранения индексов видимых элементов
+interface ServicesContextType {
+  visibleItems: number[];
+  toggleItem: (index: number) => void;
+}
 
-  const handleItemClick = (index: number) => {
+const ServicesContext = createContext<ServicesContextType | undefined>(undefined);
+
+const ServicesProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [visibleItems, setVisibleItems] = useState<number[]>([]);
+
+  const toggleItem = (index: number) => {
     setVisibleItems((prev) => {
-      // Проверяем, есть ли индекс в массиве видимых элементов
       if (prev.includes(index)) {
-        // Если есть, удаляем его
         return prev.filter((itemIndex) => itemIndex !== index);
       } else {
-        // Если нет, добавляем его
         return [...prev, index];
       }
     });
   };
 
   return (
+    <ServicesContext.Provider value={{ visibleItems, toggleItem }}>
+      {children}
+    </ServicesContext.Provider>
+  );
+};
+
+const useServicesContext = () => {
+  const context = useContext(ServicesContext);
+  if (!context) {
+    throw new Error("useServicesContext must be used within a ServicesProvider");
+  }
+  return context;
+};
+
+const ServicesSection = ({ items }: { items: ServiceItem[] }) => {
+  const { visibleItems, toggleItem } = useServicesContext();
+
+  return (
     <section className="mb-[85px]">
       <SectionTitle title="Услуги" />
       <ul className="space-y-4">
         {items.map((service, index) => (
-          <li key={index} onClick={() => handleItemClick(index)} className="cursor-pointer">
+          <li key={index} onClick={() => toggleItem(index)} className="cursor-pointer">
             <div className="flex items-center">
               <Image
                 src={service.icon}
@@ -51,12 +73,14 @@ const ServicesSection = ({ items }: { items: ServiceItem[] }) => {
                 }`}
                 onClick={(e) => {
                   e.stopPropagation(); 
-                  handleItemClick(index);
+                  toggleItem(index);
                 }}
               />
             </div>
             {visibleItems.includes(index) && (
-              <p className="mt-2 [color:#A6A6A6] [font-family:Montserrat] [font-size:14px] [font-weight:400] [line-height:24px] pl-[88px] [max-width:1014px]">{service.description}</p>
+              <p className="mt-2 [color:#A6A6A6] [font-family:Montserrat] [font-size:14px] [font-weight:400] [line-height:24px] pl-[88px] [max-width:1014px]">
+                {service.description}
+              </p>
             )}
             <hr className="my-5 border-gray-300" />
           </li>
@@ -66,4 +90,4 @@ const ServicesSection = ({ items }: { items: ServiceItem[] }) => {
   );
 };
 
-export default ServicesSection;
+export { ServicesProvider, ServicesSection };
