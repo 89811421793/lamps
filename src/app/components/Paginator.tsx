@@ -1,14 +1,14 @@
 'use client'
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 
 type PaginatorProps = {
-  currentPage: number;
-  setCurrentPage: (page: number) => void;
   totalPages: number; // Общее количество страниц
 }
 
-const Paginator: React.FC<PaginatorProps> = ({ currentPage, setCurrentPage, totalPages }) => {
+const Paginator: React.FC<PaginatorProps> = ({ totalPages }) => {
+  const [currentPage, setCurrentPage] = useState<number>(1);
+
   const handlePreviousClick = (e: React.MouseEvent) => {
     e.preventDefault(); // Предотвращаем переход по ссылке
     if (currentPage > 1) {
