@@ -52,7 +52,7 @@ const newProducts = [
   },
 ];
 
-const allProducts = [
+const allProductsBase = [
   {
     url: "/prod2.png",
     title: "Дизайнерский светильник изготавливаемый по проекту",
@@ -128,10 +128,46 @@ const Catalog = () => {
   const handleTabClick = (tab: string) => {
     if (selectedTab !== tab) {
       setSelectedTab(tab);
+      setCurrentPage(1); // сбрасываем страницу при смене таба
     }
   };
 
   const isUnderConstruction = selectedTab !== tabs[0];
+
+  // Определяем изображения для "Весь каталог" в зависимости от текущей страницы; "Новинки" - те же самые 
+  const getAllProducts = () => {
+    const baseProducts = allProductsBase.map((product) => ({ ...product }));
+    
+    if (currentPage === 2) {
+      baseProducts[3] = { ...baseProducts[3], url: "/prod1.png" };
+      baseProducts[4] = { ...baseProducts[4], url: "/prod1.png" };
+      baseProducts[5] = { ...baseProducts[5], url: "/prod1.png" };
+    } else if (currentPage === 3) {
+      baseProducts[3] = { ...baseProducts[3], url: "/prod2.png" };
+      baseProducts[4] = { ...baseProducts[4], url: "/prod2.png" };
+      baseProducts[5] = { ...baseProducts[5], url: "/prod2.png" };
+    } else if (currentPage === 4) {
+      baseProducts[3] = { ...baseProducts[3], url: "/prod1.png" };
+      baseProducts[4] = { ...baseProducts[4], url: "/prod2.png" };
+      baseProducts[5] = { ...baseProducts[5], url: "/prod1.png" };
+    } else if (currentPage === 5) {
+      baseProducts[3] = { ...baseProducts[3], url: "/prod2.png" };
+      baseProducts[4] = { ...baseProducts[4], url: "/prod2.png" };
+      baseProducts[5] = { ...baseProducts[5], url: "/prod1.png" };
+    } else if (currentPage === 6) {
+      baseProducts[3] = { ...baseProducts[3], url: "/prod1.png" };
+      baseProducts[4] = { ...baseProducts[4], url: "/prod1.png" };
+      baseProducts[5] = { ...baseProducts[5], url: "/prod2.png" };
+    } else if (currentPage === 7) {
+      baseProducts[3] = { ...baseProducts[3], url: "/prod2.png" };
+      baseProducts[4] = { ...baseProducts[4], url: "/prod1.png" };
+      baseProducts[5] = { ...baseProducts[5], url: "/prod2.png" };
+    }
+
+    return baseProducts;
+  };
+
+  const allProducts = getAllProducts();
 
   return (
     <div>
