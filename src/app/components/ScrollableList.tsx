@@ -1,14 +1,24 @@
-'use client'; // Обязательно оставляем use client для клиентского компонента
-import React, { useState, useRef, useCallback } from 'react';
+'use client'; 
+import React, { useState, useRef, useCallback, createContext, useContext } from 'react';
+
+// Создаем контекст для управления прокруткой
+const ScrollContext = createContext<{ scrollY: number; setScrollY: (value: number) => void } | undefined>(undefined);
+
 const ScrollableList = () => {
-  const [scrollY, setScrollY] = useState(0);
+  // Используем контекст и проверяем на undefined
+  const context = useContext(ScrollContext);
+  if (!context) {
+    throw new Error("ScrollContext must be used within a ScrollProvider");
+  }
+  const { scrollY, setScrollY } = context;
+  
   const containerRef = useRef<HTMLDivElement>(null);
   
   const handleScroll = useCallback(() => {
     if (containerRef.current) {
       setScrollY(containerRef.current.scrollTop);
     }
-  }, []);
+  }, [setScrollY]);
   
   const listItems = [
     { title: "Последние версии каталогов" },
@@ -22,9 +32,9 @@ const ScrollableList = () => {
     { title: "IES-файлы и прочая документация" },
   ];
   
-  const itemHeight = 60; // Высота одного элемента списка
-  const visibleItems = 3; // Количество одновременно видимых элементов
-  const fadeDistance = 51; // Расстояние, на котором элементы начинают исчезать и появляться
+  const itemHeight = 60; 
+  const visibleItems = 3; 
+  const fadeDistance = 51; 
   
   return (
     <div className="flex">
@@ -40,23 +50,19 @@ const ScrollableList = () => {
         style={{ height: `${itemHeight * visibleItems}px`, flex: 1, border: 'none' }} 
       >
         {listItems.map((item, index) => {
-          const position = index * itemHeight - scrollY; // Вычисляем позицию элемента относительно прокрутки
-          let opacity = 1; // По умолчанию полная непрозрачность
+          const position = index * itemHeight - scrollY; 
+          let opacity = 1; 
           
-          // Логика изменения прозрачности верхних элементов
           if (position < 0) {
-            opacity = Math.max(0, 1 + (position / fadeDistance) * 1.5); // Элемент начинает исчезать при прокрутке вверх
-          } 
-          // Логика изменения прозрачности нижних элементов
-          else if (position > (itemHeight * (visibleItems - 1))) {
+            opacity = Math.max(0, 1 + (position / fadeDistance) * 1.5); 
+          } else if (position > (itemHeight * (visibleItems - 1))) {
             const distanceFromBottom = position - (itemHeight * (visibleItems - 1));
             if (distanceFromBottom < fadeDistance) {
-              opacity = Math.max(0, 1 - (distanceFromBottom / fadeDistance) * 1.5); // Элемент начинает исчезать при прокрутке вниз
+              opacity = Math.max(0, 1 - (distanceFromBottom / fadeDistance) * 1.5); 
             }
           }
-          // Убедимся, что последний элемент всегда полностью видимый
           if (index === listItems.length - 1 && position >= (itemHeight * (visibleItems - 1))) {
-            opacity = 1; // Последний элемент всегда полностью видимый
+            opacity = 1; 
           }
           
           return (
@@ -73,7 +79,7 @@ const ScrollableList = () => {
                   <img src='/downloadpic.svg' alt='Иконка скачивания' className="h-6" />
                 </div>
               </div>
-              {index < listItems.length - 1 && <hr />} {/* Разделитель между элементами */}
+              {index < listItems.length - 1 && <hr />}
             </div>
           );
         })}
@@ -81,4 +87,16 @@ const ScrollableList = () => {
     </div>
   );
 };
-export default ScrollableList;
+
+// Провайдер для контекста прокрутки
+const ScrollProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [scrollY, setScrollY] = useState(0);
+  
+  return (
+    <ScrollContext.Provider value={{ scrollY, setScrollY }}>
+      {children}
+    </ScrollContext.Provider>
+  );
+};
+
+export { ScrollProvider, ScrollableList };
