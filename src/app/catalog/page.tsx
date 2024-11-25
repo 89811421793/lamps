@@ -7,6 +7,14 @@ import Filter from "../components/Filter";
 import Card from "../components/Card";
 import Paginator from "../components/Paginator";
 
+type Product = {
+  url: string;
+  title: string;
+  price: number;
+  id: string;
+  features: Array<{ id: string; text: string }>;
+};
+
 const tabs = [
   "Трековые светильники",
   "Встраиваемые светильники",
@@ -16,7 +24,7 @@ const tabs = [
   "Светильники Армстронг с равномерной засветкой",
 ];
 
-const newProducts = [
+const products: Product[] = [
   {
     url: "/prod2.png",
     title: "Дизайнерский светильник изготавливаемый по проекту",
@@ -50,9 +58,6 @@ const newProducts = [
       { id: "3", text: "Мощность рассчитывается индивидуально." },
     ],
   },
-];
-
-const allProductsBase = [
   {
     url: "/prod2.png",
     title: "Дизайнерский светильник изготавливаемый по проекту",
@@ -86,39 +91,6 @@ const allProductsBase = [
       { id: "3", text: "Мощность рассчитывается индивидуально." },
     ],
   },
-  {
-    url: "/prod2.png",
-    title: "Дизайнерский светильник изготавливаемый по проекту",
-    price: 41500,
-    id: "7",
-    features: [
-      { id: "1", text: "Длинна до 3 метров." },
-      { id: "2", text: "Углы поворота между секторами по проекту." },
-      { id: "3", text: "Мощность рассчитывается индивидуально." },
-    ],
-  },
-  {
-    url: "/prod1.png",
-    title: "Дизайнерский светильник изготавливаемый по проекту",
-    price: 21800,
-    id: "8",
-    features: [
-      { id: "1", text: "Длинна до 3 метров." },
-      { id: "2", text: "Углы поворота между секторами по проекту." },
-      { id: "3", text: "Мощность рассчитывается индивидуально." },
-    ],
-  },
-  {
-    url: "/prod1.png",
-    title: "Дизайнерский светильник изготавливаемый по проекту",
-    price: 37900,
-    id: "9",
-    features: [
-      { id: "1", text: "Длинна до 3 метров." },
-      { id: "2", text: "Углы поворота между секторами по проекту." },
-      { id: "3", text: "Мощность рассчитывается индивидуально." },
-    ],
-  },
 ];
 
 const Catalog = () => {
@@ -128,41 +100,31 @@ const Catalog = () => {
   const handleTabClick = (tab: string) => {
     if (selectedTab !== tab) {
       setSelectedTab(tab);
-      setCurrentPage(1); // сбрасываем страницу при смене таба
     }
   };
 
   const isUnderConstruction = selectedTab !== tabs[0];
 
-  // Определяем изображения для "Весь каталог" в зависимости от текущей страницы; "Новинки" - те же самые 
   const getAllProducts = () => {
-    const baseProducts = allProductsBase.map((product) => ({ ...product }));
-    
-    if (currentPage === 2) {
-      baseProducts[3] = { ...baseProducts[3], url: "/prod1.png" };
-      baseProducts[4] = { ...baseProducts[4], url: "/prod1.png" };
-      baseProducts[5] = { ...baseProducts[5], url: "/prod1.png" };
-    } else if (currentPage === 3) {
-      baseProducts[3] = { ...baseProducts[3], url: "/prod2.png" };
-      baseProducts[4] = { ...baseProducts[4], url: "/prod2.png" };
-      baseProducts[5] = { ...baseProducts[5], url: "/prod2.png" };
-    } else if (currentPage === 4) {
-      baseProducts[3] = { ...baseProducts[3], url: "/prod1.png" };
-      baseProducts[4] = { ...baseProducts[4], url: "/prod2.png" };
-      baseProducts[5] = { ...baseProducts[5], url: "/prod1.png" };
-    } else if (currentPage === 5) {
-      baseProducts[3] = { ...baseProducts[3], url: "/prod2.png" };
-      baseProducts[4] = { ...baseProducts[4], url: "/prod2.png" };
-      baseProducts[5] = { ...baseProducts[5], url: "/prod1.png" };
-    } else if (currentPage === 6) {
-      baseProducts[3] = { ...baseProducts[3], url: "/prod1.png" };
-      baseProducts[4] = { ...baseProducts[4], url: "/prod1.png" };
-      baseProducts[5] = { ...baseProducts[5], url: "/prod2.png" };
-    } else if (currentPage === 7) {
-      baseProducts[3] = { ...baseProducts[3], url: "/prod2.png" };
-      baseProducts[4] = { ...baseProducts[4], url: "/prod1.png" };
-      baseProducts[5] = { ...baseProducts[5], url: "/prod2.png" };
-    }
+    const baseProducts = products.map((product) => ({ ...product }));
+
+    const imageMapping = [
+      ["/prod2.png", "/prod1.png", "/prod1.png"],
+      ["/prod1.png", "/prod1.png", "/prod1.png"],
+      ["/prod2.png", "/prod1.png", "/prod2.png"],
+      ["/prod1.png", "/prod2.png", "/prod2.png"],
+      ["/prod2.png", "/prod1.png", "/prod1.png"],
+      ["/prod1.png", "/prod1.png", "/prod2.png"],
+      ["/prod2.png", "/prod1.png", "/prod2.png"],
+    ];
+
+    const currentImages = imageMapping[currentPage - 1];
+
+    currentImages.forEach((url, index) => {
+      if (baseProducts[index + 3]) {
+        baseProducts[index + 3].url = url;
+      }
+    });
 
     return baseProducts;
   };
@@ -227,7 +189,7 @@ const Catalog = () => {
                 <p className="text-center text-500">{`${selectedTab}. Under Construction`}</p>
               ) : (
                 <div className="flex space-x-4 gap-4">
-                  {newProducts.map((product) => (
+                  {products.slice(0, 3).map((product) => (
                     <Card
                       key={product.id}
                       url={product.url}
