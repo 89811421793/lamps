@@ -1,9 +1,9 @@
-// Card.tsx
 import React from "react";
 import Link from "next/link";
 import Container from "../components/Container";
 import VerticalSlider from "../components/Slider";
 import ProdinfoTabs from "../components/ProdinfoTabs";
+import ModTable from "../components/ModTable";
 
 const fetchDescriptions = async () => {
   return [
@@ -100,33 +100,30 @@ const fetchProdInfoTabs = async () => {
   ];
 };
 
-const Card = async () => {
+const Card: React.FC<{ searchParams: { showModifications?: string } }> = async ({ searchParams }) => {
   const descriptions = await fetchDescriptions();
   const tabs = await fetchProdInfoTabs();
+  const showModifications = searchParams.showModifications === "true";
 
   return (
     <div>
       <Container>
         <nav className="text-[#7C7C7C] mt-[17px] mb-[38px]">
-          <Link href="/" className="hover:text-gray-800">
-            Главная
-          </Link>
+          <Link href="/" className="hover:text-gray-800">Главная</Link>
           <span className="mx-2">-</span>
-          <Link href="/catalog" className="hover:text-gray-800">
-            Каталог
-          </Link>
+          <Link href="/catalog" className="hover:text-gray-800">Каталог</Link>
           <span className="mx-2">-</span>
-          <Link href="#" className="hover:text-gray-800">
-            Трековые светильники
-          </Link>
+          <Link href="#" className="hover:text-gray-800">Трековые светильники</Link>
           <span className="mx-2">-</span>
-          <Link href="#" className="hover:text-gray-800">
-            EVO L
-          </Link>
+          <Link href="#" className="hover:text-gray-800">EVO L</Link>
         </nav>
+        
         <div className="flex mb-[50px]">
           <VerticalSlider />
-          <div className="ml-[42px]">
+        
+            
+        
+            <div className="ml-[42px]">
             <h2 className="text-xl font-bold">Трековый светильник EVO L</h2>
             <div className="border-b border-[#EDEDED] my-[28px]" />
             <div className="mb-[16px]">
@@ -211,145 +208,18 @@ const Card = async () => {
               </div>
             </div>
             <div className="border-b border-[#EDEDED] my-[20px]" />
+            
             <Link
-              href="#"
+              href={`?showModifications=${!showModifications}`}
               className="bg-secondary text-accent font-montserrat font-semibold text-[16px] leading-[40px] pl-[25px] pr-[30px] py-[10px] block text-center max-w-[394px]"
             >
-              Посмотреть выбранные модификации
+              {showModifications ? "Скрыть выбранные модификации" : "Посмотреть выбранные модификации"}
             </Link>
           </div>
         </div>
 
         <ProdinfoTabs tabs={tabs} content={descriptions} />
-        <span className="inline-block mt-2 mb-[10px] font-bold text-darkgrey leading-10 text-base font-montserrat">
-          Выбранные модификации
-        </span>
-        <span className="inline-block mt-2 ml-5 mb-[10px] font-normal text-darkgrey leading-4 text-sm font-montserrat">
-          Показано 4 из 15
-        </span>
-        <div className="flex flex-col max-w-[1285px] w-full">
-          <div className="flex w-full mb-2 items-center pb-2 header-container relative">
-            <span className="flex flex-col w-[12%] min-w-[80px] font-bold">
-              Наименование
-            </span>
-            <span className="flex flex-col w-[8%] min-w-[80px] font-bold">
-              Мощность
-            </span>
-            <span className="flex flex-col w-[7%] min-w-[80px] font-bold">
-              Цвет корпуса
-            </span>
-            <span className="flex flex-col w-[6%] min-w-[100px] font-bold">
-              Габариты [ВxДxШ]
-            </span>
-            <span className="flex flex-col w-[8%] min-w-[100px] font-bold">
-              Световой поток LED [лкм]
-            </span>
-            <span className="flex flex-col w-[10%] min-w-[100px] font-bold">
-              Угол рассеивания
-            </span>
-            <span className="flex flex-col w-[11%] min-w-[100px] font-bold">
-              Эффективность LW/W
-            </span>
-            <span className="flex flex-col w-[9%] min-w-[100px] font-bold">
-              Цветовая температура
-            </span>
-            <span className="flex flex-col w-[3%] min-w-[80px] font-bold">
-              CRI/Ra
-            </span>
-            <span className="flex flex-col w-[9%] min-w-[80px] font-bold">
-              Управление светом
-            </span>
-            <span className="flex flex-col w-[3%] min-w-[80px] font-bold">
-              Цена
-            </span>
-            <span className="flex flex-col w-[7%] min-w-[80px] font-bold">
-              Добавить в подборку
-            </span>
-          </div>
-
-          <div className="flex w-full pb-2 mb-2 data-row relative">
-            <span className="flex flex-col w-[12%] min-w-[80px]">
-              LINE A 50-14W -830-WH
-            </span>
-            <span className="flex flex-col w-[8%] min-w-[80px]">14</span>
-            <span className="flex flex-col w-[7%] min-w-[80px]">Белый</span>
-            <span className="flex flex-col w-[6%] min-w-[100px]">20х15х10</span>
-            <span className="flex flex-col w-[8%] min-w-[100px]">1672</span>
-            <span className="flex flex-col w-[10%] min-w-[100px]">119.43</span>
-            <span className="flex flex-col w-[11%] min-w-[100px]">119.43</span>
-            <span className="flex flex-col w-[9%] min-w-[100px]">3000</span>
-            <span className="flex flex-col w-[3%] min-w-[80px]">80+</span>
-            <span className="flex flex-col w-[9%] min-w-[80px]">no</span>
-            <span className="flex flex-col w-[3%] min-w-[80px]">2700</span>
-            <div className="flex flex-col w-[7%] min-w-[80px] items-center">
-              <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
-            </div>
-          </div>
-
-          <div className="flex w-full pb-2 mb-2 data-row relative">
-            <span className="flex flex-col w-[12%] min-w-[80px]">
-              LINE A 50-14W -830-WH
-            </span>
-            <span className="flex flex-col w-[8%] min-w-[80px]">14</span>
-            <span className="flex flex-col w-[7%] min-w-[80px]">Черный</span>
-            <span className="flex flex-col w-[6%] min-w-[100px]">20х15х10</span>
-            <span className="flex flex-col w-[8%] min-w-[100px]">1760</span>
-            <span className="flex flex-col w-[10%] min-w-[100px]">125.71</span>
-            <span className="flex flex-col w-[11%] min-w-[100px]">125.71</span>
-            <span className="flex flex-col w-[9%] min-w-[100px]">3000</span>
-            <span className="flex flex-col w-[3%] min-w-[80px]">80+</span>
-            <span className="flex flex-col w-[9%] min-w-[80px]">no</span>
-            <span className="flex flex-col w-[3%] min-w-[80px]">2700</span>
-            <div className="flex flex-col w-[7%] min-w-[80px] items-center">
-              <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
-            </div>
-          </div>
-
-          <div className="flex w-full pb-2 mb-2 data-row relative">
-            <span className="flex flex-col w-[12%] min-w-[80px]">
-              LINE A 50-14W -830-WH
-            </span>
-            <span className="flex flex-col w-[8%] min-w-[80px]">22</span>
-            <span className="flex flex-col w-[7%] min-w-[80px]">Белый</span>
-            <span className="flex flex-col w-[6%] min-w-[100px]">20х15х10</span>
-            <span className="flex flex-col w-[8%] min-w-[100px]">1672</span>
-            <span className="flex flex-col w-[10%] min-w-[100px]">119.43</span>
-            <span className="flex flex-col w-[11%] min-w-[100px]">119.43</span>
-            <span className="flex flex-col w-[9%] min-w-[100px]">4000</span>
-            <span className="flex flex-col w-[3%] min-w-[80px]">80+</span>
-            <span className="flex flex-col w-[9%] min-w-[80px]">no</span>
-            <span className="flex flex-col w-[3%] min-w-[80px]">2700</span>
-            <div className="flex flex-col w-[7%] min-w-[80px] items-center">
-              <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
-            </div>
-          </div>
-
-          <div className="flex w-full pb-2 mb-2 data-row relative">
-            <span className="flex flex-col w-[12%] min-w-[80px]">
-              LINE A 50-14W -830-WH
-            </span>
-            <span className="flex flex-col w-[8%] min-w-[80px]">22</span>
-            <span className="flex flex-col w-[7%] min-w-[80px]">Серый</span>
-            <span className="flex flex-col w-[6%] min-w-[100px]">20х15х10</span>
-            <span className="flex flex-col w-[8%] min-w-[100px]">1672</span>
-            <span className="flex flex-col w-[10%] min-w-[100px]">119.43</span>
-            <span className="flex flex-col w-[11%] min-w-[100px]">119.43</span>
-            <span className="flex flex-col w-[9%] min-w-[100px]">3000</span>
-            <span className="flex flex-col w-[3%] min-w-[80px]">80+</span>
-            <span className="flex flex-col w-[9%] min-w-[80px]">no</span>
-            <span className="flex flex-col w-[3%] min-w-[80px]">3500</span>
-            <div className="flex flex-col w-[7%] min-w-[80px] items-center">
-              <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
-            </div>
-          </div>
-
-          <a
-            href="#"
-            className="text-[var(--secondary)] underline mb-[20px] block mod"
-          >
-            Все модификации
-          </a>
-        </div>
+        {showModifications && <ModTable />}
       </Container>
     </div>
   );
