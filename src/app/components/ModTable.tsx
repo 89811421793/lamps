@@ -1,5 +1,6 @@
 'use client'
 import React, { useState } from "react";
+import TableRow from "./TableRow";
 
 const ModTable: React.FC = () => {
   const [showAll, setShowAll] = useState(false);
@@ -118,22 +119,7 @@ const ModTable: React.FC = () => {
         </div>
 
         {displayedRows.map((row) => (
-          <div key={row.id} className="flex w-full pb-2 mb-2 data-row relative">
-            <span className="flex flex-col w-[12%] min-w-[80px]">{row.name}</span>
-            <span className="flex flex-col w-[8%] min-w-[80px]">{row.power}</span>
-            <span className="flex flex-col w-[7%] min-w-[80px]">{row.color}</span>
-            <span className="flex flex-col w-[6%] min-w-[100px]">{row.dimensions}</span>
-            <span className="flex flex-col w-[8%] min-w-[100px]">{row.ledFlux}</span>
-            <span className="flex flex-col w-[10%] min-w-[100px]">{row.beamAngle}</span>
-            <span className="flex flex-col w-[11%] min-w-[100px]">{row.efficiency}</span>
-            <span className="flex flex-col w-[9%] min-w-[100px]">{row.colorTemp}</span>
-            <span className="flex flex-col w-[3%] min-w-[80px]">{row.cri}</span>
-            <span className="flex flex-col w-[9%] min-w-[80px]">{row.lightControl}</span>
-            <span className="flex flex-col w-[3%] min-w-[80px]">{row.price}</span>
-            <div className="flex flex-col w-[7%] min-w-[80px] items-center">
-              <button className="w-[22px] h-[22px] bg-[var(--darkgrey)] rounded-full relative btn"></button>
-            </div>
-          </div>
+          <TableRow key={row.id} {...row} />
         ))}
 
         <a 
