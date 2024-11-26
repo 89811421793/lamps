@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import ReduxProvider from "./components/ReduxProvider";
 
 
 // Подключаем шрифты Montserrat
@@ -53,14 +54,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    
     <html lang="ru">
-      <body className={`${montserratRegular.variable} ${montserratMedium.variable} ${montserratSemibold.variable} ${montserratBold.variable} ${montserratExtraBold.variable} ${montserratLight.variable} antialiased`}>
-        <Header/>
-               {children}
-      <Footer/>
+      <body
+        className={`${montserratRegular.variable} ${montserratMedium.variable} ${montserratSemibold.variable} ${montserratBold.variable} ${montserratExtraBold.variable} ${montserratLight.variable} antialiased`}
+      >
+        <ReduxProvider>
+        <Header />
+        {children}
+        <Footer />
+        </ReduxProvider>
       </body>
     </html>
-  
   );
 }
