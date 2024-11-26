@@ -6,6 +6,7 @@ import SectionTitle from "../components/SectionTitle";
 import Filter from "../components/Filter";
 import Card from "../components/Card";
 import Paginator from "../components/Paginator";
+import CatalogTabs from "../components/CatalogTabs";
 
 type Product = {
   url: string;
@@ -148,36 +149,15 @@ const Catalog = () => {
           showIndicator={false}
           className="mb-[40px]"
         />
-
-        <ul className="mb-4 mt-6 list-none p-0">
-          {tabs.map((tab, index) => (
-            <li
-              key={tab}
-              onClick={() => handleTabClick(tab)}
-              className={`border border-[#E5E5E5] cursor-pointer py-2 px-4 rounded-[3px] inline-block leading-[18px] ${
-                selectedTab === tab
-                  ? "text-[var(--whiteFont)] bg-[var(--accent)] font-semibold"
-                  : "text-[var(--darkgrey)] font-medium"
-              }`}
-              style={{
-                fontSize: "14px",
-                marginRight: index < 5 ? "10px" : "0",
-                marginBottom: "10px",
-                fontWeight: selectedTab === tab ? 600 : 500,
-              }}
-            >
-              {tab}
-            </li>
-          ))}
-        </ul>
-
+        <CatalogTabs 
+          tabs={tabs} 
+          selectedTab={selectedTab} 
+          onTabClick={handleTabClick} 
+        />
         <div className="flex mb-8">
-          {/* Левый блок с фильтром */}
           <div className="flex-1 mr-[35px] max-w-[300px]">
             <Filter />
           </div>
-
-          {/* Правый блок с новинками и каталогом */}
           <div className="flex-2 w-full">
             <div className="mb-4">
               <SectionTitle
