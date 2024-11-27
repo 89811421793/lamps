@@ -1,4 +1,4 @@
-// ProductCard.tsx
+
 'use client'
 import React, { useState } from "react";
 import Image from "next/image";
@@ -18,10 +18,19 @@ type Product = {
 
 type ProductCardProps = {
   product: Product;
+  quantity: number; // Добавляем количество товара
+  onQuantityChange: (newQuantity: number) => void; // Функция для изменения количества
 };
 
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ product, quantity, onQuantityChange }) => {
   const [isHovered, setIsHovered] = useState(false);
+
+  const handleIncrease = () => onQuantityChange(quantity + 1);
+  const handleDecrease = () => {
+    if (quantity > 1) {
+      onQuantityChange(quantity - 1);
+    }
+  };
 
   return (
     <div
@@ -62,14 +71,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       </div>
       <div className="p-2 flex flex-col items-center w-[35%]">
         <div className="flex items-center mt-2">
-          <button className="border p-1">-</button>
-          <span className="">1</span>
-          <button className="border p-1">+</button>
+          <button className="border p-1" onClick={handleDecrease}>-</button>
+          <span className="">{quantity}</span>
+          <button className="border p-1" onClick={handleIncrease}>+</button>
         </div>
         <span className="mt-2">{product.stockMessage || "Осталось 2 шт"}</span>
       </div>
       <div className="p-2 flex flex-col items-center w-[22%]">
-        <span>от {product.price}₽</span>
+        <span>от {product.price * quantity}₽</span> {/* Обновляем сумму */}
       </div>
       <div className="p-2 flex flex-col items-center w-[16%]">
         <button

@@ -1,9 +1,11 @@
+
 'use client'
 import React, { useState } from "react";
 import SectionTitle from "../components/SectionTitle";
 import Container from "../components/Container";
 import Link from "next/link";
 import Image from "next/image";
+import ProductCard from "../components/ProductCard";
 
 type Product = {
   image: string;
@@ -18,85 +20,12 @@ type Product = {
   height: number; 
 };
 
-type ProductCardProps = {
-  product: Product;
-};
-
 type BasketProps = {
   totalPrice: number; 
 };
 
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  return (
-    <div
-      className={`border border-[#E5E5E5] pt-[30px] pb-[50px] flex transition-all duration-300 ${
-        isHovered ? "shadow-[0px_0px_30px_0px_#FFC94F4D]" : ""
-      } mb-4`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <Image 
-        src={product.image} 
-        alt={product.name} 
-        width={product.width} 
-        height={product.height} 
-        className="mb-2 w-[15%]" 
-      />
-      <div className="p-2 flex flex-col items-center w-[25%]">
-        {product.description ? (
-          <span className="mt-2">{product.description}</span>
-        ) : (
-          <>
-            <span className="mt-2">{product.name}</span>
-            <div className="flex gap-[25px]">
-              <div className="flex flex-col">
-                {product.characteristics1?.map((char, index) => (
-                  <span key={index}>{char}</span>
-                ))}
-              </div>
-              <div className="border-l border-[#E5E5E5] h-[54px] mt-[8px]"></div>
-              <div className="flex flex-col">
-                {product.characteristics2?.map((char, index) => (
-                  <span key={index}>{char}</span>
-                ))}
-              </div>
-            </div>
-          </>
-        )}
-      </div>
-      <div className="p-2 flex flex-col items-center w-[35%]">
-        <div className="flex items-center mt-2">
-          <button className="border p-1">-</button>
-          <span className="">1</span>
-          <button className="border p-1">+</button>
-        </div>
-        <span className="mt-2">{product.stockMessage || "Осталось 2 шт"}</span>
-      </div>
-      <div className="p-2 flex flex-col items-center w-[22%]">
-        <span>от {product.price}₽</span>
-      </div>
-      <div className="p-2 flex flex-col items-center w-[16%]">
-        <button
-          className={`flex items-center mt-2 justify-end ${
-            isHovered ? "text-[#F3A800]" : ""
-          }`}
-        >
-          <img
-            src={isHovered ? "/add_yellow.svg" : "/add_grey.svg"}
-            alt="Удалить"
-            className="rotate-45"
-          />
-          <span className="ml-1">Удалить</span>
-        </button>
-      </div>
-    </div>
-  );
-};
-
 const Basket: React.FC<BasketProps> = ({ totalPrice }) => {
-  const products: Product[] = [
+  const [products, setProducts] = useState<Product[]>([
     {
       image: "/svetilnik.png",
       name: "Трековый светильник EVO L",
@@ -117,7 +46,20 @@ const Basket: React.FC<BasketProps> = ({ totalPrice }) => {
       width: 150, 
       height: 150, 
     },
-  ];
+  ]);
+
+  const [quantities, setQuantities] = useState<{ [key: string]: number }>({
+    "54637654": 1,
+    "54637655": 1,
+  });
+
+  const handleQuantityChange = (code: string, newQuantity: number) => {
+    setQuantities((prev) => ({ ...prev, [code]: newQuantity }));
+  };
+
+  const totalAmount = products.reduce((total, product) => {
+    return total + product.price * (quantities[product.code] || 1);
+  }, 0);
 
   return (
     <div>
@@ -141,10 +83,15 @@ const Basket: React.FC<BasketProps> = ({ totalPrice }) => {
           <span className="p-1 w-[25%]">Описание</span>
           <span className="p-1 w-[35%] text-center">Количество</span>
           <span className="p-1 w-[25%] text-center">Сумма</span>
-          <span className="p-1 w-[15%] text-right">Код: 54637654</span>
+          <span className="p-1 w-[15%] text-right">Код</span>
         </div>
         {products.map((product) => (
-          <ProductCard key={product.code} product={product} />
+          <ProductCard 
+            key={product.code} 
+            product={product} 
+            quantity={quantities[product.code]} 
+            onQuantityChange={(newQuantity) => handleQuantityChange(product.code, newQuantity)} 
+          />
         ))}
         <div className="flex items-center mt-4 justify-between">
           <Link href="/catalog" className="flex items-center text-[#4A4A4A] font-montserrat text-[14px] font-bold leading-[40px]">
@@ -152,7 +99,7 @@ const Basket: React.FC<BasketProps> = ({ totalPrice }) => {
             <span className="ml-2">К покупкам</span>
           </Link>
           <span className="text-[#4A4A4A] font-montserrat text-[14px] font-bold leading-[40px]">
-            Итого: от {44800} ₽
+            Итого: от {totalAmount} ₽
           </span>
         </div>
 
