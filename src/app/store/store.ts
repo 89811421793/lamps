@@ -1,20 +1,13 @@
-import { createStore } from 'redux';
+// src/store/store.ts
+import { createStore, combineReducers } from 'redux';
+import cartReducer from './reducer'; // Импортируем редюсер
 
-// Определяем начальное состояние
-const initialState = {
-  // данные
-};
+const rootReducer = combineReducers({
+  cart: cartReducer,
+});
 
-// Определяем здесь редюсер
-const rootReducer = (state = initialState, action: any) => {
-  switch (action.type) {
-    // Обрабатываю здесь мои действия
-    default:
-      return state;
-  }
-};
+export type RootState = ReturnType<typeof rootReducer>; // Экспортируем RootState
 
-// Создаем хранилище
 const store = createStore(rootReducer);
 
 export default store;
