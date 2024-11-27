@@ -15,7 +15,7 @@ interface CartState {
 }
 
 const initialState: CartState = {
-  products: JSON.parse(localStorage.getItem('cart') || '[]'), // Загружаем из localStorage
+  products: JSON.parse(sessionStorage.getItem('cart') || '[]'), // Загружаем из sessionStorage
 };
 
 type CartActions = AddToCartAction; // Определим типы действий для редюсера
@@ -28,7 +28,7 @@ const cartReducer = (state = initialState, action: CartActions): CartState => {
         // Если товар уже существует, увеличиваем его количество
         const updatedProducts = [...state.products];
         updatedProducts[existingProductIndex].quantity += 1;
-        localStorage.setItem('cart', JSON.stringify(updatedProducts)); // Сохраняем в localStorage
+        sessionStorage.setItem('cart', JSON.stringify(updatedProducts)); // Сохраняем в sessionStorage
         return {
           ...state,
           products: updatedProducts,
@@ -36,7 +36,7 @@ const cartReducer = (state = initialState, action: CartActions): CartState => {
       } else {
         // Если товар не существует, добавляем его в корзину
         const updatedProducts = [...state.products, action.payload];
-        localStorage.setItem('cart', JSON.stringify(updatedProducts)); // Сохраняем в localStorage
+        sessionStorage.setItem('cart', JSON.stringify(updatedProducts)); // Сохраняем в sessionStorage
         return {
           ...state,
           products: updatedProducts,
