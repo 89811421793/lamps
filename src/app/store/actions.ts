@@ -12,6 +12,7 @@ export interface Product {
   name: string;
   price: number;
   code: string;
+  quantity: number; // Добавляем поле для количества
 }
 
 // Интерфейс действия добавления в корзину
@@ -21,9 +22,9 @@ export interface AddToCartAction extends Action {
 }
 
 // Функция создания действия добавления в корзину
-export const addToCart = (product: Omit<Product, 'id'>) => ({
+export const addToCart = (product: Omit<Product, 'id' | 'quantity'>) => ({
   type: ADD_TO_CART,
-  payload: { ...product, id: uuidv4() }, // Генерируем уникальный id
+  payload: { ...product, id: uuidv4(), quantity: 1 }, // Генерируем уникальный id и устанавливаем количество 1
 });
 
 // Автоматическое извлечение типа действия

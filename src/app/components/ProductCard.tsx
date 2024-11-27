@@ -5,7 +5,7 @@ import { Product } from '../store/actions';
 
 interface ProductCardProps {
   product: Product;
-  quantity: number;
+  quantity: number; 
   onQuantityChange: (newQuantity: number) => void;
 }
 
@@ -14,8 +14,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, quantity, onQuantity
     <div className="flex mb-2 p-2">
       <img src={product.image} alt={product.name} className="w-16 h-16" />
       <span className="w-1/4">{product.name}</span>
-      <span className="w-1/4 text-center">{quantity}</span>
-      <span className="w-1/4 text-center">{product.price * quantity} ₽</span>
+      <span className="w-1/4 text-center">{quantity}</span> {/* Отображаем количество */}
+      <span className="w-1/4 text-center">{(product.price * quantity).toFixed(2)} ₽</span> {/* Сумма */}
       <span className="w-1/4 text-right">{product.code}</span>
     </div>
   );

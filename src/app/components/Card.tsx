@@ -1,10 +1,9 @@
-// src/app/components/Card.tsx
 'use client'
 import React from "react";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { addToCart, Product } from "../store/actions"; 
-import { v4 as uuidv4 } from 'uuid'; // Импортируем uuid
+import { v4 as uuidv4 } from 'uuid'; 
 
 type CardProps = {
   url: string;
@@ -24,6 +23,7 @@ const Card: React.FC<CardProps> = ({ url, title, price, id, features = [] }) => 
       name: title,
       price: price,
       code: id,
+      quantity: 1, // Устанавливаем начальное количество
     };
     dispatch(addToCart(product));
   };
