@@ -2,10 +2,7 @@
 'use client'
 import React from "react";
 import { useSelector } from "react-redux"; // Импортируем useSelector
-
-
 import Link from "next/link";
-
 import { RootState } from "../store/store"; // Импортируем RootState
 import ProductCard from "../components/ProductCard";
 import Container from "../components/Container";

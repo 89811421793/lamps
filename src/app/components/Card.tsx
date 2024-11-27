@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { addToCart, Product } from "../store/actions"; 
+import { v4 as uuidv4 } from 'uuid'; // Импортируем uuid
 
 type CardProps = {
   url: string;
@@ -18,6 +19,7 @@ const Card: React.FC<CardProps> = ({ url, title, price, id, features = [] }) => 
 
   const handleAddToCart = () => {
     const product: Product = {
+      id: uuidv4(), // Генерируем уникальный id
       image: url.includes("prod1") ? "/svetilnik.png" : "/f5bed36a6da638ce4acb04cf430b36cb 1.png",
       name: title,
       price: price,

@@ -1,10 +1,13 @@
+// src/store/actions.ts
 import { Action } from 'redux';
+import { v4 as uuidv4 } from 'uuid'; // Импортируем uuid
 
 // Константа действия
 export const ADD_TO_CART = "ADD_TO_CART";
 
 // Интерфейс продукта
 export interface Product {
+  id: string; // Добавляем id для уникальности
   image: string;
   name: string;
   price: number;
@@ -18,9 +21,9 @@ export interface AddToCartAction extends Action {
 }
 
 // Функция создания действия добавления в корзину
-export const addToCart = (product: Product) => ({
+export const addToCart = (product: Omit<Product, 'id'>) => ({
   type: ADD_TO_CART,
-  payload: product,
+  payload: { ...product, id: uuidv4() }, // Генерируем уникальный id
 });
 
 // Автоматическое извлечение типа действия
