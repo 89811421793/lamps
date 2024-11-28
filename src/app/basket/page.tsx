@@ -37,7 +37,7 @@ const Basket: React.FC = () => {
           <span className="p-1 w-[25%]">Описание</span>
           <span className="p-1 w-[35%] text-center">Количество</span>
           <span className="p-1 w-[25%] text-center">Сумма</span>
-          <span className="p-1 w-[15%] text-right">Код</span>
+          <span className="p-1 w-[15%] text-right">Код: 54637654</span>
         </div>
         {products.length > 0 ? (
           products.map((product) => (

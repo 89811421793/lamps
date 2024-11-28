@@ -1,3 +1,4 @@
+// src/components/Card.tsx
 'use client'
 import React from "react";
 import Link from "next/link";
@@ -20,7 +21,9 @@ const Card: React.FC<CardProps> = ({ url, title, price, id, features = [] }) => 
     const product: Product = {
       id: uuidv4(), // Генерируем уникальный id
       image: url.includes("prod1") ? "/svetilnik.png" : "/f5bed36a6da638ce4acb04cf430b36cb 1.png",
-      name: title,
+      name: url.includes("prod1") 
+        ? "Трековый светильник EVO L 50Вт Серый CRI/Ra 80+ 85 3000 1672 LED" 
+        : "Дизайнерский светильник изготавливаемый по проекту\nДлинна до 3 метров. Углы поворота между секторами по проекту. Мощность рассчитывается индивидуально.",
       price: price,
       code: id,
       quantity: 1, // Устанавливаем начальное количество

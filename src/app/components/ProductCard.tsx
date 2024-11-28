@@ -3,6 +3,7 @@
 import React from 'react';
 import { Product } from '../store/actions';
 
+
 interface ProductCardProps {
   product: Product;
   quantity: number; 
@@ -16,7 +17,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, quantity, onQuantity
       <span className="w-1/4">{product.name}</span>
       <span className="w-1/4 text-center">{quantity}</span> {/* Отображаем количество */}
       <span className="w-1/4 text-center">{(product.price * quantity).toFixed(2)} ₽</span> {/* Сумма */}
-      <span className="w-1/4 text-right">{product.code}</span>
+      {/* <span className="w-1/4 text-right">{product.code}</span> */}
     </div>
   );
 };
