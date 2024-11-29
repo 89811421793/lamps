@@ -67,12 +67,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, quantity, onQuantity
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <img src={product.image} alt={product.name} className="mb-2 w-[14%] h-15 mr-[25px]" />
-      <div className="w-[25%]">
+      <img src={product.image} alt={product.name} className="mb-2 w-[20%] h-15 mr-[25px]" />
+      <div className="w-[40%]">
         {renderProductDescription()}
       </div>
 
-      <div className="w-[35%] text-center">
+      <div className="w-[30%] text-center">
         <button className="border p-1" onClick={() => onQuantityChange(quantity - 1)}>-</button>
         <span className="">{quantity}</span> {/* Отображаем количество */}
         <button className="border p-1" onClick={() => onQuantityChange(quantity + 1)}>+</button>

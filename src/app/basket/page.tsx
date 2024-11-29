@@ -33,10 +33,10 @@ const Basket: React.FC = () => {
         </nav>
         <SectionTitle title="Подборка" showIndicator={false} className="mb-[40px]" />
         <div className="flex mb-2 p-2">
-          <span className="p-1 w-[16%]">Товар</span>
-          <span className="p-1 w-[25%]">Описание</span>
-          <span className="p-1 w-[35%] text-center">Количество</span>
-          <span className="p-1 w-[25%] text-center">Сумма</span>
+          <span className="p-1 w-[21%]">Товар</span>
+          <span className="p-1 w-[40%]">Описание</span>
+          <span className="p-1 w-[24%] text-center">Количество</span>
+          <span className="p-1 w-[23%] text-center">Сумма</span>
           <span className="p-1 w-[15%] text-right">Код: 54637654</span>
         </div>
         {products.length > 0 ? (
