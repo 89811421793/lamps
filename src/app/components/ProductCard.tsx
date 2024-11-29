@@ -91,7 +91,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, quantity, onQuantity
             alt="Удалить"
             className="rotate-45"
           />
-          <span className="ml-1">{quantity > 1 ? 'Уменьшить' : 'Удалить'}</span>
+          <span className="ml-1">Удалить</span>
         </button>
       </div>
     </div>
