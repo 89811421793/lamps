@@ -7,6 +7,7 @@ import { RootState } from "../store/store";
 import ProductCard from "../components/ProductCard";
 import Container from "../components/Container";
 import SectionTitle from "../components/SectionTitle";
+import Image from "next/image";
 
 const Basket: React.FC = () => {
   const products = useSelector((state: RootState) => state.cart.products); // Получаем товары из Redux Store
@@ -55,11 +56,22 @@ const Basket: React.FC = () => {
         )}
         <div className="flex items-center mt-4 justify-between">
           <Link href="/catalog" className="flex items-center text-[#4A4A4A] font-montserrat text-[14px] font-bold leading-[40px]">
+            <Image src='/arrow_pag.svg' width={8} height={4} className="transform rotate-180" alt=''/>
             <span className="ml-2">К покупкам</span>
           </Link>
           <span className="text-[#4A4A4A] font-montserrat text-[14px] font-bold leading-[40px]">
             Итого: {totalAmount.toFixed(2)} ₽
           </span>
+        </div>
+
+         {/* New Buttons Section */}
+         <div className="mt-[19px] mb-[50px] text-right">
+          <button className="inline-block text-[var(--accent)] font-montserrat text-[14px] font-[500] leading-[40px] border border-[var(--accent)] px-[50px] py-[5px] mb-4 mr-4">
+            Отправить подборку на почту
+          </button>
+          <button className="inline-block text-[var(--accent)] font-montserrat text-[14px] font-[500] leading-[40px] bg-[var(--secondary)] px-[50px] py-[5px]">
+            Отправить заявку на расчет
+          </button>
         </div>
       </Container>
     </div>
