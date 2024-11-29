@@ -1,24 +1,28 @@
-// components/Basket.tsx
 'use client'
 import React from "react";
-import { useSelector } from "react-redux"; 
+import { useSelector, useDispatch } from "react-redux"; 
 import Link from "next/link";
 import { RootState } from "../store/store"; 
 import ProductCard from "../components/ProductCard";
 import Container from "../components/Container";
 import SectionTitle from "../components/SectionTitle";
 import Image from "next/image";
+import { removeFromCart } from "../store/actions";
 
 const Basket: React.FC = () => {
-  const products = useSelector((state: RootState) => state.cart.products); // Получаем товары из Redux Store
-  
-  // Проверяем, что продукты есть и у них корректные значения
+  const products = useSelector((state: RootState) => state.cart.products);
+  const dispatch = useDispatch();
+
   const totalAmount = products.reduce((total: number, product) => {
     if (product.price && product.quantity) {
-      return total + product.price * product.quantity; // Считаем общую сумму
+      return total + product.price * product.quantity;
     }
-    return total; // Если цена или количество не заданы, просто возвращаем текущую сумму
+    return total;
   }, 0);
+
+  const handleRemove = (productCode: string) => {
+    dispatch(removeFromCart(productCode));
+  };
 
   return (
     <div>
@@ -47,8 +51,11 @@ const Basket: React.FC = () => {
               product={product} 
               quantity={product.quantity} 
               onQuantityChange={(newQuantity) => {
-                // Здесь  логика обновления количества
+                if (newQuantity <= 0) {
+                  handleRemove(product.code);
+                }
               }} 
+              onRemove={() => handleRemove(product.code)} 
             />
           ))
         ) : (
@@ -63,9 +70,7 @@ const Basket: React.FC = () => {
             Итого: {totalAmount.toFixed(2)} ₽
           </span>
         </div>
-
-         {/* New Buttons Section */}
-         <div className="mt-[19px] mb-[50px] text-right">
+        <div className="mt-[19px] mb-[50px] text-right">
           <button className="inline-block text-[var(--accent)] font-montserrat text-[14px] font-[500] leading-[40px] border border-[var(--accent)] px-[50px] py-[5px] mb-4 mr-4">
             Отправить подборку на почту
           </button>

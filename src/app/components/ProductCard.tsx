@@ -1,16 +1,18 @@
-// components/ProductCard.tsx
 'use client'
 import React from 'react';
 import { Product } from '../store/actions';
+import { useDispatch } from 'react-redux';
+
 
 interface ProductCardProps {
   product: Product;
   quantity: number; 
   onQuantityChange: (newQuantity: number) => void;
+  onRemove: () => void;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product, quantity, onQuantityChange }) => {
-
+const ProductCard: React.FC<ProductCardProps> = ({ product, quantity, onQuantityChange, onRemove }) => {
+  const dispatch = useDispatch();
   const [isHovered, setIsHovered] = React.useState(false);
 
   const renderProductDescription = () => {
@@ -46,10 +48,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, quantity, onQuantity
         </div>
       );
     } else if (product.name.startsWith("Дизайнерский светильник изготавливаемый по проекту")) {
-      const title = product.name.split(".")[0]; // Получаем заголовок до точки
+      const title = product.name.split(".")[0];
       return (
         <div>
-          <h2 className="font-bold">{title}.</h2> {/* Добавляем точку в конце заголовка */}
+          <h2 className="font-bold">{title}.</h2>
           <p className="mt-5">Длинна до 3 метров.</p>
           <p>Углы поворота между секторами по проекту.</p>
           <p>Мощность рассчитывается индивидуально.</p>
@@ -71,25 +73,25 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, quantity, onQuantity
       <div className="w-[40%]">
         {renderProductDescription()}
       </div>
-
       <div className="w-[30%] text-center">
         <button className="border p-1" onClick={() => onQuantityChange(quantity - 1)}>-</button>
-        <span className="">{quantity}</span> {/* Отображаем количество */}
+        <span className="">{quantity}</span>
         <button className="border p-1" onClick={() => onQuantityChange(quantity + 1)}>+</button>
       </div>
-      <span className="w-[23%] text-center">{(product.price * quantity).toFixed(2)} ₽</span> {/* Сумма */}
+      <span className="w-[23%] text-center">{(product.price * quantity).toFixed(2)} ₽</span>
       <div className="p-2 flex flex-col items-center w-[16%]">
         <button
           className={`flex items-center justify-end ${
             isHovered ? "text-[#F3A800]" : ""
           }`}
+          onClick={onRemove}
         >
           <img
             src={isHovered ? "/add_yellow.svg" : "/add_grey.svg"}
             alt="Удалить"
             className="rotate-45"
           />
-          <span className="ml-1">Удалить</span>
+          <span className="ml-1">{quantity > 1 ? 'Уменьшить' : 'Удалить'}</span>
         </button>
       </div>
     </div>

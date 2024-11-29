@@ -1,31 +1,37 @@
-// src/store/actions.ts
 import { Action } from 'redux';
-import { v4 as uuidv4 } from 'uuid'; // Импортируем uuid
+import { v4 as uuidv4 } from 'uuid';
 
-// Константа действия
 export const ADD_TO_CART = "ADD_TO_CART";
+export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 
-// Интерфейс продукта
 export interface Product {
-  id: string; // Добавляем id для уникальности
+  id: string;
   image: string;
   name: string;
   price: number;
   code: string;
-  quantity: number; // Добавляем поле для количества
+  quantity: number;
 }
 
-// Интерфейс действия добавления в корзину
 export interface AddToCartAction extends Action {
-  type: typeof ADD_TO_CART; // Использование типа действия
-  payload: Product; // Payload содержит продукт
+  type: typeof ADD_TO_CART;
+  payload: Product;
 }
 
-// Функция создания действия добавления в корзину
+export interface RemoveFromCartAction extends Action {
+  type: typeof REMOVE_FROM_CART;
+  payload: { code: string };
+}
+
 export const addToCart = (product: Omit<Product, 'id' | 'quantity'>) => ({
   type: ADD_TO_CART,
-  payload: { ...product, id: uuidv4(), quantity: 1 }, // Генерируем уникальный id и устанавливаем количество 1
+  payload: { ...product, id: uuidv4(), quantity: 1 },
 });
 
-// Автоматическое извлечение типа действия
+export const removeFromCart = (code: string) => ({
+  type: REMOVE_FROM_CART,
+  payload: { code },
+});
+
 export type AddToCartActionType = ReturnType<typeof addToCart>;
+export type RemoveFromCartActionType = ReturnType<typeof removeFromCart>;
